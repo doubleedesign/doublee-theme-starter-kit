@@ -1,46 +1,58 @@
 {
-  "name": "underscores",
-  "version": "1.0.0",
-  "description": "Hi. I'm a starter theme called _s, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.",
-  "author": "Automattic Theme Team",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "WordPress",
-    "Theme"
-  ],
-  "homepage": "https://github.com/Automattic/_s#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Automattic/_s.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Automattic/_s/issues"
-  },
-  "devDependencies": {
-    "@wordpress/scripts": "^19.2.2",
-    "dir-archiver": "^1.1.1",
-    "node-sass": "^7.0.1",
-    "rtlcss": "^3.5.0"
-  },
-  "rtlcssConfig": {
-    "options": {
-      "autoRename": false,
-      "autoRenameStrict": false,
-      "blacklist": {},
-      "clean": true,
-      "greedy": false,
-      "processUrls": false,
-      "stringMap": []
-    },
-    "plugins": [],
-    "map": false
-  },
-  "scripts": {
-    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
-    "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
-    "compile:rtl": "rtlcss style.css style-rtl.css",
-    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
-    "lint:js": "wp-scripts lint-js 'js/*.js'",
-    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
-  }
+	"name": "starterkit",
+	"version": "1.0.0",
+	"description": "Wordpress theme",
+	"main": "index.js",
+	"scripts": {
+		"lint": "yarn lint:php & yarn lint:css & yarn lint:js & yarn prettier --check .",
+		"lint:php": "phplint '**/*.php' '!node_modules/**'",
+		"lint:css": "stylelint scss/**/*.scss",
+		"lint:js": "eslint js/*.js",
+		"commit": "yarn lint-staged && yarn cz"
+	},
+	"lint-staged": {
+		"**/*.php' '!node_modules/**'": [
+			"phplint"
+		],
+		"js/*.js": [
+			"eslint"
+		],
+		"scss/**/*.scss": [
+			"stylelint --fix"
+		]
+	},
+	"author": "Leesa Ward",
+	"license": "GPL-3.0-or-later",
+	"devDependencies": {
+		"@prettier/plugin-php": "^0.18.8",
+		"@wordpress/eslint-plugin": "^12.5.0",
+		"@wordpress/stylelint-config": "^20.0.2",
+		"browser-sync": "^2.18.13",
+		"commitizen": "^4.2.4",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^8.18.0",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^3.1.1",
+		"gulp-concat": "^2.6.1",
+		"gulp-minify-css": "^1.2.4",
+		"gulp-plumber": "^1.1.0",
+		"gulp-postcss": "^7.0.1",
+		"gulp-rename": "^1.2.2",
+		"gulp-sass": "^4.1.0",
+		"gulp-sass-glob": "^1.1.0",
+		"gulp-sourcemaps": "^2.4.1",
+		"gulp-uglify": "^2.0.0",
+		"lint-staged": "^13.0.3",
+		"phplint": "^2.0.5",
+		"postcss-object-fit-images": "^1.1.2",
+		"prettier": "^2.7.1",
+		"stylelint": "^14.9.1",
+		"stylelint-scss": "^4.2.0",
+	  	"postcss": "^8.4.14"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
 }
