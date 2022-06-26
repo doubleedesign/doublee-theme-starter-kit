@@ -1,58 +1,59 @@
 {
-	"name": "starterkit",
-	"version": "1.0.0",
-	"description": "Wordpress theme",
-	"main": "index.js",
-	"scripts": {
-		"lint": "yarn lint:php & yarn lint:css & yarn lint:js & yarn prettier --check .",
-		"lint:php": "phplint '**/*.php' '!node_modules/**'",
-		"lint:css": "stylelint scss/**/*.scss",
-		"lint:js": "eslint js/*.js",
-		"commit": "yarn lint-staged && yarn cz"
-	},
-	"lint-staged": {
-		"**/*.php' '!node_modules/**'": [
-			"phplint"
-		],
-		"js/*.js": [
-			"eslint"
-		],
-		"scss/**/*.scss": [
-			"stylelint --fix"
-		]
-	},
-	"author": "Leesa Ward",
-	"license": "GPL-3.0-or-later",
-	"devDependencies": {
-		"@prettier/plugin-php": "^0.18.8",
-		"@wordpress/eslint-plugin": "^12.5.0",
-		"@wordpress/stylelint-config": "^20.0.2",
-		"browser-sync": "^2.18.13",
-		"commitizen": "^4.2.4",
-		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.18.0",
-		"gulp": "^4.0.2",
-		"gulp-autoprefixer": "^3.1.1",
-		"gulp-concat": "^2.6.1",
-		"gulp-minify-css": "^1.2.4",
-		"gulp-plumber": "^1.1.0",
-		"gulp-postcss": "^7.0.1",
-		"gulp-rename": "^1.2.2",
-		"gulp-sass": "^4.1.0",
-		"gulp-sass-glob": "^1.1.0",
-		"gulp-sourcemaps": "^2.4.1",
-		"gulp-uglify": "^2.0.0",
-		"lint-staged": "^13.0.3",
-		"phplint": "^2.0.5",
-		"postcss-object-fit-images": "^1.1.2",
-		"prettier": "^2.7.1",
-		"stylelint": "^14.9.1",
-		"stylelint-scss": "^4.2.0",
-	  	"postcss": "^8.4.14"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
+  "name": "starterkit",
+  "version": "1.0.0",
+  "description": "Wordpress theme",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+	"lint": "yarn lint:php & yarn lint:css & yarn lint:js & yarn prettier --check .",
+	"lint:php": "phplint '**/*.php' '!node_modules/**'",
+	"lint:css": "stylelint scss/**/*.scss",
+	"lint:js": "eslint js/*.js",
+	"commit": "yarn lint-staged && yarn cz"
+  },
+  "lint-staged": {
+	"**/*.php' '!node_modules/**'": [
+	  "phplint"
+	],
+	"js/*.js": [
+	  "eslint"
+	],
+	"scss/**/*.scss": [
+	  "stylelint --fix"
+	]
+  },
+  "author": "Leesa Ward",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+	"@prettier/plugin-php": "^0.18.8",
+	"@wordpress/eslint-plugin": "^12.5.0",
+	"@wordpress/stylelint-config": "^20.0.2",
+	"browser-sync": "^2.18.13",
+	"commitizen": "^4.2.4",
+	"cz-conventional-changelog": "^3.3.0",
+	"eslint": "^8.18.0",
+	"gulp": "^4.0.2",
+	"gulp-autoprefixer": "^3.1.1",
+	"gulp-concat": "^2.6.1",
+	"gulp-minify-css": "^1.2.4",
+	"gulp-plumber": "^1.1.0",
+	"gulp-postcss": "^7.0.1",
+	"gulp-rename": "^1.2.2",
+	"gulp-sass": "^4.1.0",
+	"gulp-sass-glob": "^1.1.0",
+	"gulp-sourcemaps": "^2.4.1",
+	"gulp-uglify": "^2.0.0",
+	"lint-staged": "^13.0.3",
+	"phplint": "^2.0.5",
+	"postcss-object-fit-images": "^1.1.2",
+	"prettier": "^2.7.1",
+	"stylelint": "^14.9.1",
+	"stylelint-scss": "^4.2.0",
+	"postcss": "^8.4.14"
+  },
+  "config": {
+	"commitizen": {
+	  "path": "./node_modules/cz-conventional-changelog"
 	}
+  }
 }

@@ -4,5 +4,8 @@
     ],
     "env": {
         "browser": true
-    }
+    },
+  	"rules": {
+	  	"space-in-parens": 0
+	}
 }
