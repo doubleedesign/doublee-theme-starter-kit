@@ -12,4 +12,6 @@
 			@include make-col-ready();
 		}
 	}
+	
+	@include make-grid-columns();
 }
