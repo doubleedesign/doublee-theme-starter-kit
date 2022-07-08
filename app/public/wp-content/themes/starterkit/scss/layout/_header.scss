@@ -1,0 +1,49 @@
+.site-header {
+	@include gutter-padding-top();
+	@include gutter-padding-bottom();
+	
+	.row {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		@include media-breakpoint-up(lg) {
+			justify-content: space-between;
+		}
+	}
+	
+	&__menu-toggle {
+		display: flex;
+		justify-content: flex-end;
+		
+		@include media-breakpoint-up(md) {
+			display: none;
+		}
+	}
+	
+	&__logo {
+		
+		@include media-breakpoint-up(md) {
+			text-align: center;
+		}
+		
+		@include media-breakpoint-up(lg) {
+			text-align: left;
+		}
+	}
+	
+	&__nav {
+		
+		&__menu {
+			
+			@include media-breakpoint-up(md) {
+				display: flex;
+				justify-content: center;
+			}
+			
+			@include media-breakpoint-up(lg) {
+				justify-content: flex-end;
+			}
+		}
+	}
+}

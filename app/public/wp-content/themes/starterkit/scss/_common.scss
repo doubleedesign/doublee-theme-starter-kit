@@ -1,0 +1,23 @@
+body {
+	font-family: $font-family-sans-serif;
+}
+
+a {
+	color: map-get($colours, 'accent');
+	transition: color 0.3s ease, text-decoration-color 0.3s ease, background 0.3s ease;
+	text-decoration-color: rgba(map-get($colours, 'accent'), 0.3);
+	
+	@include hover-focus-active {
+		color: map-get($colours, 'primary');
+		text-decoration-color: currentcolor;
+	}
+}
+
+small {
+	font-size: map-get($font-sizes, xs);
+}
+
+.site-main {
+	@include gutter-padding-top(2);
+	@include gutter-padding-bottom(2);
+}

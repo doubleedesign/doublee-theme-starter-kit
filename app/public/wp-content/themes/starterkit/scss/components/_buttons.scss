@@ -1,0 +1,20 @@
+.btn {
+	appearance: none;
+	padding: map-get($spacing, md) map-get($spacing, lg);
+	line-height: 1;
+	border: 0;
+	font-family: $font-family-sans-serif;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s;
+}
+
+@each $colour, $value in $colours {
+	.btn--#{$colour} {
+		background: $value;
+		color: color-contrast($value);
+		
+		@include hover-focus-active {
+			background: darken($value, 10%);
+		}
+	}
+}

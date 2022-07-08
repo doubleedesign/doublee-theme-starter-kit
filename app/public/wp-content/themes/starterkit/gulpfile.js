@@ -40,11 +40,11 @@ gulp.task('scripts', (done) => {
 	gulp.src('js/[^_]*.js')
 		.pipe(concat('theme.js'))
 		.pipe(rename({ suffix: '.min' }))
-		.pipe(uglify().on('error', function(error) {
-			// eslint-disable-next-line no-console
-			console.log(error);
-			this.emit('end');
-		}))
+		// .pipe(uglify().on('error', function(error) {
+		// eslint-disable-next-line no-console
+		// console.log(error);
+		//this.emit('end');
+		//}))
 		.pipe(gulp.dest('js/dist'))
 		.pipe(browsersync.stream());
 	done();
