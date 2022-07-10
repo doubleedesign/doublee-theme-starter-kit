@@ -1,5 +1,3 @@
-// noinspection DuplicatedCode
-
 function initResponsiveNavigation() {
 	const menu = document.querySelector('.site-header__nav');
 	const button = document.getElementById('header-menu-button');
@@ -39,7 +37,8 @@ function initResponsiveNavigation() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-	// const $ = jQuery.noConflict();
 
 	initResponsiveNavigation();
 });
+
+//# sourceMappingURL=theme.bundle.js.map

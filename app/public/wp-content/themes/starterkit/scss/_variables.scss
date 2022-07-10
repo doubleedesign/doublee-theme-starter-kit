@@ -1,4 +1,4 @@
-$grays: (
+$greys: (
 	'100': #F8F9FA,
 	'200': #E9ECEF,
 	'300': #DEE2E6,
@@ -53,8 +53,8 @@ $spacing: (
 	sm: 0.5rem,
 	md: 0.75rem,
 	lg: 1rem,
-	xl: 1rem,
-	xxl: 1rem
+	xl: 1.5rem,
+	xxl: 2rem
 );
 // scss-docs-end spacing-variables-maps
 
@@ -108,13 +108,15 @@ $font-family-sans-serif: 'Segoe UI', 'Helvetica Neue', 'Noto Sans', 'Liberation 
 $font-family-monospace: sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New', monospace !default;
 // scss-docs-end font-variables
 
+// https://type-scale.com/ - minor third
 // scss-docs-start font-sizes
 $font-sizes: (
 	xs: 0.833rem,
 	sm: 1rem,
 	md: 1.2rem,
 	lg: 1.44rem,
-	xl: 1.728rem
+	xl: 1.728rem,
+	xxl: 2.074rem
 ) !default;
 // scss-docs-end font-sizes
 

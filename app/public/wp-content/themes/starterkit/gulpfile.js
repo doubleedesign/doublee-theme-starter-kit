@@ -37,6 +37,24 @@ gulp.task('styles', (done) => {
 	done();
 });
 
+gulp.task('editor-styles', (done) => {
+	gulp.src('scss/editor-styles.scss')
+		.pipe(sassGlob())
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(postCSS([objectFitImages]))
+		.pipe(autoprefixer({
+			browsers: ['defaults', 'iOS >= 8'],
+			grid: false,
+		}))
+		.pipe(minifyCSS())
+		.pipe(rename('editor-styles.css'))
+		.pipe(sourcemaps.write('/'))
+		.pipe(gulp.dest('./'))
+		.pipe(browsersync.stream());
+	done();
+});
+
 gulp.task('scripts', function(done) {
 	gulp.src('./js/**/*.js')
 		.pipe(sourcemaps.init())
@@ -58,8 +76,20 @@ gulp.task('scripts', function(done) {
 });
 
 gulp.task('vendor', (done) => {
-	gulp.src('js/vendor/[^_]*.js')
+	gulp.src('./js/vendor/**/*.js')
 		.pipe(concat('vendor.js'))
+		.pipe(gru2.rollup({
+			input: './js/vendor.js',
+			external: ['window'],
+			cache: true,
+			output: [
+				{
+					file: 'vendor.bundle.js',
+					format: 'es',
+					globals: { window: 'window' },
+				},
+			],
+		}))
 		.pipe(gulp.dest('js/dist'))
 		.pipe(browsersync.stream());
 	done();
@@ -76,6 +106,7 @@ gulp.task('build', function() {
 	});
 
 	gulp.watch('scss/**/*.scss', gulp.series('styles'));
+	gulp.watch('scss/**/*.scss', gulp.series('editor-styles'));
 	gulp.watch('js/[^_]*.js', gulp.series('scripts'));
 	gulp.watch('js/vendor/[^_]*.js', gulp.series('vendor'));
 	browsersync.reload();

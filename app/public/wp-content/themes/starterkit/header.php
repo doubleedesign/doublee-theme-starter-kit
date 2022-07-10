@@ -14,7 +14,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<title></title>
+	<title><?php wp_title(); ?></title>
 	<?php wp_head(); ?>
 </head>
 
@@ -27,24 +27,19 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="site-header__logo col-xs-10 col-md-4 col-xl-3">
+				<div class="site-header__logo col-xs-4 col-xl-3">
 					<?php
-					the_custom_logo();
-					if(is_front_page() && is_home()) :
-						?>
-						<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-					<?php
-					else :
-						?>
-						<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-					<?php
-					endif;
-					$starterkit_description = get_bloginfo('description', 'display');
-					if($starterkit_description || is_customize_preview()) :
-						?>
-						<p class="site-description"><?php echo $starterkit_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							?></p>
-					<?php endif; ?>
+					if(get_theme_mod('custom_logo')) { ?>
+						<div class="site-header__logo__image">
+							<?php the_custom_logo(); ?>
+						</div>
+					<?php } else { ?>
+						<span class="site-header__logo__text">
+							<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+								<?php bloginfo('name'); ?>
+							</a>
+						</span>
+					<?php } ?>
 				</div>
 
 				<div class="site-header__menu-toggle col-xs-2">

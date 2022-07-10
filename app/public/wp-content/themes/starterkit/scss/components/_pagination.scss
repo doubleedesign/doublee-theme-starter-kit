@@ -1,0 +1,24 @@
+.pagination {
+	@include gutter-margin-top(0.5);
+	@include gutter-margin-bottom();
+	
+	ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		li {
+			list-style: none;
+			margin: 0;
+			padding: 0.25rem;
+			
+			.current {
+				pointer-events: none;
+				background: map-get($colours, 'dark');
+				color: color-contrast(map-get($colours, 'dark'));
+			}
+		}
+	}
+}

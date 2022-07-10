@@ -26,7 +26,7 @@
 @mixin gutter-padding-top($howmuch: 1) {
 	@each $breakpoint, $size in $grid-breakpoints {
 		@include media-breakpoint-up($size) {
-			padding-top: map-get($gutters, $breakpoint) * $howmuch;
+			padding-top: map-get($gutters, $breakpoint) * ($howmuch * 2);
 		}
 	}
 }
@@ -34,7 +34,7 @@
 @mixin gutter-padding-bottom($howmuch: 1) {
 	@each $breakpoint, $size in $grid-breakpoints {
 		@include media-breakpoint-up($size) {
-			padding-bottom: map-get($gutters, $breakpoint) * $howmuch;
+			padding-bottom: map-get($gutters, $breakpoint) * ($howmuch * 2);
 		}
 	}
 }
@@ -42,7 +42,7 @@
 @mixin gutter-margin-top($howmuch: 1) {
 	@each $breakpoint, $size in $grid-breakpoints {
 		@include media-breakpoint-up($size) {
-			margin-top: map-get($gutters, $breakpoint) * $howmuch;
+			margin-top: map-get($gutters, $breakpoint) * ($howmuch * 2);
 		}
 	}
 }
@@ -50,7 +50,7 @@
 @mixin gutter-margin-bottom($howmuch: 1) {
 	@each $breakpoint, $size in $grid-breakpoints {
 		@include media-breakpoint-up($size) {
-			margin-bottom: map-get($gutters, $breakpoint) * $howmuch;
+			margin-bottom: map-get($gutters, $breakpoint) * ($howmuch * 2);
 		}
 	}
 }

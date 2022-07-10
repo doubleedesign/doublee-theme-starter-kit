@@ -1,11 +1,12 @@
 <?php
 /**
  * Enqueue front-end scripts and styles
+ * @wp-hook
  */
 function starterkit_enqueue_frontend() {
 	wp_enqueue_style('starterkit-style', get_stylesheet_uri(), array(), THEME_VERSION);
 
-	wp_enqueue_script('vendor-scripts', get_template_directory_uri() . '/js/dist/vendor.js', array(), THEME_VERSION, true);
+	wp_enqueue_script('vendor-scripts', get_template_directory_uri() . '/js/dist/vendor.bundle.js', array(), THEME_VERSION, true);
 
 	wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/js/dist/theme.bundle.js', array(), THEME_VERSION, true);
 
@@ -20,6 +21,7 @@ add_action('wp_enqueue_scripts', 'starterkit_enqueue_frontend');
 
 /**
  * Enqueue CMS scripts and styles
+ * @wp-hook
  */
 function starterkit_enqueue_admin() {
 	add_editor_style(get_template_directory_uri() . '/editor-styles.css');

@@ -1,11 +1,12 @@
 .btn {
+	display: inline-block;
 	appearance: none;
-	padding: map-get($spacing, md) map-get($spacing, lg);
+	padding: map-get($spacing, 'md') map-get($spacing, 'lg');
 	line-height: 1;
 	border: 0;
 	font-family: $font-family-sans-serif;
 	cursor: pointer;
-	transition: background 0.3s, color 0.3s;
+	transition: background 0.3s ease, color 0.3s ease, text-decoration-color 0.3s ease;
 	text-decoration: underline;
 	text-decoration-color: transparent;
 	
@@ -36,6 +37,7 @@
 		
 		@include hover-focus-active {
 			background: darken($value, 10%);
+			color: color-contrast(darken($value, 10%));
 		}
 	}
 	.btn--#{$colour}--hollow {

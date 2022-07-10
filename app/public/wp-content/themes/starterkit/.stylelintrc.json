@@ -23,6 +23,7 @@
 	"max-line-length": 120,
 	"color-hex-case": "upper",
 	"no-eol-whitespace": null,
-	"value-keyword-case": null
+	"value-keyword-case": null,
+	"selector-pseudo-element-colon-notation": "single"
   }
 }

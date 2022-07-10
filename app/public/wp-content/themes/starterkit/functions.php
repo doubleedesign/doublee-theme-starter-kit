@@ -6,12 +6,6 @@
  *
  * @package starterkit
  */
-
-if( ! defined('_S_VERSION')) {
-	// Replace the version number of the theme on each release.
-	define('THEME_VERSION', '1.0.0');
-}
-
 require 'inc/cms/acf.php';
 require 'inc/cms/admin.php';
 require 'inc/cms/customizer.php';

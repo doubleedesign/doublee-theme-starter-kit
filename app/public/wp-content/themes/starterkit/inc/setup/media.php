@@ -4,7 +4,7 @@
  * @wp-hook
  */
 function starterkit_register_image_sizes(): void {
-	//add_image_size('container_width', 1280, 0, false);
+	add_image_size('single-post', 1280, 400, true);
 }
 add_action('after_setup_theme', 'starterkit_register_image_sizes');
 

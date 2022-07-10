@@ -29,6 +29,8 @@
 						}
 						echo date('Y') . '.';
 						?>
+						Placeholder images from <a href="https://place-hold.it/">Placehold.it</a> and <a href="https://placekitten.com/"
+																										 target="_blank">Placekitten</a>.
 					</small>
 				</div>
 				<div class="site-footer__fineprint__item col-xs-12 col-md-6">

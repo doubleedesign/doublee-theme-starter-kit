@@ -1,0 +1,28 @@
+.module__call-to-action {
+	text-align: center;
+	
+	.row {
+		justify-content: center;
+	}
+	
+	&--fullwidth {
+		background: map-get($colours, 'light');
+		padding: map-get($spacing, 'lg') 0;
+		
+		@include media-breakpoint-up(xl) {
+			padding: map-get($spacing, 'xl') 0;
+		}
+	}
+	
+	&--contained {
+		
+		.module__call-to-action__inner {
+			background: map-get($colours, 'light');
+			padding: map-get($spacing, 'lg');
+			
+			@include media-breakpoint-up(xl) {
+				padding: map-get($spacing, 'xl');
+			}
+		}
+	}
+}

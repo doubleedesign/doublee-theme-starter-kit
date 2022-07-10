@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	font-family: $font-family-sans-serif;
 }
@@ -26,9 +30,15 @@ small {
 	font-size: map-get($font-sizes, xs);
 }
 
-.site-main {
-	@include gutter-padding-top(2);
-	@include gutter-padding-bottom(2);
+img,
+svg {
+	max-width: 100%;
+}
+
+.module,
+.pseudo-module {
+	@include gutter-padding-top();
+	@include gutter-padding-bottom();
 }
 
 .site-overlay {

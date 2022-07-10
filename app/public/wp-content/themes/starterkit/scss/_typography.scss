@@ -1,0 +1,79 @@
+.entry-content {
+	font-size: 0.9rem;
+	line-height: 1.2;
+	
+	@include media-breakpoint-up(md) {
+		font-size: map-get($font-sizes, 'sm');
+		line-height: 1.45;
+	}
+	
+	h1 {
+		font-size: map-get($font-sizes, 'lg');
+		margin-bottom: map-get($spacing, 'sm');
+		
+		@include media-breakpoint-up(md) {
+			font-size: map-get($font-sizes, 'xl');
+		}
+		
+		@include media-breakpoint-up(lg) {
+			font-size: map-get($font-sizes, 'xxl');
+		}
+	}
+	
+	h2 {
+		font-size: map-get($font-sizes, 'md');
+		margin-bottom: map-get($spacing, 'sm');
+		
+		@include media-breakpoint-up(md) {
+			font-size: map-get($font-sizes, 'lg');
+			margin-bottom: map-get($spacing, 'lg');
+		}
+	}
+	
+	h3 {
+		font-size: map-get($font-sizes, 'sm');
+		margin-bottom: map-get($spacing, 'sm');
+		
+		@include media-breakpoint-up(md) {
+			font-size: map-get($font-sizes, 'md');
+		}
+	}
+	
+	p,
+	ul,
+	ol {
+		@include gutter-margin-bottom(0.5);
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	p.lead {
+		font-size: map-get($font-sizes, 'md');
+		font-weight: map-get($font-weights, 'bold');
+		color: map-get($colours, 'primary');
+	}
+	
+	ul {
+		list-style: disc outside;
+		margin-left: 1em;
+	}
+	
+	ol {
+		list-style: decimal outside;
+		margin-left: 1em;
+	}
+	
+	blockquote {
+		background: map-get($colours, 'light');
+		padding: map-get($spacing, 'md');
+		border-left: 0.25rem solid map-get($colours, 'primary');
+		@include gutter-margin-top(0.5);
+		@include gutter-margin-bottom(0.5);
+		
+		@include media-breakpoint-up(lg) {
+			padding: map-get($spacing, 'xl');
+		}
+	}
+}

@@ -5,19 +5,19 @@
  */
 function starterkit_login_logo() {
 	$custom_logo_id = get_theme_mod('custom_logo');
-	$logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-	?>
-	<style>
-		.login h1 a {
-			width: 220px;
-			height: 220px;
-			background-image: url('<?php echo $logo; ?>') !important;
-			padding-bottom: 0 !important;
-			background-size: contain !important;
-			background-position: center bottom !important;
-		}
-	</style>
-	<?php
+	if($custom_logo_id) {
+		$logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+		?>
+		<style>
+			#login h1 a {
+				width: <?php echo $logo[1]; ?>px !important;
+				height: <?php echo $logo[2]; ?>px !important;
+				background-image: url('<?php echo $logo[0]; ?>') !important;
+				padding-bottom: 0 !important;
+				background-size: 100% auto !important;
+			}
+		</style>
+	<?php }
 }
 add_action('login_enqueue_scripts', 'starterkit_login_logo');
 
@@ -84,8 +84,7 @@ add_action('add_meta_boxes', 'starterkit_remove_meta_boxes', 99);
  * @return mixed
  */
 function starterkit_add_editor_styles_to_tinymce($mce_init) {
-
-	$content_css = '/dist/css/editor-styles.css';
+	$content_css = '/editor-styles.css';
 	$version = filemtime(get_stylesheet_directory() . $content_css);
 	$content_css = get_stylesheet_directory_uri() . $content_css . '?v=' . $version; // it caches hard, use this to force a refresh
 
