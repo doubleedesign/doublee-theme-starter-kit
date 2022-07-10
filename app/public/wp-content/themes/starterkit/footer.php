@@ -40,6 +40,8 @@
 </footer>
 </div>
 
+<div class="site-overlay"></div>
+
 <?php wp_footer(); ?>
 
 </body>

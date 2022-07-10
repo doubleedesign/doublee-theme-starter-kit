@@ -9,7 +9,7 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> lang="en">
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,13 +47,14 @@
 				</div>
 
 				<div class="site-header__menu-toggle col-xs-2">
-					<button id="header-menu-button" class="btn btn--primary" aria-controls="primary-menu" aria-expanded="false">
+					<button id="header-menu-button" class="btn btn--primary--hollow btn--icon" aria-controls="primary-menu" aria-expanded="false">
 						<i class="fa-solid fa-bars"></i>
-						<span class="screen-reader-text"><?php esc_html_e('Primary Menu', 'starterkit'); ?></span>
+						<i class="fa-solid fa-times" style="display: none"></i>
+						<span class="screen-reader-text"><?php esc_html_e('Open/Close Primary Menu', 'starterkit'); ?></span>
 					</button>
 				</div>
 
-				<nav id="site-navigation" class="site-header__nav col-xs-12 col-lg-8 col-xl-9">
+				<nav class="site-header__nav col-xs-12 col-lg-8 col-xl-9">
 					<?php
 					wp_nav_menu(
 						array(

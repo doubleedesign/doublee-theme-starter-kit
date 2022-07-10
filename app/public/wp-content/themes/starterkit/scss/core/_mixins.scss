@@ -2,7 +2,23 @@
 	
 	&:hover,
 	&:focus,
+	&:focus-visible,
 	&:active {
+		@content;
+	}
+}
+
+@mixin hover-active {
+	
+	&:hover,
+	&:active {
+		@content;
+	}
+}
+
+@mixin keyboard-focus {
+	
+	&:focus-visible {
 		@content;
 	}
 }

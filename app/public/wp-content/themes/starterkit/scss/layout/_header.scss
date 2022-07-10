@@ -15,9 +15,15 @@
 	&__menu-toggle {
 		display: flex;
 		justify-content: flex-end;
+		position: relative;
+		z-index: 200;
 		
 		@include media-breakpoint-up(md) {
 			display: none;
+		}
+		
+		.btn {
+			font-size: map-get($font-sizes, 'md');
 		}
 	}
 	
@@ -33,6 +39,39 @@
 	}
 	
 	&__nav {
+		position: relative;
+		z-index: 100;
+		
+		@include media-breakpoint-down(md) {
+			background: map-get($colours, 'primary');
+			transition: transform 0.3s ease;
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+		}
+		
+		@include media-breakpoint-down(sm) {
+			transform: translateX(-100vw);
+		}
+		
+		@include media-breakpoint-between(sm, md) {
+			width: 50vw;
+			transform: translateX(-50vw);
+		}
+		
+		&--open {
+			transform: translateX(0);
+		}
+		
+		@include media-breakpoint-up(md) {
+			background: transparent;
+			position: relative;
+			height: auto;
+			transform: none;
+		}
 		
 		&__menu {
 			

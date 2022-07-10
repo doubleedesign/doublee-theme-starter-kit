@@ -6,6 +6,7 @@
         "browser": true
     },
   	"rules": {
-	  	"space-in-parens": 0
+	  	"space-in-parens": 0,
+	  	"array-bracket-spacing": 0
 	}
 }

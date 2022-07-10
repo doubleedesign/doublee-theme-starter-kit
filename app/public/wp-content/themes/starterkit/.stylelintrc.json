@@ -22,6 +22,7 @@
 	"string-quotes": "single",
 	"max-line-length": 120,
 	"color-hex-case": "upper",
-	"no-eol-whitespace": null
+	"no-eol-whitespace": null,
+	"value-keyword-case": null
   }
 }
