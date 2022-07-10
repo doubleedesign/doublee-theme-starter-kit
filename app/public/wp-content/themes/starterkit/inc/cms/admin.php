@@ -7,7 +7,7 @@ function starterkit_login_logo() {
 	$custom_logo_id = get_theme_mod('custom_logo');
 	$logo = wp_get_attachment_image_src($custom_logo_id, 'full');
 	?>
-	<style type="text/css">
+	<style>
 		.login h1 a {
 			width: 220px;
 			height: 220px;
@@ -32,6 +32,8 @@ add_action('login_enqueue_scripts', 'starterkit_login_logo');
  * @wp-hook
  *
  * @return string
+ * @noinspection PhpUnusedParameterInspection
+ * @noinspection PhpUnusedParameterInspection
  */
 function starterkit_change_excerpt_explanation($translated_text, $text, $domain) {
 	$post_type = get_post_type();
@@ -159,7 +161,7 @@ add_filter('tiny_mce_before_init', 'starterkit_add_mce_styles');
 
 
 /**
- * Add custom image sizes to to editor image size dropdown
+ * Add custom image sizes to editor image size dropdown
  * @wp-hook
  */
 /*function starterkit_media_sizes_dropdown($sizes) {

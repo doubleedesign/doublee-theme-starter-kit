@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection GrazieInspection */
 /**
  * Get the visual page title, or if empty get the regular title
  * @return string
@@ -42,9 +42,8 @@ function starterkit_entry_meta() {
 function starterkit_get_first_paragraph($text) {
 	$text = wpautop($text);
 	$text = substr($text, 0, strpos($text, '</p>') + 4);
-	$text = strip_tags($text, '<a><strong><em>');
 
-	return $text;
+	return strip_tags($text, '<a><strong><em>');
 }
 
 
@@ -95,7 +94,7 @@ function starterkit_custom_excerpt($text, $word_count) {
 	$text = str_replace(']]>', ']]&gt;', $text);
 
 	// Regular expression that strips the header tags and their content
-	$regex = '#(<h([1-6])[^>]*>)\s?(.*)?\s?(<\/h\2>)#';
+	$regex = '#(<h([1-6])[^>]*>)\s?(.*)?\s?(</h\2>)#';
 	$text = preg_replace($regex, '', $text);
 
 	// Set the word count
@@ -149,7 +148,6 @@ function starterkit_address($format) {
 		$phone = $fields['phone'];
 
 		// Return in the relevant format for output
-		$output = '';
 		if($format == 'compact') {
 			$output .= '<span>';
 			$output .= $street_address . ' ';
@@ -161,8 +159,8 @@ function starterkit_address($format) {
 			$output .= $phone;
 			$output .= '</span>';
 		} else if($format == 'expanded') {
-			$output .= '<address itemscope itemtype="http://schema.org/LocalBusiness">';
-			$output .= '<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">';
+			$output .= '<address itemscope itemtype="https://schema.org/LocalBusiness">';
+			$output .= '<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">';
 			if( ! empty($phone)) {
 				$output .= '<div class="phone"><i class="fas fa-phone"></i><span itemprop="telephone">' . $phone . '</span></div>';
 			}

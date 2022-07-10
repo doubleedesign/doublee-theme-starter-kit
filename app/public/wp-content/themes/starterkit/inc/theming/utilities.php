@@ -2,11 +2,11 @@
 /**
  * Check if a plugin is active
  *
- * @param $plugin_file name of plugin file eg woocommerce/woocommerce.php
+ * @param $plugin_file name of plugin file e.g. woocommerce/woocommerce.php
  *
  * @return bool
  */
-function starterkit_is_plugin_active($plugin_file) {
+function starterkit_is_plugin_active(name $plugin_file) {
 	static $plugins = null;
 
 	if( ! $plugins) {
@@ -17,13 +17,13 @@ function starterkit_is_plugin_active($plugin_file) {
 }
 
 /**
- * Return the type part of a mime type, eg for image/jpeg returns jpeg
+ * Return the type part of a mime type, e.g. for image/jpeg returns jpeg
  *
  * @param $mime the mime type to parse
  *
  * @return string
  */
-function starterkit_parse_mime($mime) {
+function starterkit_parse_mime(the $mime) {
 	preg_match('/.*\/(\w*)\+?.*/', $mime, $matches);
 
 	return $matches[1];
@@ -32,6 +32,7 @@ function starterkit_parse_mime($mime) {
 
 /**
  * Account for content in ACF flexible modules when getting the excerpt
+ * @wp-hook
  *
  * @param $excerpt
  *
@@ -63,14 +64,14 @@ add_filter('get_the_excerpt', 'starterkit_get_excerpt_from_acf', 10, 1);
  *
  * @return int|string
  */
-function starterkit_get_name_of_first_acf_field_name_of_type($field_type, $post_id = '') {
+function starterkit_get_name_of_first_acf_field_name_of_type($field_type, string $post_id = '') {
 	$field_name = '';
 
 	if( ! $post_id) {
 		$post_id = get_the_id();
 	}
 
-	$acf_fields = get_fields($post_id, true);
+	$acf_fields = get_fields($post_id);
 	if($acf_fields) {
 		foreach($acf_fields as $name => $value) {
 			$field_object = get_field_object($name);
@@ -97,6 +98,7 @@ function starterkit_get_name_of_first_acf_field_name_of_type($field_type, $post_
  *                                    Optional because when looking at nested fields recursively, the original value needs to be passed again.
  *
  * @return string
+ * @noinspection PhpConditionAlreadyCheckedInspection
  */
 function starterkit_get_first_acf_subfield_value_of_type(array $fields, array $types, string $parent_field_name = '') {
 	$all_field_data = starterkit_get_sub_field_data('content_modules', get_the_id());
@@ -110,15 +112,15 @@ function starterkit_get_first_acf_subfield_value_of_type(array $fields, array $t
 	// Loop through the fields
 	foreach($fields as $index => $subfield) {
 
-		// If the subfield's value is an array, it's a nested fieldset so we need to go another level down
+		// If the subfield's value is an array, it's a nested fieldset, so we need to go another level down
 		if(is_array($subfield)) {
-			return starterkit_get_first_acf_subfield_value_of_type($fields[$index], $types, $parent_field_name);
+			return starterkit_get_first_acf_subfield_value_of_type($subfield, $types, $parent_field_name);
 		}
 
 		// We've reached content fields and can now proceed to look for our desired field types
 		foreach($all_field_data as $data) {
 			if(($data['name'] == $index) && (in_array($data['type'], $types)) && ( ! empty($data['value']))) {
-				return $value_to_use = $data['value'];
+				return $data['value'];
 			}
 		}
 	}
@@ -136,13 +138,14 @@ function starterkit_get_first_acf_subfield_value_of_type(array $fields, array $t
  * @param $post_id
  *
  * @return array
+ * @noinspection PhpUnusedLocalVariableInspection
  */
 function starterkit_get_sub_field_data($field_name, $post_id) {
 	global $wpdb;
 	$data = array();
 
 	// Query the database for the field content of this field's subfields. Starts with the field slug without an underscore.
-	// Returns an indexed array of meta ID, postt ID, meta key, and meta value sub-arrays.
+	// Returns an indexed array of meta ID, post ID, meta key, and meta value sub-arrays.
 	$meta_key_search = "'" . $field_name . "%'";
 	$postmeta = $wpdb->get_results("SELECT * FROM $wpdb->postmeta WHERE post_id = $post_id AND meta_key LIKE $meta_key_search ORDER BY meta_key ASC", ARRAY_A);
 
@@ -203,8 +206,8 @@ function starterkit_get_sub_field_data($field_name, $post_id) {
  *
  * @return array|false|mixed|WP_Error|WP_Term|null
  */
-function starterkit_get_primary_term($taxonomy, $id = false) {
-	$id = ($id ? $id : get_the_ID());
+function starterkit_get_primary_term($taxonomy, bool $id = false) {
+	$id = ($id ? : get_the_ID());
 
 	$term = false;
 	if(class_exists('WPSEO_Primary_Term')) {

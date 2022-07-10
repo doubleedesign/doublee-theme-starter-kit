@@ -28,9 +28,8 @@ require 'inc/theming/template-tags.php';
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
- * @wp-hook
  * Priority 0 to make it available to lower priority callbacks.
- *
+ * @wp-hook
  * @global int $content_width
  */
 function starterkit_content_width() {

@@ -1,6 +1,7 @@
 <?php
 /**
  * Register theme support for the relevant features
+ * @wp-hook
  */
 function starterkit_register_theme_support() {
 	add_theme_support('title-tag');

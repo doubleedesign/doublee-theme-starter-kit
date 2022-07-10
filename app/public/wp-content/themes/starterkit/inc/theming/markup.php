@@ -102,7 +102,7 @@ add_filter('the_content', 'starterkit_filter_ptags_on_images');
  * @return string|string[]|null
  */
 function starterkit_filter_div_on_table($content) {
-	return preg_replace('/(<table.*<\/table\>)/si', '<div class="table-wrap">$0</div>', $content);
+	return preg_replace('/(<table.*<\/table>)/si', '<div class="table-wrap">$0</div>', $content);
 }
 add_filter('the_content', 'starterkit_filter_div_on_table');
 
@@ -117,6 +117,7 @@ add_filter('the_content', 'starterkit_filter_div_on_table');
  * @param $post_id
  *
  * @return string
+ * @noinspection PhpUnusedParameterInspection
  */
 function starterkit_filter_div_on_oembed($html, $url, $attr, $post_id) {
 	return '<div class="oembed">' . $html . '</div>';

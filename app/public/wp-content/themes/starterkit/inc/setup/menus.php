@@ -20,25 +20,26 @@ add_action('init', 'starterkit_register_menus');
  * @param $depth
  *
  * @return mixed
+ * @noinspection PhpUnusedParameterInspection
  */
 function starterkit_menu_item_classes($classes, $item, $args, $depth) {
 
 	// Header menu
 	if($args->theme_location == 'header-menu') {
-		array_push($classes, 'nav-item');
+		$classes[] = 'nav-item';
 
 		if(in_array('menu-item-has-children', $classes)) {
-			array_push($classes, 'has-sub');
-			array_push($classes, 'toggle-hover');
+			$classes[] = 'has-sub';
+			$classes[] = 'toggle-hover';
 		}
 	}
 
 	// Footer menu
 	if($args->theme_location == 'footer-menu') {
 		if($depth == 0 && $args->depth > 1) {
-			array_push($classes, 'menu-item--top-level col-xs-12 col-sm-6 col-xl-3');
+			$classes[] = 'menu-item--top-level col-xs-12 col-sm-6 col-xl-3';
 		} else if($args->depth == 1) {
-			array_push($classes, 'col-xs-12');
+			$classes[] = 'col-xs-12';
 		}
 	}
 
@@ -81,8 +82,8 @@ function starterkit_menu_submenu_classes($classes, $args) {
 
 	// Header menu
 	if($args->theme_location == 'header-menu') {
-		array_push($classes, 'dropdown-menu');
-		array_push($classes, 'dropdown-animated');
+		$classes[] = 'dropdown-menu';
+		$classes[] = 'dropdown-animated';
 	}
 
 	return $classes;

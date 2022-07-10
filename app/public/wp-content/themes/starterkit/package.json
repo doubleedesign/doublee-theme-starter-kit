@@ -8,6 +8,7 @@
 	"lint": "yarn lint:php & yarn lint:css & yarn lint:js & yarn prettier --check .",
 	"lint:php": "phplint '**/*.php' '!node_modules/**'",
 	"lint:css": "stylelint scss/**/*.scss",
+	"lint:css:fix": "stylelint scss/**/*.scss --fix",
 	"lint:js": "eslint js/*.js",
 	"commit": "yarn lint-staged && yarn cz"
   },

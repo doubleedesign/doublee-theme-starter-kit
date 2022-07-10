@@ -2,6 +2,7 @@
 
 @if $enable-container-classes {
 	// Single container class with breakpoint max-widths
+	//noinspection CssUnusedSymbol
 	.container,
 	.container-fluid {
 		
@@ -10,6 +11,7 @@
 	
 	// Responsive containers that are 100% wide until a breakpoint
 	@each $breakpoint, $container-max-width in $container-max-widths {
+		//noinspection CssUnusedSymbol
 		.container-#{$breakpoint} {
 			
 			@extend .container-fluid;

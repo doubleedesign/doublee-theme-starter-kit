@@ -41,7 +41,5 @@ function starterkit_add_params_to_embed($embed, $params): string {
 	$src = add_query_arg($params, $src);
 
 	// Reassemble
-	$embed = $before_src . 'src="' . $src . '"' . $after_src;
-
-	return $embed;
+	return $before_src . 'src="' . $src . '"' . $after_src;
 }

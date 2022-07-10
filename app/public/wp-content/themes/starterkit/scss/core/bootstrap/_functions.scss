@@ -64,30 +64,6 @@
 	@return $_map;
 }
 
-@function varify($list) {
-	$result: null;
-	
-	@each $entry in $list {
-		$result: append($result, var(--#{$prefix}#{$entry}), space);
-	}
-	
-	@return $result;
-}
-
-// Internal Bootstrap function to turn maps into its negative variant.
-// It prefixes the keys with `n` and makes the value negative.
-@function negativify-map($map) {
-	$result: ();
-	
-	@each $key, $value in $map {
-		
-		@if $key != 0 {
-			$result: map-merge($result, ('n' + $key: (-$value)));
-		}
-	}
-	
-	@return $result;
-}
 
 // Get multiple keys from a sass map
 @function map-get-multiple($map, $values) {
@@ -132,24 +108,6 @@
 	@return $string;
 }
 
-// See https://codepen.io/kevinweber/pen/dXWoRw
-// Requires the use of quotes around data URIs.
-@function escape-svg($string) {
-	
-	@if str-index($string, 'data:image/svg+xml') {
-		
-		@each $char, $encoded in $escaped-characters {
-			// Do not escape the url brackets
-			@if str-index($string, 'url(') == 1 {
-				$string: url('#{str-replace(str-slice($string, 6, -3), $char, $encoded)}');
-			} @else {
-				$string: str-replace($string, $char, $encoded);
-			}
-		}
-	}
-	
-	@return $string;
-}
 
 // Color contrast
 // See https://github.com/twbs/bootstrap/pull/30168

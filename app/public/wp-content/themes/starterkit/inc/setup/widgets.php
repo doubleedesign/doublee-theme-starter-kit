@@ -1,6 +1,7 @@
 <?php
 /**
  * Register widget areas
+ * @wp-hook
  */
 function starterkit_register_sidebars() {
 	/*register_sidebar(array(
