@@ -26,8 +26,8 @@ if($panels) { ?>
 							$count++;
 							?>
 							<div class="accordion-item">
-								<h3 id="heading-<?php echo $id; ?>" class="accordion-header accordion__panel-heading">
-									<button class="accordion-button <?php echo ($count !== 1) ? ("") : "collapsed"; ?> accordion__panel-heading__button"
+								<h3 id="heading-<?php echo $id; ?>" class="accordion-header accordion-item__heading">
+									<button class="accordion-button <?php echo ($count !== 1) ? ("") : "collapsed"; ?> accordion-item__heading__button"
 											data-bs-toggle="collapse"
 											role="button"
 											aria-expanded="false"
@@ -35,6 +35,7 @@ if($panels) { ?>
 											aria-controls="panel-<?php echo $id; ?>"
 									>
 										<?php echo $heading; ?>
+										<i class="fa-light fa-chevron-down"></i>
 									</button>
 								</h3>
 								<div id="panel-<?php echo $id; ?>"

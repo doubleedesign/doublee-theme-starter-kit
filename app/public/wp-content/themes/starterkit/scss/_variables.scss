@@ -105,7 +105,10 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 $font-family-sans-serif: 'Segoe UI', 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', arial, sans-serif !default;
+$font-family-serif: Georgia, 'Times New Roman', Times, serif;
 $font-family-monospace: sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New', monospace !default;
+$body-font-family: $font-family-sans-serif;
+$heading-font-family: $font-family-sans-serif;
 // scss-docs-end font-variables
 
 // https://type-scale.com/ - minor third

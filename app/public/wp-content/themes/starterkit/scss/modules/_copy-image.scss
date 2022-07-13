@@ -1,0 +1,35 @@
+.module__copy-image {
+	
+	.row {
+		justify-content: center;
+	}
+	
+	&--copy_image {
+		
+		@include media-breakpoint-up(md) {
+			
+			.module__copy-image__image {
+				order: 2;
+			}
+		}
+	}
+	
+	&__image {
+		
+		img {
+			@include media-breakpoint-up(md) {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+				object-position: center center;
+			}
+		}
+	}
+	
+	&__copy {
+		display: flex;
+		align-items: center;
+	}
+	
+}
+

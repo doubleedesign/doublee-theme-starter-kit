@@ -1,0 +1,51 @@
+.accordion {
+	margin: map-get($spacing, 'md') 0;
+	
+	&-item {
+		
+		&__heading {
+			
+			&__button {
+				font-family: $heading-font-family;
+				font-size: map-get($font-sizes, 'sm');
+				text-align: left;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				border-radius: 0;
+				border: 0;
+				background: map-get($colours, 'light');
+				color: color-contrast(map-get($colours, 'light'));
+				padding: map-get($spacing, 'md');
+				cursor: pointer;
+				
+				i {
+					transition: transform 0.3s ease;
+				}
+				
+				&[aria-expanded='true'],
+				&:hover,
+				&:focus,
+				&:active {
+					background: map-get($colours, 'primary');
+					color: color-contrast(map-get($colours, 'primary'));
+				}
+				
+				&[aria-expanded='true'] {
+					
+					i {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+	
+	&__panel {
+		
+		&__inner {
+			padding: map-get($spacing, 'lg') 0;
+		}
+	}
+}
