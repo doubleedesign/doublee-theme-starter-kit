@@ -1,0 +1,15 @@
+.module__child-pages {
+	
+	.row {
+		justify-content: center;
+	}
+	
+	&__heading {
+		text-align: center;
+		padding-bottom: 2rem;
+		
+		h2 {
+			font-size: map-get($font-sizes, 'xl');
+		}
+	}
+}

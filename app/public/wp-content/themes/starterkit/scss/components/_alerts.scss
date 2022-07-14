@@ -3,7 +3,7 @@
 	flex-basis: 100%;
 	
 	@each $color, $value in $colours {
-		&-#{$color} {
+		&--#{$color} {
 			background: rgba($value, 0.1);
 			border: 1px solid $value;
 			padding: 1rem;

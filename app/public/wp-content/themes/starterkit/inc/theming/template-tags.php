@@ -1,10 +1,11 @@
-<?php /** @noinspection GrazieInspection */
+<?php
+/** @noinspection GrazieInspection */
 /**
  * Get the visual page title, or if empty get the regular title
  * @return string
  * @uses Advanced Custom Fields
  */
-function starterkit_get_page_title() {
+function starterkit_get_page_title(): string {
 	if((class_exists('ACF')) && get_field('visual_page_title')) {
 		return get_field('visual_page_title');
 	} else {
@@ -17,7 +18,13 @@ function starterkit_get_page_title() {
  * Get post entry meta in a consistent format
  * @return string
  */
-function starterkit_entry_meta() {
+function starterkit_entry_meta(): string {
+	$categories = array();
+	foreach(get_the_category() as $cat) {
+		array_push($categories, sprintf('<a href="%s">%s</a>', get_term_link($cat->term_id), $cat->name));
+	}
+
+
 	$meta = '<span class="byline author">';
 	$meta .= __('Posted by ', '');
 	$meta .= '<a href="' . get_author_posts_url(get_the_author_meta('ID')) . '" rel="author">';
@@ -26,6 +33,7 @@ function starterkit_entry_meta() {
 	$meta .= ' on <time class="date">';
 	$meta .= get_the_date('l, F j, Y');
 	$meta .= '</time>';
+	$meta .= ' in ' . implode(',', $categories);
 	$meta .= '</span>';
 
 	return $meta;
@@ -134,51 +142,53 @@ function starterkit_integer_to_ordinal_word($num) {
  *
  * @return string
  */
-function starterkit_address($format) {
+function starterkit_address($format): string {
 	$output = '';
 
 	if(class_exists('ACF')) {
 
 		// Get fields from the theme options
 		$fields = get_field('contact_details', 'option');
-		$street_address = $fields['address'];
-		$suburb = $fields['suburb'];
-		$state = $fields['state'];
-		$postcode = $fields['postcode'];
-		$phone = $fields['phone'];
+		if($fields) {
+			$street_address = $fields['address'];
+			$suburb = $fields['suburb'];
+			$state = $fields['state'];
+			$postcode = $fields['postcode'];
+			$phone = $fields['phone'];
 
-		// Return in the relevant format for output
-		if($format == 'compact') {
-			$output .= '<span>';
-			$output .= $street_address . ' ';
-			$output .= $suburb . ' ';
-			$output .= $state . ' ';
-			$output .= $postcode . ' ';
-			$output .= '</span>';
-			$output .= '<span class="phone">';
-			$output .= $phone;
-			$output .= '</span>';
-		} else if($format == 'expanded') {
-			$output .= '<address itemscope itemtype="https://schema.org/LocalBusiness">';
-			$output .= '<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">';
-			if( ! empty($phone)) {
-				$output .= '<div class="phone"><i class="fas fa-phone"></i><span itemprop="telephone">' . $phone . '</span></div>';
+			// Return in the relevant format for output
+			if($format == 'compact') {
+				$output .= '<span>';
+				$output .= $street_address . ' ';
+				$output .= $suburb . ' ';
+				$output .= $state . ' ';
+				$output .= $postcode . ' ';
+				$output .= '</span>';
+				$output .= '<span class="phone">';
+				$output .= $phone;
+				$output .= '</span>';
+			} else if($format == 'expanded') {
+				$output .= '<address itemscope itemtype="https://schema.org/LocalBusiness">';
+				$output .= '<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">';
+				if( ! empty($phone)) {
+					$output .= '<div class="phone"><i class="fas fa-phone"></i><span itemprop="telephone">' . $phone . '</span></div>';
+				}
+				$output .= '<div class="address">';
+				$output .= '<i class="fas fa-envelope"></i>';
+				if( ! empty($street_address)) {
+					$output .= '<span itemprop="streetAddress">' . $street_address . '</span><br/>';
+				}
+				if( ! empty($suburb)) {
+					$output .= '<span itemprop="addressLocality">' . $suburb . '</span>';
+				}
+				if( ! empty($state)) {
+					$output .= '<span itemprop="addressRegion">' . $state . '</span>';
+				}
+				if( ! empty($postcode)) {
+					$output .= '<span itemprop="postalCode">' . $postcode . '</span>';
+				}
+				$output .= '</div></div></address>';
 			}
-			$output .= '<div class="address">';
-			$output .= '<i class="fas fa-envelope"></i>';
-			if( ! empty($street_address)) {
-				$output .= '<span itemprop="streetAddress">' . $street_address . '</span><br/>';
-			}
-			if( ! empty($suburb)) {
-				$output .= '<span itemprop="addressLocality">' . $suburb . '</span>';
-			}
-			if( ! empty($state)) {
-				$output .= '<span itemprop="addressRegion">' . $state . '</span>';
-			}
-			if( ! empty($postcode)) {
-				$output .= '<span itemprop="postalCode">' . $postcode . '</span>';
-			}
-			$output .= '</div></div></address>';
 		}
 	}
 

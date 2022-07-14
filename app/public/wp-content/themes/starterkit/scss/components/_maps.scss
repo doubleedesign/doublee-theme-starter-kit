@@ -1,0 +1,31 @@
+.acf-map {
+	width: 100%;
+	height: 12rem;
+	
+	@include media-breakpoint-up(md) {
+		height: 30rem;
+	}
+	
+	img {
+		max-width: inherit !important; // Fixes potential theme css conflict
+	}
+	
+	.gm-style-iw {
+		border-radius: 0 !important;
+	}
+	
+	.address {
+		padding: map-get($spacing, 'sm');
+		font-size: map-get($font-sizes, 'md');
+		
+		.segment {
+			font-family: $body-font-family;
+			
+			&__name {
+				display: block;
+				font-weight: map-get($font-weights, 'bold');
+				margin-bottom: map-get($spacing, 'xs');
+			}
+		}
+	}
+}

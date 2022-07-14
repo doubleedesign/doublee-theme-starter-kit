@@ -6,10 +6,10 @@
  *
  * @package starterkit
  */
+require 'inc/setup/constants.php';
 require 'inc/cms/acf.php';
 require 'inc/cms/admin.php';
 require 'inc/cms/customizer.php';
-require 'inc/setup/constants.php';
 require 'inc/setup/theme-support.php';
 require 'inc/setup/enqueue.php';
 require 'inc/setup/media.php';

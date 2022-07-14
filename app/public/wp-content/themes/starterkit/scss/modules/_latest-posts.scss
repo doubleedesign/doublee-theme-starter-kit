@@ -1,0 +1,14 @@
+.module__latest-posts {
+	
+	.row {
+		justify-content: center;
+	}
+	
+	&__heading {
+		text-align: center;
+		padding-bottom: map-get($spacing, 'lg');
+	}
+	
+	&__posts {
+	}
+}

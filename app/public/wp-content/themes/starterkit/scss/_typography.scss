@@ -1,5 +1,4 @@
 .entry-content {
-	font-size: 0.9rem;
 	line-height: 1.2;
 	
 	@include media-breakpoint-up(md) {
@@ -65,6 +64,29 @@
 		margin-left: 1em;
 	}
 	
+	img {
+		max-width: 100%;
+	}
+	
+	.wp-caption {
+		width: 100%;
+		max-width: 100%;
+		
+		img {
+			height: auto;
+		}
+		
+		.wp-caption-text {
+			text-align: center;
+			font-size: map-get($font-sizes, 'xs');
+			color: map-get($greys, '700');
+			font-style: italic;
+			padding-bottom: map-get($spacing, 'xs');
+			border-bottom: 1px solid map-get($greys, '300');
+			margin-bottom: map-get($spacing, 'lg');
+		}
+	}
+	
 	blockquote {
 		background: map-get($colours, 'light');
 		padding: map-get($spacing, 'md');
@@ -76,4 +98,5 @@
 			padding: map-get($spacing, 'xl');
 		}
 	}
+	
 }

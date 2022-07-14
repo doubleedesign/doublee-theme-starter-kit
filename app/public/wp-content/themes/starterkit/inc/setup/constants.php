@@ -1,6 +1,12 @@
 <?php
 /**
  * Define constants
+ * Note that for the Google Maps key to work, the options page must have a field for it called google_maps_api_key
+ * and this function must be run after starterkit_setup_acf()
+ * and before starterkit_acf_gmaps()
+ * @see starterkit_setup_acf()
+ * @see starterkit_acf_gmaps()
+ * @wp-hook
  * See https://stackoverflow.com/questions/1290318/php-constants-containing-arrays if using PHP < 7
  */
 function starterkit_register_constants() {
@@ -10,6 +16,15 @@ function starterkit_register_constants() {
 	define('MODULES_PARTIAL_PATH', 'partials/modules/');
 	define('MODULES_TAXONOMIES', array('category'));
 	define('MODULES_OPTIONS_PAGES', array()); // TODO
-	define('GMAPS_KEY', '');
+	define('PAGE_FOR_POSTS', get_option('page_for_posts'));
+
+	if(class_exists('ACF')) {
+		$acf_gmaps_key = get_field('google_maps_api_key', 'option');
+	}
+	if(isset($acf_gmaps_key)) {
+		define('GMAPS_KEY', $acf_gmaps_key);
+	} else {
+		define('GMAPS_KEY', '');
+	}
 }
 add_action('init', 'starterkit_register_constants', 10);
