@@ -1,12 +1,21 @@
 {
-    "extends": [
-        "plugin:@wordpress/eslint-plugin/esnext"
-    ],
-    "env": {
-        "browser": true
-    },
-  	"rules": {
-	  	"space-in-parens": 0,
-	  	"array-bracket-spacing": 0
+	"extends": [
+		"plugin:@wordpress/eslint-plugin/esnext"
+	],
+	"env": {
+		"browser": true,
+		"jquery": true
+	},
+	"rules": {
+		"space-in-parens": 0,
+		"array-bracket-spacing": 0,
+		"computed-property-spacing": "off",
+		"brace-style": [
+			2,
+			"stroustrup",
+			{
+				"allowSingleLine": false
+			}
+		]
 	}
 }
