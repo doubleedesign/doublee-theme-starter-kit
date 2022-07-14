@@ -23,7 +23,7 @@ I use PHPStorm which also has an option to run ESLint and Prettier on file save.
 
 A Gulpfile is included to:
 
-- Concatenate and minify JS files
+- Concatenate JS files, including support for ES6 module imports
 - Compile, concatenate and minify SCSS files into the theme's `style.css`
 - Generate sourcemaps for JS and SCSS
 
