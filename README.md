@@ -49,3 +49,11 @@ So far, the third-party libraries/parts of libraries used/adapted are:
 
 I'm sure I will add to this list as I build sites with this starter kit and create new reusable components, find it makes sense to include a utility library,
 etc.
+
+## Licensing, plugins, and APIs
+
+To use this kit you will need:
+- Your own Advanced Custom Fields Pro licence
+- Your own Google Maps API key if using any of the map-related content modules
+
+The form modules have been styled for and tested with Ninja Forms, but not all extensions have been tested. The modules should work with any form plugin that allows you to use a shortcode to display a form, you will just need to do your own styling.
