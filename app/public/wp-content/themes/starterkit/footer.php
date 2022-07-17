@@ -13,31 +13,29 @@
 
 <footer id="colophon" class="site-footer">
 	<div class="site-footer__main">
-		<div class="container">
+		<div class="row">
 
 		</div>
 	</div>
 	<div class="site-footer__fineprint">
-		<div class="container">
-			<div class="row">
-				<div class="site-footer__fineprint__item col-xs-12 col-md-6">
-					<small>
-						<?php
-						echo get_bloginfo('name') . ' ';
-						if(date('Y') > 2022) {
-							echo '2022-';
-						}
-						echo date('Y') . '.';
-						?>
-						Placeholder images from
-						<a href="https://place-hold.it/" target="_blank">Placehold.it</a>,
-						<a href="https://placekitten.com/" target="_blank">Placekitten</a>, and
-						<a href="https://place-puppy.com/" target="_blank">Placepuppy</a>.
-					</small>
-				</div>
-				<div class="site-footer__fineprint__item col-xs-12 col-md-6">
-					<small>Website by <a href="https://www.doubleedesign.com.au" target="_blank">Double-E Design</a>.</small>
-				</div>
+		<div class="row">
+			<div class="site-footer__fineprint__item col-xs-12 col-md-6">
+				<small>
+					<?php
+					echo get_bloginfo('name') . ' ';
+					if(date('Y') > 2022) {
+						echo '2022-';
+					}
+					echo date('Y') . '.';
+					?>
+					Placeholder images from
+					<a href="https://place-hold.it/" target="_blank">Placehold.it</a>,
+					<a href="https://placekitten.com/" target="_blank">Placekitten</a>, and
+					<a href="https://place-puppy.com/" target="_blank">Placepuppy</a>.
+				</small>
+			</div>
+			<div class="site-footer__fineprint__item col-xs-12 col-md-6">
+				<small>Website by <a href="https://www.doubleedesign.com.au" target="_blank">Double-E Design</a>.</small>
 			</div>
 		</div>
 	</div>

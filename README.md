@@ -43,8 +43,9 @@ Let's not have all of Bootstrap sitting there if we're just using the grid and a
 
 So far, the third-party libraries/parts of libraries used/adapted are:
 
-- Bootstrap 5.2's [flexbox grid system](https://getbootstrap.com/docs/5.2/layout/grid/)
-  and [breakpoints](https://getbootstrap.com/docs/5.2/layout/breakpoints/). They work well, are easy to use, the grid uses flexbox - it makes sense to use them.
+- A modified version of Bootstrap 5.2's [flexbox grid system](https://getbootstrap.com/docs/5.2/layout/grid/)
+  and [breakpoints](https://getbootstrap.com/docs/5.2/layout/breakpoints/). My version does not require both containers and rows - rows have the max-width
+  properties of containers added.
 - Bootstrap 5.2's Accordion
 
 I will add to this list as I build sites with this starter kit and create new reusable components, find it makes sense to include a utility library,
@@ -53,8 +54,10 @@ etc.
 ## Licensing, plugins, and APIs
 
 To use this kit you will need:
+
 - Your own Advanced Custom Fields Pro licence
 - Your own Google Maps API key (with Maps JavaScript API and Places API enabled) if using any of the map-related content modules
 - Your own Font Awesome Pro licence (or change the icons throughout the theme code to use only free icons or a different icon library of your choice)
 
-The form modules have been styled for and tested with Ninja Forms, but not all extensions have been tested. The modules should work with any form plugin that allows you to use a shortcode to display a form, you will just need to do your own styling.
+The form modules have been styled for and tested with Ninja Forms, but not all extensions have been tested. The modules should work with any form plugin that
+allows you to use a shortcode to display a form, you will just need to do your own styling.

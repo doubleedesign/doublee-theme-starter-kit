@@ -2,6 +2,7 @@
 // Generate semantic grid columns with these mixins.
 
 @mixin make-row() {
+	@include make-container();
 	display: flex;
 	flex-wrap: wrap;
 }

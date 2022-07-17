@@ -24,44 +24,43 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'starterkit'); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="container">
-			<div class="row">
+		<div class="row">
 
-				<div class="site-header__logo col-xs-4 col-xl-3">
-					<?php
-					if(get_theme_mod('custom_logo')) { ?>
-						<div class="site-header__logo__image">
-							<?php the_custom_logo(); ?>
-						</div>
-					<?php } else { ?>
-						<span class="site-header__logo__text">
+			<div class="site-header__logo col-xs-4 col-xl-3">
+				<?php
+				if(get_theme_mod('custom_logo')) { ?>
+					<div class="site-header__logo__image">
+						<?php the_custom_logo(); ?>
+					</div>
+				<?php } else { ?>
+					<span class="site-header__logo__text">
 							<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
 								<?php bloginfo('name'); ?>
 							</a>
 						</span>
-					<?php } ?>
-				</div>
-
-				<div class="site-header__menu-toggle col-xs-2">
-					<button id="header-menu-button" class="btn btn--primary--hollow btn--icon" aria-controls="primary-menu" aria-expanded="false">
-						<i class="fa-solid fa-bars"></i>
-						<i class="fa-solid fa-times" style="display: none"></i>
-						<span class="screen-reader-text"><?php esc_html_e('Open/Close Primary Menu', 'starterkit'); ?></span>
-					</button>
-				</div>
-
-				<nav class="site-header__nav col-xs-12 col-lg-8 col-xl-9">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'header',
-							'menu_id'        => 'primary-menu',
-							'menu_class'     => 'menu site-header__nav__menu',
-							'depth'          => 1
-						)
-					); ?>
-				</nav>
-
+				<?php } ?>
 			</div>
+
+			<div class="site-header__menu-toggle col-xs-2">
+				<button id="header-menu-button" class="btn btn--primary--hollow btn--icon" aria-controls="primary-menu" aria-expanded="false">
+					<i class="fa-solid fa-bars"></i>
+					<i class="fa-solid fa-times" style="display: none"></i>
+					<span class="screen-reader-text"><?php esc_html_e('Open/Close Primary Menu', 'starterkit'); ?></span>
+				</button>
+			</div>
+
+			<nav class="site-header__nav col-xs-12 col-lg-8 col-xl-9">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'header',
+						'menu_id'        => 'primary-menu',
+						'menu_class'     => 'menu site-header__nav__menu',
+						'depth'          => 1
+					)
+				); ?>
+			</nav>
+
 		</div>
+
 	</header>

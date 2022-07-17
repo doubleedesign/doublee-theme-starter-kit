@@ -13,15 +13,13 @@ foreach(array('name', 'street_number', 'street_name', 'city', 'state_short', 'po
 $infowindow .= '</div>';
 ?>
 <section class="module module__form-map">
-	<div class="container">
-		<div class="row">
-			<div class="module__form-map__copy entry-content col-xs-12 col-md-6">
-				<?php echo $copy; ?>
-				<?php echo starterkit_address('expanded'); ?>
-			</div>
-			<div class="module__form-map__form col-xs-12 col-md-6">
-				<?php echo do_shortcode($form); ?>
-			</div>
+	<div class="row">
+		<div class="module__form-map__copy entry-content col-xs-12 col-md-6">
+			<?php echo $copy; ?>
+			<?php echo starterkit_address('expanded'); ?>
+		</div>
+		<div class="module__form-map__form col-xs-12 col-md-6">
+			<?php echo do_shortcode($form); ?>
 		</div>
 	</div>
 	<?php if($map) { ?>
