@@ -47,7 +47,7 @@ So far, the third-party libraries/parts of libraries used/adapted are:
   and [breakpoints](https://getbootstrap.com/docs/5.2/layout/breakpoints/). They work well, are easy to use, the grid uses flexbox - it makes sense to use them.
 - Bootstrap 5.2's Accordion
 
-I'm sure I will add to this list as I build sites with this starter kit and create new reusable components, find it makes sense to include a utility library,
+I will add to this list as I build sites with this starter kit and create new reusable components, find it makes sense to include a utility library,
 etc.
 
 ## Licensing, plugins, and APIs
