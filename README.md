@@ -54,7 +54,7 @@ etc.
 
 To use this kit you will need:
 - Your own Advanced Custom Fields Pro licence
-- Your own Google Maps API key if using any of the map-related content modules
+- Your own Google Maps API key (with Maps JavaScript API and Places API enabled) if using any of the map-related content modules
 - Your own Font Awesome Pro licence (or change the icons throughout the theme code to use only free icons or a different icon library of your choice)
 
 The form modules have been styled for and tested with Ninja Forms, but not all extensions have been tested. The modules should work with any form plugin that allows you to use a shortcode to display a form, you will just need to do your own styling.
