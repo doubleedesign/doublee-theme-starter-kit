@@ -38,8 +38,7 @@ used [Bootstrap](https://getbootstrap.com/). In both cases, some parts of the fr
 After having a few cracks at rolling my own and taking some other frameworks out for a brief test drive,
 I decided it was best to cherry-pick the parts of libraries/frameworks that it makes the most sense for me to use - no more, no less -
 and combine them along with my own custom stuff as needed.
-Let's not have all of Bootstrap sitting there if we're just using the grid and a couple of other components.
-(Let's not have three different accordions in the code when we only need one, etc.)
+e.g., Let's not have all of Bootstrap sitting there if we're just using the grid and a couple of other components. Let's not have three different accordions in the code when we only need one, etc.
 
 So far, the third-party libraries/parts of libraries used/adapted are:
 
