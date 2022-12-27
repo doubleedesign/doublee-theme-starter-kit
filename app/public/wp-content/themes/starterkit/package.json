@@ -1,7 +1,7 @@
 {
   "name": "starterkit",
   "version": "1.0.0",
-  "description": "Wordpress theme",
+  "description": "WordPress theme",
   "main": "index.js",
   "type": "module",
   "scripts": {
