@@ -28,6 +28,7 @@
       <option name="GETTERS_SETTERS_NAMING_STYLE" value="SNAKE_CASE" />
       <option name="VARIABLE_NAMING_STYLE" value="CAMEL_CASE" />
       <option name="KEEP_RPAREN_AND_LBRACE_ON_ONE_LINE" value="true" />
+      <option name="BLANK_LINES_AFTER_FUNCTION" value="0" />
       <option name="SPACE_BEFORE_CLOSURE_LEFT_PARENTHESIS" value="false" />
     </PHPCodeStyleSettings>
     <TypeScriptCodeStyleSettings version="0">
