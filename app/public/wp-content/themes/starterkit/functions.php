@@ -26,7 +26,7 @@ require 'inc/theming/template-tags.php';
  * @wp-hook
  * @global int $content_width
  */
-function starterkit_content_width() {
+function starterkit_content_width(): void {
 	$GLOBALS['content_width'] = apply_filters('starterkit_content_width', 640);
 }
 add_action('after_setup_theme', 'starterkit_content_width', 0);
