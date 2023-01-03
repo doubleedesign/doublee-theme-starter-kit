@@ -7,9 +7,12 @@
 		"jquery": true
 	},
 	"rules": {
-		"space-in-parens": 0,
-		"array-bracket-spacing": 0,
-		"computed-property-spacing": "off",
+		"semi": ["warn", "always"],
+		"space-in-parens": ["warn", "never"],
+		"array-bracket-spacing": ["warn", "never"],
+		"computed-property-spacing": ["warn", "never"],
+		"space-before-function-parentheses": ["warn", "never"],
+		"quotes": ["warn", "single"],
 		"brace-style": [
 			2,
 			"stroustrup",
