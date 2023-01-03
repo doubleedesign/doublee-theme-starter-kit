@@ -20,9 +20,11 @@ Scripts are set up in `package.json` for:
 - [stylelint](https://stylelint.io/) with [SCSS plugin](https://www.npmjs.com/package/stylelint-scss)
 
 I use PHPStorm which has some built-in formatting and code quality options (inspections) for PHP, so I use those rather
-than a
-separate PHP linting/code quality tool. My preferences are included in this repo (in the `.idea` folder) but you can
-easily override them in your own projects using PHPStorm's preferences dialog.
+than a separate PHP linting/code quality tool. My preferences are included in this repo (in the `.idea` folder) but you
+can easily override them in your own projects using PHPStorm's preferences dialog.
+
+You can see the results of PHPStorm's inspections as you go using the Problems tool window. I configure mine to just
+check the theme and/or any custom plugins I'm working on in the project.
 
 A Gulpfile is included to:
 
