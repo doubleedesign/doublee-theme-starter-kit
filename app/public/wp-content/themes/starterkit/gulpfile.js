@@ -19,7 +19,7 @@ gulp.task('styles', (done) => {
 		.pipe(sassGlob())
 		.pipe(sourcemaps.init())
 		.pipe(
-			plumber(function (error) {
+			plumber(function(error) {
 				// eslint-disable-next-line no-console
 				console.log(error);
 				this.emit('end');
@@ -61,7 +61,7 @@ gulp.task('editor-styles', (done) => {
 	done();
 });
 
-gulp.task('scripts', function (done) {
+gulp.task('scripts', function(done) {
 	gulp.src('./js/**/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(
@@ -104,7 +104,7 @@ gulp.task('vendor', (done) => {
 		.pipe(browsersync.stream());
 	done();
 });
-gulp.task('build', function () {
+gulp.task('build', function() {
 	browsersync.init({
 		proxy: {
 			target: 'https://doublee-dev-starter-kit.local/',
