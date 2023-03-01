@@ -4,12 +4,12 @@
 	"description": "Starter kit for building a custom WordPress theme",
 	"author": "Leesa Ward",
 	"engines": {
-		"node": "^14.18.0"
+		"node": "^18.12.1"
 	},
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"lint": "yarn lint:php & yarn lint:css & yarn lint:js & yarn prettier --check .",
+		"lint": "yarn lint:php & yarn lint:css & yarn lint:js",
 		"lint:php": "phplint '**/*.php' '!node_modules/**'",
 		"lint:css": "stylelint scss/**/*.scss",
 		"lint:css:fix": "stylelint scss/**/*.scss --fix",

@@ -457,10 +457,10 @@ class SubmissionAggregateCsvExportAdapter
 
         $adminLabel = $submissionField->getAdminLabel();
 
-        $this->labels[$slug] = $label;
+        $this->labels[$slug] = \WPN_Helper::maybe_escape_csv_column( $label );
 
         if ('' !== $adminLabel) {
-            $this->adminLabels[$slug] = $adminLabel;
+            $this->adminLabels[$slug] = \WPN_Helper::maybe_escape_csv_column( $adminLabel );
         } else {
             // set adminLabel default as field label
             $this->adminLabels[$slug] = $this->labels[$slug];

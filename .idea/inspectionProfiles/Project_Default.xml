@@ -77,7 +77,7 @@
     <inspection_tool class="EditorConfigValueCorrectness" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="EditorConfigValueUniqueness" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="EditorConfigWildcardRedundancy" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="false">
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true">
       <scope name="Theme" level="WARNING" enabled="true" />
     </inspection_tool>
     <inspection_tool class="GherkinBrokenTableInspection" enabled="false" level="ERROR" enabled_by_default="false" />

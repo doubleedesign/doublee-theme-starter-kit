@@ -316,6 +316,8 @@ final class NF_Actions_Email extends NF_Abstracts_Action
             if( in_array( $field[ 'type' ], $ignore ) ) continue;
 
             $label = ( '' != $field[ 'admin_label' ] ) ? $field[ 'admin_label' ] : $field[ 'label' ];
+            // Escape labels.
+            $label = WPN_Helper::maybe_escape_csv_column($label);
 
             $value = WPN_Helper::stripslashes( $field[ 'value' ] );
             if ( empty( $value ) && ! isset( $value ) ) {
