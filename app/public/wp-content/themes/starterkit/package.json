@@ -4,7 +4,7 @@
 	"description": "Starter kit for building a custom WordPress theme",
 	"author": "Leesa Ward",
 	"engines": {
-		"node": "^18.12.1"
+		"node": "^14.21.3"
 	},
 	"main": "index.js",
 	"type": "module",
