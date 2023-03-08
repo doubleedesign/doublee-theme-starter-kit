@@ -1,21 +1,21 @@
 .module__copy-image {
-	
+
 	.row {
 		justify-content: center;
 	}
-	
+
 	&--copy_image {
-		
+
 		@include media-breakpoint-up(md) {
-			
+
 			.module__copy-image__image {
 				order: 2;
 			}
 		}
 	}
-	
+
 	&__image {
-		
+
 		img {
 			@include media-breakpoint-up(md) {
 				height: 100%;
@@ -24,12 +24,19 @@
 				object-position: center center;
 			}
 		}
+
+		&__caption {
+			padding-top: map-get($spacing, 'xs');
+			text-align: center;
+			font-size: map-get($font-sizes, 'xs');
+			color: rgba(map-get($colours, 'dark'), 0.8);
+		}
 	}
-	
+
 	&__copy {
 		display: flex;
 		align-items: center;
 	}
-	
+
 }
 

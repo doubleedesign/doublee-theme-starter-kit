@@ -64,11 +64,14 @@ etc.
 
 To use this kit you will need:
 
-- Your own Advanced Custom Fields Pro licence
-- Your own Google Maps API key (with Maps JavaScript API and Places API enabled) if using any of the map-related content
-  modules
-- Your own Font Awesome Pro licence (or change the icons throughout the theme code to use only free icons or a different
-  icon library of your choice)
+- Your own [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) licence
+- Your own [ACF Component Field plugin](https://acf-component-field.gummi.io/) licence (if using the component fields,
+  such as "colour theme")
+- Your own [Hover.css](https://ianlunn.github.io/Hover/) licence if using for a commercial project
+- Your own [Google Maps API](https://developers.google.com/maps/documentation/javascript/get-api-key) key (with Maps
+  JavaScript API and Places API enabled) if using any of the map-related content modules
+- Your own [Font Awesome Pro](https://fontawesome.com/) licence (or change the icons throughout the theme code to use
+  only free icons or a different icon library of your choice)
 
 The form modules have been styled for and tested with Ninja Forms, but not all extensions have been tested. The modules
 should work with any form plugin that

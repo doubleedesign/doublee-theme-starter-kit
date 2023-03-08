@@ -7,19 +7,19 @@ body {
 }
 
 a {
-	color: map-get($colours, 'accent');
+	color: inherit;
 	transition: color 0.3s ease, text-decoration-color 0.3s ease, background 0.3s ease;
-	text-decoration-color: rgba(map-get($colours, 'accent'), 0.3);
-	
+	text-decoration-color: rgba(map-get($colours, 'dark'), 0.5);
+
 	@include hover-focus-active {
-		color: map-get($colours, 'primary');
+		color: map-get($colours, 'accent');
 		text-decoration-color: currentcolor;
 	}
 }
 
 a,
 button {
-	
+
 	@include keyboard-focus {
 		box-shadow: 0 0 3px 2px map-get($colours, 'primary');
 		outline-color: map-get($colours, 'primary');
@@ -41,6 +41,34 @@ svg {
 	@include gutter-padding-bottom();
 }
 
+@each $colour, $value in $colours {
+	.bg-#{$colour} {
+		background: $value;
+
+		&.module + .module.bg-#{$colour},
+		&.module + .module.bg-#{$colour} {
+			padding-top: 0;
+		}
+
+		&.entry-content {
+			color: color-contrast($value);
+
+			a:not(.btn) {
+				color: color-contrast($value);
+				text-decoration-color: rgba(color-contrast($value), 0.4);
+				@include underline-from-center(color-contrast($value));
+				vertical-align: top;
+
+				&:before {
+					height: 1px;
+					bottom: 3px;
+				}
+			}
+		}
+
+	}
+}
+
 .site-overlay {
 	background: rgba(map-get($colours, 'dark'), 0.8);
 	position: fixed;
@@ -52,7 +80,7 @@ svg {
 	z-index: -500;
 	opacity: 0;
 	transition: opacity 0.3s ease;
-	
+
 	&--open {
 		visibility: visible;
 		z-index: 1;

@@ -1,0 +1,19 @@
+/* Hero module admin layout */
+.layout[data-layout="hero"] .acf-field-group[data-name="copy"] {
+	min-height: 0 !important;
+}
+.layout[data-layout="hero"] .acf-field-group[data-name="copy"] > .acf-input > .acf-fields {
+	display: flex;
+	flex-direction: column;
+}
+.layout[data-layout="hero"] .acf-field-group[data-name="copy"] > .acf-input > .acf-fields .mce-edit-area iframe {
+	height: auto !important;
+}
+
+/* Hide inner component field label when the outer label is present */
+.acf-field-component-field > .acf-label + .acf-input .acf-label {
+	display: none;
+}
+.acf-field-component-field > .acf-label + .acf-input .acf-field-select {
+	padding-top: 0;
+}

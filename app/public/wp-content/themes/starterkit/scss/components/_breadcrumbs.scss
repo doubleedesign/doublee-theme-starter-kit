@@ -1,16 +1,14 @@
 .breadcrumbs {
-	background: map-get($colours, 'light');
-	@include gutter-padding-top(0.5);
 	@include gutter-padding-bottom(0.5);
-	
+
 	&-list {
-		
+
 		&__item {
 			display: inline-flex;
 			align-items: center;
 			margin-right: map-get($spacing, 'xs');
 			color: map-get($greys, '600');
-			
+
 			&:after {
 				font: var(--fa-font-solid);
 				content: '\f054';
@@ -19,18 +17,18 @@
 				position: relative;
 				top: 2px;
 			}
-			
+
 			&:last-of-type {
-				
+
 				&:after {
 					content: none;
 				}
 			}
-			
+
 			&__link {
 				color: map-get($greys, '700');
 				text-decoration-color: transparent;
-				
+
 				@include hover-focus-active {
 					color: map-get($colours, 'primary');
 					text-decoration-color: currentColor;

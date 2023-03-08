@@ -6,23 +6,23 @@
 	border: 0;
 	font-family: $font-family-sans-serif;
 	cursor: pointer;
-	transition: background 0.3s ease, color 0.3s ease, text-decoration-color 0.3s ease;
+	transition: all 0.3s ease-in-out;
 	text-decoration: underline;
 	text-decoration-color: transparent;
-	
+
 	@include hover-focus-active {
 		text-decoration-color: currentColor;
 	}
-	
+
 	&--icon {
 		text-decoration: none;
-		
+
 		span {
 			text-decoration: transparent underline;
 		}
-		
+
 		@include hover-focus-active {
-			
+
 			span {
 				text-decoration-color: currentColor;
 			}
@@ -34,17 +34,18 @@
 	.btn--#{$colour} {
 		background: $value;
 		color: color-contrast($value);
-		
+		@include sweep-to-right(darken($value, 15%));
+
 		@include hover-focus-active {
-			background: darken($value, 10%);
-			color: color-contrast(darken($value, 10%));
+			color: color-contrast(darken($value, 15%));
 		}
 	}
+
 	.btn--#{$colour}--hollow {
 		color: $value;
 		border: 1px solid $value;
 		background: map-get($colours, 'white');
-		
+
 		@include hover-focus-active {
 			background: $value;
 			color: color-contrast($value);

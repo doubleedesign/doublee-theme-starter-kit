@@ -12,13 +12,13 @@ $greys: (
 
 // scss-docs-start theme-colors-map
 $colours: (
-	'primary': #685C82,
-	'secondary': #918FB3,
-	'accent': #A61CBB,
-	'success': #CAE19B,
+	'primary': #602AA2,
+	'secondary': #2B193D,
+	'accent': #00BCFF,
+	'success': #6DD901,
 	'info': #BDC8D8,
-	'warning': #F8EE58,
-	'alert': #A90076,
+	'warning': #FF8D00,
+	'alert': #EF0078,
 	'light': #E9F1F2,
 	'dark': #1D1C20,
 	'white': #FFF,
@@ -30,7 +30,7 @@ $colours: (
 // to determine if color changes from "light" to "dark".
 // Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
 // See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
-$min-contrast-ratio: 4.5 !default;
+$min-contrast-ratio: 3 !default;
 
 // Customize the light and dark text colors for use in our color contrast function.
 $color-contrast-dark: #000 !default;

@@ -1,14 +1,27 @@
 .module__latest-posts {
-	
+
 	.row {
 		justify-content: center;
 	}
-	
+
 	&__heading {
 		text-align: center;
 		padding-bottom: map-get($spacing, 'lg');
+
+		h2 {
+
+			@include media-breakpoint-up(lg) {
+				font-size: map-get($font-sizes, 'xl');
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+
 	}
-	
+
 	&__posts {
 	}
 }

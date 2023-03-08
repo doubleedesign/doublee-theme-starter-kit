@@ -1,29 +1,28 @@
 .card {
 	display: flex;
 	@include gutter-margin-bottom();
-	
+
 	.card__content {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		color: unset;
+		background: map-get($colours, 'white');
 		box-shadow: 0 0 0.5rem 0 map-get($greys, '500');
 		transition: box-shadow 0.3s ease;
 		text-decoration: none;
-		
+
 		&__image,
 		&__copy {
 			position: relative;
-			width: 100%;
-			flex-basis: 100%;
 		}
-		
+
 		&__image {
 			overflow: hidden;
 			height: rem(300px);
 			background: map-get($colours, 'light');
 			transition: none;
-			
+
 			img {
 				width: 100%;
 				height: 100%;
@@ -31,31 +30,31 @@
 				object-position: center center;
 				transition: transform 0.3s ease;
 			}
-			
+
 			&:after {
 				content: none;
 			}
 		}
-		
+
 		&__copy {
 			padding: map-get($spacing, 'lg');
 		}
-		
+
 		@include hover-active {
 			box-shadow: 0 0 0.5rem 0 map-get($greys, '600');
-			
+
 			&__image {
-				
+
 				img {
 					transform: scale(1.1);
 				}
 			}
 		}
-		
+
 		@include keyboard-focus {
 			box-shadow: 0 0 0.5rem 0 map-get($colours, 'accent');
 		}
-		
+
 	}
-	
+
 }

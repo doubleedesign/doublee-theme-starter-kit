@@ -104,6 +104,7 @@ gulp.task('vendor', (done) => {
 		.pipe(browsersync.stream());
 	done();
 });
+
 gulp.task('build', function() {
 	browsersync.init({
 		proxy: {

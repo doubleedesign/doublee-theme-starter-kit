@@ -7,6 +7,8 @@ Theme URI:      https://github.com/doubleedesign/doublee-dev-starter-kit
 Version:        0.1
 */
 
+@import '../node_modules/@doubleedesign/hover.css/hover';
+@import '../node_modules/@doubleedesign/animate-into-view/dist/animate-into-view.css';
 @import 'variables';
 @import 'core/functions';
 @import 'core/reset';

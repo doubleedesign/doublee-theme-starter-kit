@@ -1,10 +1,11 @@
 .accordion {
 	margin: map-get($spacing, 'md') 0;
-	
+
 	&-item {
-		
+		margin-bottom: 1px;
+
 		&__heading {
-			
+
 			&__button {
 				font-family: $heading-font-family;
 				font-size: map-get($font-sizes, 'sm');
@@ -19,11 +20,12 @@
 				color: color-contrast(map-get($colours, 'light'));
 				padding: map-get($spacing, 'md');
 				cursor: pointer;
-				
+				transition: all 0.3s ease-in-out;
+
 				i {
 					transition: transform 0.3s ease;
 				}
-				
+
 				&[aria-expanded='true'],
 				&:hover,
 				&:focus,
@@ -31,9 +33,9 @@
 					background: map-get($colours, 'primary');
 					color: color-contrast(map-get($colours, 'primary'));
 				}
-				
+
 				&[aria-expanded='true'] {
-					
+
 					i {
 						transform: rotate(180deg);
 					}
@@ -41,9 +43,9 @@
 			}
 		}
 	}
-	
+
 	&__panel {
-		
+
 		&__inner {
 			padding: map-get($spacing, 'lg') 0;
 		}

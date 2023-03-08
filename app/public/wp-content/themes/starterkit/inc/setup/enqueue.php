@@ -3,7 +3,7 @@
  * Enqueue front-end scripts and styles
  * @wp-hook
  */
-function starterkit_enqueue_frontend() {
+function starterkit_enqueue_frontend(): void {
 	$theme_deps = array(
 		'vendor-scripts'
 	);
@@ -22,7 +22,7 @@ function starterkit_enqueue_frontend() {
 		wp_enqueue_script('gmaps', 'https://maps.googleapis.com/maps/api/js?key=' . GMAPS_KEY, '', '3', true);
 		array_push($theme_deps, 'gmaps');
 	}
-	
+
 	wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/js/dist/theme.bundle.js', $theme_deps, THEME_VERSION, true);
 
 }
@@ -30,10 +30,24 @@ add_action('wp_enqueue_scripts', 'starterkit_enqueue_frontend');
 
 
 /**
- * Enqueue CMS scripts and styles
+ * Enqueue TinyMCE editor styles
  * @wp-hook
+ *
+ * @return void
  */
-function starterkit_enqueue_admin() {
+function starterkit_editor_css(): void {
 	add_editor_style(get_template_directory_uri() . '/editor-styles.css');
 }
-add_action('admin_init', 'starterkit_enqueue_admin');
+add_action('admin_init', 'starterkit_editor_css');
+
+
+/**
+ * Enqueue admin CSS
+ * @wp-hook
+ *
+ * @return void
+ */
+function starterkit_admin_css(): void {
+	wp_enqueue_style('starterkit-admin-css', get_template_directory_uri() . '/admin-styles.css');
+}
+add_action('admin_enqueue_scripts', 'starterkit_admin_css');

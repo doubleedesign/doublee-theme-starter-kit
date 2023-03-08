@@ -4,7 +4,7 @@
 			<?php the_post_thumbnail(); ?>
 		</div>
 		<div class="card__content__copy entry-content">
-			<h2><?php the_title(); ?></h2>
+			<h3><?php the_title(); ?></h3>
 			<?php echo starterkit_custom_excerpt(get_the_excerpt(), 25); ?>
 		</div>
 	</a>

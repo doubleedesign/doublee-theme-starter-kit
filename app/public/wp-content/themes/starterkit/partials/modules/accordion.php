@@ -7,7 +7,7 @@ $count = 0;
 if($panels) { ?>
 	<section class="module module__accordion">
 		<div class="row">
-			<div class="col-12 col-lg-10">
+			<div class="col-12">
 				<div class="module__accordion__intro entry-content">
 					<?php
 					if($heading) {

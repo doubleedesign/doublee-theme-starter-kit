@@ -3,7 +3,7 @@
  * Customise login screen logo
  * @wp-hook
  */
-function starterkit_login_logo() {
+function starterkit_login_logo(): void {
 	$custom_logo_id = get_theme_mod('custom_logo');
 	if($custom_logo_id) {
 		$logo = wp_get_attachment_image_src($custom_logo_id, 'full');
@@ -35,7 +35,7 @@ add_action('login_enqueue_scripts', 'starterkit_login_logo');
  * @noinspection PhpUnusedParameterInspection
  * @noinspection PhpUnusedParameterInspection
  */
-function starterkit_change_excerpt_explanation($translated_text, $text, $domain) {
+function starterkit_change_excerpt_explanation($translated_text, $text, $domain): string {
 	$post_type = get_post_type();
 	switch($translated_text) {
 		case 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="%s">Learn more about manual excerpts</a>.' :
@@ -58,7 +58,7 @@ add_filter('gettext', 'starterkit_change_excerpt_explanation', 20, 3);
  * Move Yoast SEO to the bottom of edit screens
  * @wp-hook
  */
-function starterkit_move_yoast_seo_metabox() {
+function starterkit_move_yoast_seo_metabox(): string {
 	return 'low';
 }
 add_filter('wpseo_metabox_prio', 'starterkit_move_yoast_seo_metabox');
@@ -67,7 +67,7 @@ add_filter('wpseo_metabox_prio', 'starterkit_move_yoast_seo_metabox');
  * Remove unwanted metaboxes
  * @wp-hook
  */
-function starterkit_remove_meta_boxes() {
+function starterkit_remove_meta_boxes(): void {
 	remove_meta_box('nf_admin_metaboxes_appendaform', array('page', 'post'), 'side');
 }
 add_action('add_meta_boxes', 'starterkit_remove_meta_boxes', 99);
@@ -81,9 +81,9 @@ add_action('add_meta_boxes', 'starterkit_remove_meta_boxes', 99);
  *
  * @wp-hook
  *
- * @return mixed
+ * @return array
  */
-function starterkit_add_editor_styles_to_tinymce($mce_init) {
+function starterkit_add_editor_styles_to_tinymce($mce_init): array {
 	$content_css = '/editor-styles.css';
 	$version = filemtime(get_stylesheet_directory() . $content_css);
 	$content_css = get_stylesheet_directory_uri() . $content_css . '?v=' . $version; // it caches hard, use this to force a refresh
@@ -134,21 +134,21 @@ add_filter('tiny_mce_before_init', 'starterkit_add_mce_colours');
  *
  * @param $buttons
  *
- * @return mixed
+ * @return array
  */
-function starterkit_add_mce_styleselect($buttons) {
+function starterkit_add_mce_styleselect($buttons): array {
 	array_unshift($buttons, 'styleselect');
 
 	return $buttons;
 }
 add_filter('mce_buttons_2', 'starterkit_add_mce_styleselect');
 
-function starterkit_add_mce_styles($init_array) {
+function starterkit_add_mce_styles($init_array): array {
 	$style_formats = array(
 		array(
-			'title'    => 'Lead paragraph',
+			'title' => 'Lead paragraph',
 			'selector' => 'p',
-			'classes'  => 'lead'
+			'classes' => 'lead'
 		),
 	);
 
@@ -180,7 +180,7 @@ add_filter('image_size_names_choose', 'starterkit_media_sizes_dropdown');
  *
  * @return array
  */
-function starterkit_link_query($query) {
+function starterkit_link_query($query): array {
 	$query['post_type'][] = 'attachment';
 	$query['post_status'] = array($query['post_status'], 'inherit');
 
