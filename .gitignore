@@ -1,12 +1,11 @@
 conf/*
 logs/*
 
-# ignore everything in the "wp-content" directory, except:
-# "mu-plugins", "plugins", "themes" directory
-wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
+# ignore uploads
+app/public/wp-content/uploads/*
+
+# ignore plugins I can't distribute
+app/public/wp-content/plugins/advanced-custom-fields-component_field/*
 
 # ignore node dependency directories
 node_modules/
