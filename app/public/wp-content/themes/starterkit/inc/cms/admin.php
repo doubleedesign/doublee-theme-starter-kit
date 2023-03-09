@@ -24,7 +24,6 @@ add_action('login_enqueue_scripts', 'starterkit_login_logo');
 
 /**
  * Change the excerpt explanation in the backend
- *
  * @param $translated_text
  * @param $text
  * @param $domain
@@ -76,9 +75,7 @@ add_action('add_meta_boxes', 'starterkit_remove_meta_boxes', 99);
 /**
  * Load editor styles in ACF WYSIWYG fields
  * Ref: https://pagegwood.com/web-development/custom-editor-stylesheets-advanced-custom-fields-wysiwyg/
- *
  * @param $mce_init
- *
  * @wp-hook
  *
  * @return array
@@ -101,15 +98,17 @@ add_filter('tiny_mce_before_init', 'starterkit_add_editor_styles_to_tinymce');
 /**
  * Add predefined colours to TinyMCE
  * @wp-hook
+ * @param $settings
  *
- * @param $buttons
- *
- * @return mixed
+ * @return array
  */
-/*function starterkit_add_mce_colours($settings) {
+function starterkit_add_mce_colours($settings): array {
 	$colours = array(
 		'000000' => 'Black',
 		'FFFFFF' => 'White',
+		'602AA2' => 'Primary',
+		'2B193D' => 'Secondary',
+		'009DD6' => 'Accent'
 	);
 
 	if(!empty($colours)) {
@@ -118,20 +117,19 @@ add_filter('tiny_mce_before_init', 'starterkit_add_editor_styles_to_tinymce');
 			$map[] = '"'.$value.'","'.$label.'"';
 		}
 
-		$settings['textcolor_map'] = '['.implode($map, ',').']';
+		$settings['textcolor_map'] = '['.implode(',', $map).']';
 	}
 
 	return $settings;
 }
 add_filter('tiny_mce_before_init', 'starterkit_add_mce_colours');
-*/
+
 
 
 /**
  * Add custom text formats to TinyMCE
- * @wp-hook
  * Note: 'selector' for block-level element that format is applied to; 'inline' to add wrapping tag e.g.'span'
- *
+ * @wp-hook
  * @param $buttons
  *
  * @return array

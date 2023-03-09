@@ -15,13 +15,24 @@
 	}
 
 	&__image {
+		margin-bottom: map-get($spacing, 'lg');
 
-		img {
-			@include media-breakpoint-up(md) {
-				height: 100%;
+		@include media-breakpoint-up(md) {
+			margin-bottom: 0;
+		}
+
+		&__media {
+
+			img {
 				width: 100%;
-				object-fit: cover;
-				object-position: center center;
+				height: auto;
+
+				@include media-breakpoint-up(md) {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+					object-position: center center;
+				}
 			}
 		}
 

@@ -5,7 +5,7 @@ $phone = get_sub_field('include_phone_number');
 $button = get_sub_field('button');
 $phone = get_field('contact_details', 'option')['phone'];
 $theme = get_sub_field('colour_theme')[0]['colour_theme'];
-$bg = get_sub_field('background_colour')[0]['background_colour'];
+$bg = get_sub_field('background_colour');
 
 $bgColour = $bg === 'theme' ? $theme : $bg;
 $btnColour = $bg === 'theme' ? 'white' : $theme;
@@ -13,12 +13,14 @@ $btnColour = $bg === 'theme' ? 'white' : $theme;
 <section
 	class="module module__call-to-action module__call-to-action--<?php echo $width; ?> <?php echo $width === 'fullwidth' ? "bg-$bgColour" : 'bg-white' ?>">
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="<?php echo $width === 'narrow' ? 'col-12 col-lg-10' : 'col-12' ?>">
 			<div class="module__call-to-action__inner bg-<?php echo $bgColour; ?> entry-content">
 
 				<div class="module__call-to-action__inner__text">
 					<?php echo $copy; ?>
 				</div>
+
+				<?php print_r($phone); ?>
 
 				<?php if($phone) { ?>
 					<div class="module__call-to-action__inner__phone">

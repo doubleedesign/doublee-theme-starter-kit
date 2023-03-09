@@ -1,6 +1,8 @@
+// See components/accordion for styles that apply to all instances of accordions,
+// whether in an ACF flexible module or otherwise templated in
 .module__accordion {
-	
-	.row {
+
+	> .row {
 		justify-content: center;
 	}
 }

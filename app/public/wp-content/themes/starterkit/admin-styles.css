@@ -14,6 +14,7 @@
 .acf-field-component-field > .acf-label + .acf-input .acf-label {
 	display: none;
 }
+.acf-field-component-field > .acf-label + .acf-input .acf-field-radio,
 .acf-field-component-field > .acf-label + .acf-input .acf-field-select {
 	padding-top: 0;
 }

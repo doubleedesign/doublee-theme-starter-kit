@@ -1,14 +1,14 @@
 {
-    "key": "group_63e4b513f349b",
-    "title": "Colour theme",
+    "key": "group_6409144c2c0c4",
+    "title": "Module size",
     "fields": [
         {
-            "key": "field_63e4b514a10df",
-            "label": "Colour theme",
-            "name": "colour_theme",
+            "key": "field_6409144c14f24",
+            "label": "Width",
+            "name": "width",
             "aria-label": "",
-            "type": "select",
-            "instructions": "",
+            "type": "radio",
+            "instructions": "Note: Container and narrow widths take effect only when the viewport is large enough.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,17 +17,15 @@
                 "id": ""
             },
             "choices": {
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "accent": "Accent"
+                "contained": "Container width",
+                "narrow": "Narrow"
             },
-            "default_value": "light",
+            "default_value": "contained",
             "return_format": "value",
-            "multiple": 0,
             "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
+            "other_choice": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
         }
     ],
     "location": [],
@@ -53,5 +51,5 @@
             "hide-outer-boundary"
         ]
     },
-    "modified": 1678316698
+    "modified": 1678317142
 }

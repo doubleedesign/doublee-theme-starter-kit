@@ -3,11 +3,13 @@ $heading = get_sub_field('heading');
 $intro_copy = get_sub_field('intro_copy');
 $panels = get_sub_field('panels');
 $count = 0;
+$theme = get_sub_field('colour_theme')[0]['colour_theme'];
+$width = get_sub_field('width')[0]['width'];
 
 if($panels) { ?>
 	<section class="module module__accordion">
 		<div class="row">
-			<div class="col-12">
+			<div class="<?php echo $width === 'narrow' ? 'col-12 col-lg-10' : 'col-12' ?>">
 				<div class="module__accordion__intro entry-content">
 					<?php
 					if($heading) {
@@ -26,7 +28,8 @@ if($panels) { ?>
 						?>
 						<div class="accordion-item">
 							<h3 id="heading-<?php echo $id; ?>" class="accordion-header accordion-item__heading">
-								<button class="accordion-button <?php echo ($count !== 1) ? ("") : "collapsed"; ?> accordion-item__heading__button"
+								<button class="accordion-button <?php echo ($count !== 1) ? ("") : "collapsed"; ?>
+								accordion-item__heading__button accordion-item__heading__button--<?php echo $theme; ?>"
 										data-bs-toggle="collapse"
 										role="button"
 										aria-expanded="false"

@@ -35,10 +35,41 @@ svg {
 	max-width: 100%;
 }
 
+.media-item {
+
+	&--aspect-ratio-crop {
+		position: relative;
+
+		img {
+			position: absolute;
+			inset: 0 0 0 0;
+		}
+
+		&-none {
+
+			img {
+				position: relative;
+			}
+		}
+
+		&-square {
+			padding-top: calc(1 / 1 * 100%);
+		}
+
+		&-four-three {
+			padding-top: calc(3 / 4 * 100%);
+		}
+
+		&-sixteen-nine {
+			padding-top: calc(9 / 16 * 100%);
+		}
+	}
+}
+
 .module,
 .pseudo-module {
-	@include gutter-padding-top();
-	@include gutter-padding-bottom();
+	@include gutter-padding-top(1.5);
+	@include gutter-padding-bottom(1.5);
 }
 
 @each $colour, $value in $colours {

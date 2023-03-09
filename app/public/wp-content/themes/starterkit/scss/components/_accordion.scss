@@ -8,7 +8,8 @@
 
 			&__button {
 				font-family: $heading-font-family;
-				font-size: map-get($font-sizes, 'sm');
+				font-size: map-get($font-sizes, 'md');
+				font-weight: map-get($font-weights, 'bold');
 				text-align: left;
 				width: 100%;
 				display: flex;
@@ -26,12 +27,17 @@
 					transition: transform 0.3s ease;
 				}
 
-				&[aria-expanded='true'],
-				&:hover,
-				&:focus,
-				&:active {
-					background: map-get($colours, 'primary');
-					color: color-contrast(map-get($colours, 'primary'));
+				@each $colour, $value in $colours {
+					&--#{$colour} {
+
+						&[aria-expanded='true'],
+						&:hover,
+						&:focus,
+						&:active {
+							background: $value;
+							color: color-contrast($value);
+						}
+					}
 				}
 
 				&[aria-expanded='true'] {

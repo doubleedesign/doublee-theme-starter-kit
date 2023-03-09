@@ -13,7 +13,8 @@
 		}
 	}
 
-	&--contained {
+	&--contained,
+	&--narrow {
 
 		.module__call-to-action__inner {
 			padding: map-get($spacing, 'lg');
@@ -33,14 +34,6 @@
 		&__text {
 			width: 100%;
 			flex-basis: 100%;
-
-			p.lead {
-				font-size: map-get($font-sizes, 'lg');
-
-				@include media-breakpoint-up(lg) {
-					font-size: map-get($font-sizes, 'xl');
-				}
-			}
 		}
 
 		&__phone,
