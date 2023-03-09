@@ -26,7 +26,7 @@
 	<header id="masthead" class="site-header">
 		<div class="row">
 
-			<div class="site-header__logo col-xs-4 col-xl-3">
+			<div class="site-header__logo col-5 col-md-4 col-xl-3">
 				<?php
 				if(get_theme_mod('custom_logo')) { ?>
 					<div class="site-header__logo__image">
@@ -49,14 +49,14 @@
 				</button>
 			</div>
 
-			<nav class="site-header__nav col-xs-12 col-lg-8 col-xl-9">
+			<nav class="site-header__nav bg-white col-12 col-lg-8 col-xl-9">
 				<?php
 				wp_nav_menu(
 					array(
 						'theme_location' => 'header',
 						'menu_id'        => 'primary-menu',
 						'menu_class'     => 'menu site-header__nav__menu',
-						'depth'          => 1
+						'depth'          => 2
 					)
 				); ?>
 			</nav>

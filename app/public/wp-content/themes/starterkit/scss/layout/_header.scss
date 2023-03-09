@@ -84,7 +84,6 @@
 		padding-top: rem(80px);
 
 		@include media-breakpoint-down(md) {
-			background: map-get($colours, 'primary');
 			transition: transform 0.3s ease;
 			width: 100vw;
 			height: 100vh;
@@ -92,6 +91,9 @@
 			top: 0;
 			bottom: 0;
 			left: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
 		@include media-breakpoint-down(sm) {
@@ -132,6 +134,7 @@
 			li {
 				display: block;
 				padding: 0 map-get($spacing, 'sm');
+				position: relative;
 
 				@include media-breakpoint-up(md) {
 					display: inline-flex;
@@ -143,20 +146,25 @@
 
 				> a {
 					display: block;
-					color: map-get($colours, 'primary');
+					font-weight: map-get($font-weights, 'semibold');
 					text-decoration: none;
 					padding: map-get($spacing, 'md') 0;
 					border-bottom: 2px solid transparent;
 					transition: border 0.3s ease, color 0.3s ease;
-					@include underline-from-center(map-get($colours, 'primary'));
+					@include underline-from-center(currentColor);
 					overflow: visible;
 
 					&:before {
 						height: 2px;
-						bottom: -2px;
+						bottom: 0;
+
+						@include media-breakpoint-up(md) {
+							bottom: -2px;
+						}
 					}
 
 					@include hover-focus-active {
+						color: map-get($colours, 'primary');
 					}
 
 					@include media-breakpoint-up(md) {
@@ -175,6 +183,59 @@
 
 						@include media-breakpoint-up(md) {
 							border-bottom-color: map-get($colours, 'primary');
+						}
+					}
+				}
+
+				> .sub-menu {
+					height: 0;
+					overflow: hidden;
+					transition: height 0.3s ease-in-out;
+					background: map-get($colours, 'white');
+					text-align: center;
+					position: relative;
+					float: none;
+					border-radius: 0;
+					width: 100%;
+					flex-basis: 100%;
+
+					@media (prefers-reduced-motion) {
+						transition: none;
+					}
+
+					@include media-breakpoint-up(md) {
+						width: rem(180px);
+						box-shadow: 0 0 0.25rem 0 map-get($greys, '500');
+						flex-basis: auto;
+						text-align: left;
+						position: absolute;
+						top: 100%;
+						left: 0;
+					}
+
+					.menu-item {
+						width: 100%;
+						padding: 0;
+
+						a {
+							display: block;
+							width: 100%;
+							text-decoration: underline;
+							text-decoration-color: transparent;
+							transition: all 0.3s ease-in-out;
+							padding: map-get($spacing, 'md');
+
+							&:before {
+								content: none;
+							}
+
+							@include media-breakpoint-up(md) {
+								text-align: left;
+							}
+
+							@include hover-focus-active {
+								text-decoration-color: currentColor;
+							}
 						}
 					}
 				}

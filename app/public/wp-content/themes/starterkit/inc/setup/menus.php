@@ -63,8 +63,8 @@ add_filter('nav_menu_css_class', 'starterkit_menu_item_classes', 10, 4);
 function starterkit_menu_link_classes($atts, $item, $args, $depth): array {
 
 	// Header menu
-	if($args->theme_location == 'header-menu' && $depth == 0 && in_array('menu-item-has-children', $item->classes)) {
-		$atts['class'] = 'nav-dropdown-link';
+	if($args->theme_location == 'header' && $depth == 0 && in_array('menu-item-has-children', $item->classes)) {
+		$atts['class'] = 'menu-dropdown-link';
 	}
 
 	return $atts;
@@ -83,9 +83,8 @@ add_filter('nav_menu_link_attributes', 'starterkit_menu_link_classes', 10, 4);
 function starterkit_menu_submenu_classes($classes, $args): array {
 
 	// Header menu
-	if($args->theme_location == 'header-menu') {
+	if($args->theme_location == 'header') {
 		$classes[] = 'dropdown-menu';
-		$classes[] = 'dropdown-animated';
 	}
 
 	return $classes;
