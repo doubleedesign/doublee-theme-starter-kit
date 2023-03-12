@@ -57,15 +57,15 @@ svg {
 		}
 
 		&-square {
-			padding-top: calc(1 / 1 * 100%);
+			padding-top: map-get($aspect-ratios, '1x1');
 		}
 
 		&-four-three {
-			padding-top: calc(3 / 4 * 100%);
+			padding-top: map-get($aspect-ratios, '3x4');
 		}
 
 		&-sixteen-nine {
-			padding-top: calc(9 / 16 * 100%);
+			padding-top: map-get($aspect-ratios, '16x9');
 		}
 	}
 }
