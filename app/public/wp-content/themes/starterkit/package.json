@@ -1,8 +1,8 @@
 {
-	"name": "starterkit",
+	"name": "daley-health",
 	"version": "1.0.0",
-	"description": "Starter kit for building a custom WordPress theme",
-	"author": "Leesa Ward",
+	"description": "Custom WordPress theme for Daley Health",
+	"author": "Double-E Design",
 	"engines": {
 		"node": "^14.21.3"
 	},
@@ -39,23 +39,23 @@
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.18.0",
 		"gulp": "^4.0.2",
-		"gulp-autoprefixer": "^3.1.1",
+		"gulp-clean-css": "^4.3.0",
 		"gulp-concat": "^2.6.1",
-		"gulp-minify-css": "^1.2.4",
-		"gulp-plumber": "^1.1.0",
-		"gulp-postcss": "^7.0.1",
-		"gulp-rename": "^1.2.2",
+		"gulp-plumber": "^1.2.1",
+		"gulp-postcss": "^9.0.1",
+		"gulp-rename": "^2.0.0",
 		"gulp-rollup-2": "^1.3.1",
-		"gulp-sass": "^4.1.0",
+		"gulp-sass": "^5.1.0",
 		"gulp-sass-glob": "^1.1.0",
-		"gulp-sourcemaps": "^2.4.1",
-		"gulp-uglify": "^2.0.0",
-		"lint-staged": "^13.0.3",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"lint-staged": "^13.2.0",
 		"phplint": "^2.0.5",
-		"postcss": "^8.4.14",
+		"postcss": "^8.4.21",
 		"postcss-object-fit-images": "^1.1.2",
-		"stylelint": "^14.9.1",
-		"stylelint-scss": "^4.2.0"
+		"sass": "^1.59.3",
+		"stylelint": "^15.2.0",
+		"stylelint-scss": "^4.5.0"
 	},
 	"config": {
 		"commitizen": {

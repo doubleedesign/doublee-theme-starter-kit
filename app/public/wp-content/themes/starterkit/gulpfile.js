@@ -3,11 +3,12 @@ import objectFitImages from 'postcss-object-fit-images';
 import postCSS from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
 import { create } from 'browser-sync';
-import minifyCSS from 'gulp-minify-css';
-import autoprefixer from 'gulp-autoprefixer';
+import minifyCSS from 'gulp-clean-css';
 import rename from 'gulp-rename';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+const sass = gulpSass(dartSass);
 import sassGlob from 'gulp-sass-glob';
-import sass from 'gulp-sass';
 import plumber from 'gulp-plumber';
 import gru2 from 'gulp-rollup-2';
 import concat from 'gulp-concat';
@@ -27,12 +28,6 @@ gulp.task('styles', (done) => {
 		)
 		.pipe(sass())
 		.pipe(postCSS([objectFitImages]))
-		.pipe(
-			autoprefixer({
-				browsers: ['defaults', 'iOS >= 8'],
-				grid: false,
-			})
-		)
 		.pipe(minifyCSS())
 		.pipe(rename('style.css'))
 		.pipe(sourcemaps.write('/', ''))
@@ -46,13 +41,6 @@ gulp.task('editor-styles', (done) => {
 		.pipe(sassGlob())
 		.pipe(sourcemaps.init())
 		.pipe(sass())
-		.pipe(postCSS([objectFitImages]))
-		.pipe(
-			autoprefixer({
-				browsers: ['defaults', 'iOS >= 8'],
-				grid: false,
-			})
-		)
 		.pipe(minifyCSS())
 		.pipe(rename('editor-styles.css'))
 		.pipe(sourcemaps.write('/'))
