@@ -3,7 +3,7 @@ Contributors: wpninjasllc, kstover, jameslaws, kbjohnson90, klhall1987, krmoorho
 Tags: forms, contact form, email form, form builder, custom form, pdf form, registration form, payment form, login form, contact me, signature form, upload form, file upload form, conditional form, feedback form, appointment form, quote form, survey form, contact button, signup form, form plugin, contact form plugin, subscription form, email subscription form, newsletter form, donation form, booking form, quote request form, multi page form, conditional logic form, subscription form, application form, employment verification form, star rating form, rating form, event form, mailchimp form, campaign monitor form, constant contact form, mailpoet form, aweber form, cleverreach form, emma form, convertkit form, active campaign form, salesforce form, zoho form, capsule form, insightly form, pipelinedeals form, onepagecrm form
 Requires at least: 5.6
 Tested up to: 6.1.1
-Stable tag: 3.6.19
+Stable tag: 3.6.20
 License: GPLv2 or later
 
 The 100% beginner friendly WordPress form builder. Drag & drop form fields to build beautiful, professional contact forms in minutes.
@@ -302,16 +302,37 @@ This section describes how to install the plugin and get it working.
 5. Beautiful Forms Every Time!
 
 == Upgrade Notice ==
-= 3.6.19 (22 February 2023)
+= 3.6.20 (14 March 2023)
 *Bug Fixes:*
-- Migrate/update jBox library
-- Ensuref language filter results are passed to downstream filters
-- Prevent non-string math error
+- Error management in Repeater fieldsets (fields inside repeater fieldsets now respond to frontend validation)
+- Display repeater field data in HTML field via merge tags
+- Include Repeater data in CSVs when the repeater wasn't repeated
+- Display repeater data in retrigger email actions (and its CSV)
+- Display Correct repeater child fields labels in emails
+- Display repeater description on form
+- Ensure correct rendering of date field in repeaters
+- CSVs now display repeaters data as one row for each fieldset
 
-*Other:*
-- Add version checks for extensions
+*Fixes for extensions:*
+- Save progress display repeater field without errors
+- Multi-part compatibility display repeater field, with merge tags and data saved correctly
 
 == Changelog ==
+
+= 3.6.20 (14 March 2023)
+*Bug Fixes:*
+- Error management in Repeater fieldsets (fields inside repeater fieldsets now respond to frontend validation)
+- Display repeater field data in HTML field via merge tags
+- Include Repeater data in CSVs when the repeater wasn't repeated
+- Display repeater data in retrigger email actions (and its CSV)
+- Display Correct repeater child fields labels in emails
+- Display repeater description on form
+- Ensure correct rendering of date field in repeaters
+- CSVs now display repeaters data as one row for each fieldset
+
+*Fixes for extensions:*
+- Save progress display repeater field without errors
+- Multi-part compatibility display repeater field, with merge tags and data saved correctly
 
 = 3.6.19 (22 February 2023)
 *Bug Fixes:*

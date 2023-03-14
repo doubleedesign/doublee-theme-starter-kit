@@ -358,9 +358,6 @@ final class NF_Admin_Menus_Forms extends NF_Abstracts_Menu
             'devMode'           => (bool) $dev_mode,
             'filter_esc_status'  =>    json_encode( WPN_Helper::maybe_disallow_unfiltered_html_for_escaping() ),
         ));
-        wp_localize_script( 'nf-builder', 'nfRepeater', array(
-            'add_repeater_child_field_text' => __( 'Add ', 'ninja-forms' )
-        ));
 
         do_action( 'nf_admin_enqueue_scripts' );
     }

@@ -805,9 +805,6 @@ class NF_Display_Render
         }
 
         wp_localize_script( 'nf-front-end', 'nfFrontEnd', $data );
-        wp_localize_script( 'nf-front-end', 'nfRepeater', array(
-            'add_repeater_child_field_text' => __( 'Add ', 'ninja-forms' )
-        ));
 
         do_action( 'ninja_forms_enqueue_scripts', array( 'form_id' => $form_id ) );
 

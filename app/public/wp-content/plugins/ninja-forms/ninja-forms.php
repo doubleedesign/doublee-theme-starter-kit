@@ -3,7 +3,7 @@
 Plugin Name: Ninja Forms
 Plugin URI: http://ninjaforms.com/?utm_source=Ninja+Forms+Plugin&utm_medium=readme
 Description: Ninja Forms is a webform builder with unparalleled ease of use and features.
-Version: 3.6.19
+Version: 3.6.20
 Author: Saturday Drive
 Author URI: http://ninjaforms.com/?utm_source=Ninja+Forms+Plugin&utm_medium=Plugins+WP+Dashboard
 Text Domain: ninja-forms
@@ -56,7 +56,7 @@ if( get_option( 'ninja_forms_load_deprecated', FALSE ) && ! ( isset( $_POST[ 'nf
          * @since 3.0
          */
 
-        const VERSION = '3.6.19';
+        const VERSION = '3.6.20';
 
         /**
          * @since 3.4.0
@@ -1294,8 +1294,6 @@ if( get_option( 'ninja_forms_load_deprecated', FALSE ) && ! ( isset( $_POST[ 'nf
      * @param $schedules (Array) The available cron recurrences.
      * @return (Array) The filtered cron recurrences.
      *
-     * @since
-     * @updated 3.3.17
      */
     function nf_custom_cron_job_recurrence( $schedules ) {
         $schedules[ 'nf-monthly' ] = array(
