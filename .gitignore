@@ -14,3 +14,11 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+app/public/wp-content/db-error.php
+
+app/public/local-xdebuginfo.php
+
+app/public/fw-status-check.php
+
+app/public/fw-flush-cache.php
