@@ -30,4 +30,4 @@ function starterkit_register_constants(): void {
 		define('GMAPS_KEY', '');
 	}
 }
-add_action('init', 'starterkit_register_constants', 10);
+add_action('after_setup_theme', 'starterkit_register_constants', 10);
