@@ -1,4 +1,4 @@
-export function initGoogleMaps($) {
+export function initGoogleMap(selector) {
 	const google = window.google;
 
 	/**
@@ -11,19 +11,17 @@ export function initGoogleMaps($) {
 	}
 
 	/**
+	 * Render a Google Map onto the selected HTML element
 	 *
-	 * Render a Google Map onto the selected jQuery element
-	 *
-	 * @param {jQuery} element - The jQuery element
 	 * @return {Object} - The map instance
 	 */
-	function initMap(element) {
-		// Find marker elements within map.
-		const $markers = element.find('.marker');
+	function initMap() {
+		// Find marker elements within map element
+		const markers = selector.querySelectorAll('.marker');
 
-		// Create gerenic map.
-		const mapArgs = {
-			zoom: element.data('zoom') || 16,
+		// Create Google map
+		const map = new google.maps.Map(selector, {
+			zoom: parseInt(selector.dataset.zoom) || 16,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			styles: [
 				{
@@ -258,27 +256,26 @@ export function initGoogleMaps($) {
 					],
 				},
 			],
-		};
-		const map = new google.maps.Map(element[0], mapArgs);
-
-		// Add markers.
-		map.markers = [];
-		$markers.each(function() {
-			initMarker($(this), map);
 		});
 
-		// Centre map based on markers.
+		// Add markers
+		map.markers = [];
+		markers.forEach(function(marker) {
+			initMarker(marker, map);
+		});
+
+		// Centre map based on markers
 		centerMap(map);
 
-		// Return map instance.
+		// Return map instance
 		return map;
 	}
 
 	/**
-	 * Create a marker for the given jQuery element and map.
+	 * Create a marker for the given element and map
 	 *
-	 * @param {jQuery} element - The .acf-map HTML element with .marker child element with data-lat and data-lng attributes
-	 * @param {Object} map     - The map object
+	 * @param {HTMLElement} element - The map HTML element with .marker child element with data-lat and data-lng attributes
+	 * @param {Object}      map     - The map object
 	 *
 	 * @return {void}
 	 */
@@ -295,8 +292,8 @@ export function initGoogleMaps($) {
 		};
 
 		// Get position from marker.
-		const lat = element.data('lat');
-		const lng = element.data('lng');
+		const lat = element.dataset.lat;
+		const lng = element.dataset.lng;
 		const latLng = {
 			lat: parseFloat(lat),
 			lng: parseFloat(lng),
@@ -309,27 +306,24 @@ export function initGoogleMaps($) {
 			icon: svgMarker,
 		});
 
-		// Append to reference for later use.
+		// Append to reference for later use
 		map.markers.push(marker);
 
-		// If marker contains HTML, add it to an infoWindow.
-		if (element.html()) {
-			// Create info window.
-			const infowindow = new google.maps.InfoWindow({
-				content: element.html(),
-			});
+		// Create info window
+		const infowindow = new google.maps.InfoWindow({
+			content: element.innerHTML,
+		});
 
-			// Show info window when marker is clicked.
-			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.open(map, marker);
-			});
-		}
+		// Show info window when marker is clicked
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map, marker);
+		});
 	}
 
 	/**
 	 * Center the map showing all markers in view.
 	 *
-	 * @param {Object} map -  The map instance.
+	 * @param {Object} map - The map instance.
 	 */
 	function centerMap(map) {
 		// Create map boundaries from all map markers.
@@ -360,12 +354,5 @@ export function initGoogleMaps($) {
 		}
 	}
 
-	/**
-	 * Render maps on page load
-	 */
-	$(document).ready(function() {
-		$('.acf-map').each(function() {
-			initMap($(this));
-		});
-	});
+	initMap();
 }
