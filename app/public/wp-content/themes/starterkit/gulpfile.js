@@ -1,18 +1,16 @@
 import gulp from 'gulp';
-import objectFitImages from 'postcss-object-fit-images';
-import postCSS from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
 import { create } from 'browser-sync';
 import minifyCSS from 'gulp-clean-css';
 import rename from 'gulp-rename';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-const sass = gulpSass(dartSass);
 import sassGlob from 'gulp-sass-glob';
 import plumber from 'gulp-plumber';
 import gru2 from 'gulp-rollup-2';
 import concat from 'gulp-concat';
 
+const sass = gulpSass(dartSass);
 const browsersync = create();
 
 gulp.task('styles', (done) => {
@@ -24,10 +22,9 @@ gulp.task('styles', (done) => {
 				// eslint-disable-next-line no-console
 				console.log(error);
 				this.emit('end');
-			})
+			}),
 		)
 		.pipe(sass())
-		.pipe(postCSS([objectFitImages]))
 		.pipe(minifyCSS())
 		.pipe(rename('style.css'))
 		.pipe(sourcemaps.write('/', ''))
@@ -64,7 +61,7 @@ gulp.task('scripts', function(done) {
 						globals: { window: 'window' },
 					},
 				],
-			})
+			}),
 		)
 		.pipe(sourcemaps.write('/', ''))
 		.pipe(gulp.dest('./js/dist'));
@@ -86,7 +83,7 @@ gulp.task('vendor', (done) => {
 						globals: { window: 'window' },
 					},
 				],
-			})
+			}),
 		)
 		.pipe(gulp.dest('js/dist'))
 		.pipe(browsersync.stream());
