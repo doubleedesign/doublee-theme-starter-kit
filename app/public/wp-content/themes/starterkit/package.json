@@ -31,7 +31,7 @@
 	"license": "GPL-3.0-or-later",
 	"devDependencies": {
 		"@doubleedesign/animate-into-view": "^1.0.0",
-		"@doubleedesign/hover.css": "https://github.com/doubleedesign/Hover.css#1.0.0",
+		"@doubleedesign/hover.css": "https://github.com/doubleedesign/Hover.css#1.0.1",
 		"@wordpress/eslint-plugin": "^12.5.0",
 		"@wordpress/stylelint-config": "^20.0.2",
 		"browser-sync": "^2.18.13",
