@@ -4,12 +4,11 @@
  * @wp-hook
  * @return void
  */
-function starterkit_setup_acf() {
-
+function starterkit_setup_acf(): void {
 	if(function_exists('acf_add_options_page')) {
 		acf_add_options_page(array(
 			'page_title' => 'Global Options',
-			'position'   => 2
+			'position' => 2
 		));
 	}
 }
@@ -26,7 +25,7 @@ add_action('acf/init', 'starterkit_setup_acf', 5);
  * @see starterkit_register_constants()
  * @wp-hook
  */
-function starterkit_acf_gmaps() {
+function starterkit_acf_gmaps(): void {
 	if(defined('GMAPS_KEY')) {
 		acf_update_setting('google_api_key', GMAPS_KEY);
 	}
