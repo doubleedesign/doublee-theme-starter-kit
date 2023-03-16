@@ -150,6 +150,7 @@ function starterkit_address($format): string {
 		// Get fields from the theme options
 		$fields = get_field('contact_details', 'option');
 		if($fields) {
+			$building_name = $fields['building_name'];
 			$street_address = $fields['address'];
 			$suburb = $fields['suburb'];
 			$state = $fields['state'];
@@ -167,27 +168,55 @@ function starterkit_address($format): string {
 				$output .= '<span class="phone">';
 				$output .= $phone;
 				$output .= '</span>';
-			} else if($format == 'expanded') {
-				$output .= '<address itemscope itemtype="https://schema.org/LocalBusiness">';
-				$output .= '<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">';
-				if( ! empty($phone)) {
-					$output .= '<div class="phone"><i class="fas fa-phone"></i><span itemprop="telephone">' . $phone . '</span></div>';
+			}
+			else if($format == 'expanded') {
+				$output .= '<address class="address" itemscope itemtype="https://schema.org/LocalBusiness">';
+
+				$output .= '<div itemprop="name" class="sr-only">'.get_bloginfo('name').'</div>';
+
+				if(!empty($phone)) {
+					$output .= '<div class="address__row">';
+					$output .= '<div class="address__row__icon">';
+					$output .= '<i class="fa-solid fa-mobile-screen"></i>';
+					$output .= '</div>';
+					$output .= '<div class="address__row__item">';
+					$output .= '<span itemprop="telephone">' . $phone . '</span>';
+					$output .= '</div>';
+					$output .= '</div>';
 				}
-				$output .= '<div class="address">';
-				$output .= '<i class="fas fa-envelope"></i>';
-				if( ! empty($street_address)) {
-					$output .= '<span itemprop="streetAddress">' . $street_address . '</span><br/>';
+
+				$output .= '<div class="address__row">';
+
+				$output .= '<div class="address__row__icon">';
+				$output .= '<i class="fa-sharp fa-solid fa-location-dot"></i>';
+				$output .= '</div>';
+
+				$output .= '<div class="address__row__item">';
+
+				if(!empty($building_name)) {
+					$output .= '<span itemprop="alternateName"><span class="sr-only">Located at </span>' . $building_name . '</span>';
 				}
-				if( ! empty($suburb)) {
+
+				$output .= '<div itemtype="http://schema.org/PostalAddress" itemscope itemprop="address">';
+				if(!empty($street_address)) {
+					$output .= '<span itemprop="streetAddress">' . $street_address . '</span>';
+				}
+				if(!empty($suburb)) {
 					$output .= '<span itemprop="addressLocality">' . $suburb . '</span>';
 				}
-				if( ! empty($state)) {
+				if(!empty($state)) {
 					$output .= '<span itemprop="addressRegion">' . $state . '</span>';
 				}
-				if( ! empty($postcode)) {
+				if(!empty($postcode)) {
 					$output .= '<span itemprop="postalCode">' . $postcode . '</span>';
 				}
-				$output .= '</div></div></address>';
+				$output .= '</div>';
+
+				$output .= '</div>';
+
+				$output .= '</div>';
+
+				$output .= '</address>';
 			}
 		}
 	}

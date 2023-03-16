@@ -102,4 +102,46 @@
 		}
 	}
 
+	.address {
+		display: block;
+		margin-bottom: map-get($spacing, 'md');
+
+		&__row {
+			display: flex;
+			margin-bottom: map-get($spacing, 'sm');
+
+			&__icon {
+				margin-right: 0.25rem;
+				width: rem(26px);
+				flex-basis: rem(26px);
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
+
+				i {
+					font-size: 1.5rem;
+
+					&.fa-mobile-screen {
+						font-size: rem(22px);
+					}
+				}
+			}
+
+			&__item {
+				flex-grow: 1;
+
+				span {
+					margin-right: 0.25rem;
+				}
+
+				span[itemprop='alternateName'],
+				span[itemprop='streetAddress'] {
+					display: block;
+					width: 100%;
+					flex-basis: 100%;
+				}
+			}
+		}
+	}
+
 }
