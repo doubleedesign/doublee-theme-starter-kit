@@ -1,7 +1,8 @@
 .alert {
 	width: 100%;
 	flex-basis: 100%;
-	
+	margin-bottom: map-get($spacing, 'md');
+
 	@each $color, $value in $colours {
 		&--#{$color} {
 			background: rgba($value, 0.1);
@@ -10,9 +11,9 @@
 			color: darken($value, 20%);
 		}
 	}
-	
+
 	p {
-		
+
 		&:last-child {
 			margin-bottom: 0;
 		}

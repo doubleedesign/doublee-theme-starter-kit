@@ -95,13 +95,43 @@ svg {
 				vertical-align: top;
 
 				&:before {
-					height: 1px;
-					bottom: 3px;
+					height: 2px;
+					bottom: 2px;
+				}
+			}
+
+			// see components/_buttons.scss for button defaults based on bg colour
+		}
+	}
+}
+
+.bg-white,
+.bg-light,
+.bg-transparent {
+
+	@each $colour, $value in $colours {
+		&.theme-#{$colour} {
+			h1, h2, h3 {
+				color: $value;
+			}
+
+			a:not(.btn) {
+				@include underline-from-center($value);
+
+				&:before {
+					height: 2px;
+					bottom: 2px;
+				}
+
+				@include hover-focus-active {
+					color: $value;
+					text-decoration-color: transparent;
 				}
 			}
 		}
-
 	}
+
+	// see components/_buttons.scss for button defaults based on bg colour
 }
 
 .site-overlay {
