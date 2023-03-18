@@ -54,6 +54,22 @@ add_filter('gettext', 'starterkit_change_excerpt_explanation', 20, 3);
 
 
 /**
+ * Rename some admin menu items for clarity
+ * @return void
+ */
+function starterkit_rename_admin_menu_items(): void {
+    global $menu;
+
+    foreach ($menu as $key => $value) {
+        if($value[0] == 'Site Kit') {
+            $menu[$key][0] = 'Google Site Kit';
+        }
+    }
+}
+add_action('admin_menu', 'starterkit_rename_admin_menu_items', 100);
+
+
+/**
  * Move Yoast SEO to the bottom of edit screens
  * @wp-hook
  */
