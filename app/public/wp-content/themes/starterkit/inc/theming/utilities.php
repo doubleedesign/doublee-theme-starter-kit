@@ -244,9 +244,10 @@ function starterkit_get_primary_term($taxonomy, bool $id = false) {
  * @return mixed|string
  */
 function starterkit_reroute_to_404($template) {
-	if(get_field('page_inaccessible')) {
+	if(function_exists('get_field') && get_field('page_inaccessible')) {
 		return locate_template('404.php');
-	} else {
+	}
+	else {
 		return $template;
 	}
 }
@@ -257,9 +258,11 @@ add_filter('template_include', 'starterkit_reroute_to_404');
  * Redirect to a URL as per ACF field page_redirect
  */
 function starterkit_redirect_to_url() {
-	$redirect = get_field('page_redirect');
-	if($redirect && $redirect['url']) {
-		wp_redirect($redirect['url']);
+	if(function_exists('get_field')) {
+		$redirect = get_field('page_redirect');
+		if($redirect && $redirect['url']) {
+			wp_redirect($redirect['url']);
+		}
 	}
 }
 add_action('template_redirect', 'starterkit_redirect_to_url');

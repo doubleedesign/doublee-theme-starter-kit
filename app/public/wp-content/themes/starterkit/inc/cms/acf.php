@@ -26,7 +26,7 @@ add_action('acf/init', 'starterkit_setup_acf', 5);
  * @wp-hook
  */
 function starterkit_acf_gmaps(): void {
-	if(defined('GMAPS_KEY')) {
+	if(function_exists('acf_update_setting') && defined('GMAPS_KEY')) {
 		acf_update_setting('google_api_key', GMAPS_KEY);
 	}
 }
