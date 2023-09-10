@@ -1,7 +1,7 @@
 {
-	"name": "daley-health",
+	"name": "starterkit",
 	"version": "1.0.0",
-	"description": "Custom WordPress theme for Daley Health",
+	"description": "Custom WordPress theme starter kit",
 	"author": "Double-E Design",
 	"engines": {
 		"node": "^14.21.3"
