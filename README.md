@@ -32,6 +32,8 @@ A Gulpfile is included to:
 - Compile, concatenate and minify SCSS files into the theme's `style.css`
 - Generate sourcemaps for JS and SCSS
 
+Gulp needs to be installed globally: `npm install gulp-cli -g`.
+
 [Commitizen](https://github.com/commitizen/cz-cli) is set up to run with the `yarn commit` command.
 It will also lint staged files before proceeding to the commit options.
 
