@@ -66,6 +66,9 @@ etc.
 
 To use this kit you will need:
 
+- The [Classic Editor](https://wordpress.org/plugins/classic-editor/) and [Advanced Editor Tools](https://wordpress.org/plugins/tinymce-advanced/) plugins installed and activated
+  - Classic Editor set to the default editor everywhere
+  - [These TinyMCE settings](setup/tinymce-settings.json) imported (Go to Settings > Advanced Editor Tools > Import Settings)
 - Your own [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) licence
 - Your own [ACF Component Field plugin](https://acf-component-field.gummi.io/) licence (if using the component fields,
   such as "colour theme")

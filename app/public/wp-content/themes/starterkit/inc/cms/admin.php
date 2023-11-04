@@ -157,18 +157,56 @@ function starterkit_add_mce_styleselect($buttons): array {
 }
 add_filter('mce_buttons_2', 'starterkit_add_mce_styleselect');
 
-function starterkit_add_mce_styles($init_array): array {
+function starterkit_add_mce_styles($settings): array {
 	$style_formats = array(
 		array(
 			'title' => 'Lead paragraph',
-			'selector' => 'p',
+			'block' => 'p',
 			'classes' => 'lead'
 		),
+		array(
+			'title' => 'Button (primary)',
+			'selector' => 'a',
+			'attributes' => array(
+				'class' => 'btn btn--primary btn--icon'
+			),
+			'styles' => array(
+				'color'         => 'white',
+				'background'    => '5F8575',
+				'fontWeight'    => 'bold'
+			)
+		),
+		array(
+			'title' => 'Button (secondary)',
+			'selector' => 'a',
+			'attributes' => array(
+				'class' => 'btn btn--secondary btn--icon'
+			),
+			'styles' => array(
+				'color'         => 'white',
+				'background'    => '374B43',
+				'fontWeight'    => 'bold'
+			)
+		),
+		array(
+			'title' => 'Button (accent)',
+			'selector' => 'a',
+			'attributes' => array(
+				'class' => 'btn btn--accent btn--icon'
+			),
+			'styles' => array(
+				'color'         => 'white',
+				'background'    => 'CC6600',
+				'fontWeight'    => 'bold'
+			)
+		)
 	);
 
-	$init_array['style_formats'] = json_encode($style_formats);
+	$settings['style_formats'] = json_encode($style_formats);
 
-	return $init_array;
+	unset($settings['preview_styles']);
+
+	return $settings;
 }
 add_filter('tiny_mce_before_init', 'starterkit_add_mce_styles');
 

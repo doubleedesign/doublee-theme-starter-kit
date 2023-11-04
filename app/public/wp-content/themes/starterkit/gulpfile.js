@@ -46,6 +46,19 @@ gulp.task('editor-styles', (done) => {
 	done();
 });
 
+gulp.task('admin-styles', (done) => {
+	gulp.src('scss/admin-styles.scss')
+		.pipe(sassGlob())
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(minifyCSS())
+		.pipe(rename('admin-styles.css'))
+		.pipe(sourcemaps.write('/'))
+		.pipe(gulp.dest('./'))
+		.pipe(browsersync.stream());
+	done();
+});
+
 gulp.task('scripts', function(done) {
 	gulp.src('./js/**/*.js')
 		.pipe(sourcemaps.init())
@@ -103,6 +116,7 @@ gulp.task('build', function() {
 
 	gulp.watch('scss/**/*.scss', gulp.series('styles'));
 	gulp.watch('scss/**/*.scss', gulp.series('editor-styles'));
+	gulp.watch('scss/admin-styles.scss', gulp.series('admin-styles'));
 	gulp.watch('js/theme/*.js', gulp.series('scripts'));
 	gulp.watch('js/theme.js', gulp.series('scripts'));
 	gulp.watch('js/vendor/[^_]*.js', gulp.series('vendor'));

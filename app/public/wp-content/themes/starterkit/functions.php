@@ -9,7 +9,7 @@
 require 'inc/setup/constants.php';
 require 'inc/cms/acf.php';
 require 'inc/cms/admin.php';
-require 'inc/cms/shortcode-button.php';
+require 'inc/cms/admin-notices.php';
 require 'inc/cms/customizer.php';
 require 'inc/setup/theme-support.php';
 require 'inc/setup/enqueue.php';
