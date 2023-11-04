@@ -12,8 +12,8 @@
   </component>
   <component name="PhpInterpreters">
     <interpreters>
-      <interpreter id="df21d853-155c-4ec2-ad28-0cdd065d46c9" name="Ubuntu-20.04" home="\\wsl$\Ubuntu-20.04/usr/bin/php" debugger_id="php.debugger.XDebug">
-        <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DISTRIBUTION_ID="Ubuntu-20.04" />
+      <interpreter id="df21d853-155c-4ec2-ad28-0cdd065d46c9" name="Ubuntu-20.04" home="\\wsl$\Ubuntu-20.04/usr/bin/php" false="false" debugger_id="php.debugger.XDebug">
+        <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DISTRIBUTION_ID="Ubuntu-20.04" />
       </interpreter>
     </interpreters>
   </component>

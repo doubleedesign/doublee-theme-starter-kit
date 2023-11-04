@@ -1,24 +1,19 @@
 conf/*
 logs/*
 
-# ignore uploads
-app/public/wp-content/uploads/*
-
-# ignore plugins I can't distribute
-app/public/wp-content/plugins/advanced-custom-fields-component_field/*
+# ignore things that aren't the theme
+app/public
+app/public/wp-admin
+app/public/wp-includes
+app/public/wp-content/plugins
+app/public/wp-content/uploads
+app/public/wp-content
+!app/public/wp-content/themes
 
 # ignore node dependency directories
-node_modules/
+node_modules
 
 # ignore log files and databases
 *.log
 *.sql
 *.sqlite
-
-app/public/wp-content/db-error.php
-
-app/public/local-xdebuginfo.php
-
-app/public/fw-status-check.php
-
-app/public/fw-flush-cache.php
