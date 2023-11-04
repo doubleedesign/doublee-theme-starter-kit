@@ -51,7 +51,10 @@
 	}
 }
 
-
+/**
+ * Show colour previews in ACF selectboxes
+ * Note: ACF field must have 'stylized UI' option turned on
+*/
 .select2-selection__rendered,
 .select2-results__options .select2-results__option {
 	position: relative;

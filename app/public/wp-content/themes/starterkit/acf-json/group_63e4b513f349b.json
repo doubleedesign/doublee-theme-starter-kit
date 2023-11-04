@@ -17,15 +17,15 @@
                 "id": ""
             },
             "choices": {
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "accent": "Accent"
+                "primary": "<span class=\"primary\">Primary<\/span>",
+                "secondary": "<span class=\"secondary\">Secondary<\/span>",
+                "accent": "<span class=\"accent\">Accent<\/span>"
             },
             "default_value": "light",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
-            "ui": 0,
+            "ui": 1,
             "ajax": 0,
             "placeholder": ""
         }
@@ -53,5 +53,5 @@
             "hide-outer-boundary"
         ]
     },
-    "modified": 1678316698
+    "modified": 1699096735
 }
