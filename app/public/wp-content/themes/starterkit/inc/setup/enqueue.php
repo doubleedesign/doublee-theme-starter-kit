@@ -48,6 +48,6 @@ add_action('admin_init', 'starterkit_editor_css');
  * @return void
  */
 function starterkit_admin_css(): void {
-	wp_enqueue_style('starterkit-admin-css', get_template_directory_uri() . '/admin-styles.css');
+	wp_enqueue_style('starterkit-theme-admin', get_template_directory_uri() . '/admin-styles.css');
 }
 add_action('admin_enqueue_scripts', 'starterkit_admin_css');

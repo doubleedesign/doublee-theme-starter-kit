@@ -1,16 +1,10 @@
 <?php
 /**
- * Setup for Advanced Custom Fields
+ * Setup for theme-specific Advanced Custom Fields stuff
  * @wp-hook
  * @return void
  */
 function starterkit_setup_acf(): void {
-	if(function_exists('acf_add_options_page')) {
-		acf_add_options_page(array(
-			'page_title' => 'Global Options',
-			'position' => 2
-		));
-	}
 }
 add_action('acf/init', 'starterkit_setup_acf', 5);
 
