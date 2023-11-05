@@ -37,7 +37,33 @@ Gulp needs to be installed globally: `npm install gulp-cli -g`.
 [Commitizen](https://github.com/commitizen/cz-cli) is set up to run with the `yarn commit` command.
 It will also lint staged files before proceeding to the commit options.
 
-## Front-end libraries
+## Setup
+
+- Install and activate [Classic Editor](https://wordpress.org/plugins/classic-editor/) and [Advanced Editor Tools](https://wordpress.org/plugins/tinymce-advanced/) plugins
+- Set Classic Editor to the default editor everywhere
+- Import [These TinyMCE settings](setup/tinymce-settings.json) (Go to Settings > Advanced Editor Tools > Import Settings)
+- Get the plugins/licenses described below
+
+## General intentions and advice
+
+I am of the firm opinion that it is best practice for custom post types, taxonomies, related custom fields/meta (ACF-based or otherwise) to be defined in plugins (not themes). Similarly, most functionality that is not about the front-end design / content display usually also belongs in a plugin.
+
+With that in mind, to take a separation-of-concerns approach as much as is practical, I use this theme starterkit with my own [plugin framework](https://github.com/doubleedesign/doublee-plugin-framework). I create a custom theme and plugin for each individual client site by copying, modifying, and adding to these two codebases.
+
+This theme is also designed to work with my [breadcrumb](https://github.com/doubleedesign/breadcrumbs-doublee) plugin.
+
+## Licensing, plugins, and APIs
+
+To use this kit you will need:
+- Your own [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) licence
+- Your own [ACF Component Field plugin](https://acf-component-field.gummi.io/) licence (if using the component fields, such as "colour theme")
+- Your own [Hover.css](https://ianlunn.github.io/Hover/) licence if using for a commercial project
+- Your own [Google Maps API](https://developers.google.com/maps/documentation/javascript/get-api-key) key (with Maps JavaScript API and Places API enabled) if using any of the map-related content modules
+- Your own [Font Awesome Pro](https://fontawesome.com/) licence (or change the icons throughout the theme code to use only free icons or a different icon library of your choice)
+
+The form modules have been styled for and tested with Ninja Forms, but not all extensions have been tested. The modules should work with any form plugin that allows you to use a shortcode to display a form, you will just need to do your own styling.
+
+## A bit of background re front-end libraries
 
 I worked with [Foundation](https://get.foundation/) for many years, as well as working at an agency where our starter
 kit
@@ -59,25 +85,4 @@ So far, the third-party libraries/parts of libraries used/adapted are:
 - Bootstrap 5.2's Accordion
 
 I will add to this list as I build sites with this starter kit and create new reusable components, find it makes sense
-to include a utility library,
-etc.
-
-## Licensing, plugins, and APIs
-
-To use this kit you will need:
-
-- The [Classic Editor](https://wordpress.org/plugins/classic-editor/) and [Advanced Editor Tools](https://wordpress.org/plugins/tinymce-advanced/) plugins installed and activated
-  - Classic Editor set to the default editor everywhere
-  - [These TinyMCE settings](setup/tinymce-settings.json) imported (Go to Settings > Advanced Editor Tools > Import Settings)
-- Your own [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) licence
-- Your own [ACF Component Field plugin](https://acf-component-field.gummi.io/) licence (if using the component fields,
-  such as "colour theme")
-- Your own [Hover.css](https://ianlunn.github.io/Hover/) licence if using for a commercial project
-- Your own [Google Maps API](https://developers.google.com/maps/documentation/javascript/get-api-key) key (with Maps
-  JavaScript API and Places API enabled) if using any of the map-related content modules
-- Your own [Font Awesome Pro](https://fontawesome.com/) licence (or change the icons throughout the theme code to use
-  only free icons or a different icon library of your choice)
-
-The form modules have been styled for and tested with Ninja Forms, but not all extensions have been tested. The modules
-should work with any form plugin that
-allows you to use a shortcode to display a form, you will just need to do your own styling.
+to include a utility library, etc.
