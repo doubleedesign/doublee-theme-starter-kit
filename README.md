@@ -1,4 +1,4 @@
-# doublee-dev-starter-kit
+# doublee-theme-starter-kit
 
 **A WordPress theme starterkit for developers of bespoke websites.**
 
