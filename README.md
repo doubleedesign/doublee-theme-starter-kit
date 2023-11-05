@@ -1,16 +1,15 @@
 # doublee-dev-starter-kit
 
-**A WordPress site starter kit for developers of bespoke websites.**
+**A WordPress theme starterkit for developers of bespoke websites.**
 
-Designed for use with Classic Editor, Advanced Custom Fields Pro, and my own included breadcrumb plugin.
-Includes some other plugins I commonly use, but they are not essential for the base install to work out-of-the-box.
+Designed for use with Classic Editor with Advanced Editor Tools (previously TinyMCE Advanced) and Advanced Custom Fields Pro.
 
-The starter kit theme does not yet support the block editor because my projects tend to involve extensive use of
+**Note:** This starterkit theme does not yet support the block editor because my projects tend to involve extensive use of
 custom post types, taxonomies, archive pages, etc which would result in very different editing experiences for
 different parts of the site if the block editor was used. So for the best client experience currently possible,
-I'm sticking with the "classic" method at least for now.
+I'm sticking with the "classic" method for now.
 
-## Build tools for themes
+## Build tools 
 
 Scripts are set up in `package.json` for:
 
@@ -41,8 +40,14 @@ It will also lint staged files before proceeding to the commit options.
 
 - Install and activate [Classic Editor](https://wordpress.org/plugins/classic-editor/) and [Advanced Editor Tools](https://wordpress.org/plugins/tinymce-advanced/) plugins
 - Set Classic Editor to the default editor everywhere
-- Import [These TinyMCE settings](setup/tinymce-settings.json) (Go to Settings > Advanced Editor Tools > Import Settings)
+- Import [these TinyMCE settings](setup/tinymce-settings.json) (Go to Settings > Advanced Editor Tools > Import Settings)
 - Get the plugins/licenses described below
+- Fork this repo, set it up in your IDE, and rename `starterkit` everywhere to your own theme name
+- Install Gulp globally if you haven't already (or modify to use whatever tool you prefer to compile stuff)
+- Navigate to the theme folder in your terminal
+- Run `npm install` or `yarn install`
+- Run `gulp` (or your alternative) to watch SCSS and JS for changes
+- Get theming!
 
 ## General intentions and advice
 
