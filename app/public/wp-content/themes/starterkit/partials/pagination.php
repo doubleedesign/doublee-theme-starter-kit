@@ -11,11 +11,14 @@
 			'end_size'  => 3,
 			'mid_size'  => 3
 		));
-		$output = str_replace('page-numbers', 'btn btn--dark--hollow', $output);
-		$output = str_replace("<ul class='btn btn--dark--hollow'>", '<ul>', $output);
-		$output = str_replace('outline current', 'current', $output);
+		
+		if($output) {
+			$output = str_replace('page-numbers', 'btn btn--dark--hollow', $output);
+			$output = str_replace("<ul class='btn btn--dark--hollow'>", '<ul>', $output);
+			$output = str_replace('outline current', 'current', $output);
 
-		echo $output;
+			echo $output;
+		}
 		?>
 	</div>
 </div>
