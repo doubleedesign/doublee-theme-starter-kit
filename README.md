@@ -14,8 +14,6 @@ I'm sticking with the "classic" method for now.
 Scripts are set up in `package.json` for:
 
 - [eslint](https://eslint.org)
-- [phplint](https://www.npmjs.com/package/phplint) (Note: You will need the PHP CLI set up on your machine for this to
-  work; it's a wrapper for the native linter with no options)
 - [stylelint](https://stylelint.io/) with [SCSS plugin](https://www.npmjs.com/package/stylelint-scss)
 
 I use PHPStorm which has some built-in formatting and code quality options (inspections) for PHP, so I use those rather
