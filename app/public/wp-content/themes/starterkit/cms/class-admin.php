@@ -6,7 +6,7 @@ class Starterkit_Admin {
 
 	public function __construct() {
 		add_action('admin_notices', [$this, 'required_plugin_notification']);
-		//add_action('admin_init', [$this, 'disable_customiser']);
+		add_action('admin_init', [$this, 'disable_customiser']);
 		add_action('admin_enqueue_scripts', [$this, 'admin_css']);
 		add_action('login_enqueue_scripts', [$this, 'login_logo']);
 		add_action('admin_menu', [$this, 'remove_metaboxes']);
