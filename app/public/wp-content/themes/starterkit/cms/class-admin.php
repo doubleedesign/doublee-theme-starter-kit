@@ -77,7 +77,7 @@ class Starterkit_Admin {
 	 * @return void
 	 */
 	function admin_css(): void {
-		wp_enqueue_style('starterkit-admin-css', get_stylesheet_directory_uri() . '/css/styles-admin.css');
+		wp_enqueue_style('starterkit-admin-css', get_stylesheet_directory_uri() . '/styles-admin.css');
 		wp_enqueue_style('starterkit-fonts', 'https://use.typekit.net/gwg0cmn.css');
 	}
 
