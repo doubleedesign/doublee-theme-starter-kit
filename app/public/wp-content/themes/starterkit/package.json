@@ -1,13 +1,14 @@
 {
-	"name": "starterkit",
-	"version": "1.0.0",
+	"name": "doublee-theme-starter-kit",
+	"version": "2.0.0",
 	"description": "Custom WordPress theme starter kit",
 	"author": "Double-E Design",
-	"engines": {
-		"node": "^14.21.3"
-	},
-	"main": "index.js",
+	"url": "https://github.com/doubleedesign/doublee-theme-starter-kit",
 	"type": "module",
+	"license": "GPL-3.0-or-later",
+	"engines": {
+		"node": ">=14.21.3 || <= 19.x.x"
+	},
 	"scripts": {
 		"lint:css": "stylelint scss/**/*.scss",
 		"lint:css:fix": "stylelint scss/**/*.scss --fix",
@@ -28,38 +29,40 @@
 			"eslint **/*.php"
 		]
 	},
-	"license": "GPL-3.0-or-later",
-	"devDependencies": {
-		"@doubleedesign/animate-into-view": "^1.0.0",
-		"@doubleedesign/hover.css": "https://github.com/doubleedesign/Hover.css#1.0.1",
-		"@valtech-commerce/json-to-scss": "^1.0.1",
-		"@wordpress/eslint-plugin": "^14.1.0",
-		"@wordpress/stylelint-config": "^20.0.2",
-		"browser-sync": "^2.28.3",
-		"commitizen": "^4.3.0",
-		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.18.0",
-		"eslint-plugin-html": "^7.1.0",
-		"eslint-plugin-php-markup": "^6.0.0",
-		"gulp": "^4.0.2",
-		"gulp-clean-css": "^4.3.0",
-		"gulp-concat": "^2.6.1",
-		"gulp-plumber": "^1.2.1",
-		"gulp-rename": "^2.0.0",
-		"gulp-rollup-2": "^1.3.1",
-		"gulp-sass": "^5.1.0",
-		"gulp-sass-glob": "^1.1.0",
-		"gulp-sourcemaps": "^3.0.0",
-		"gulp-uglify": "^3.0.2",
-		"lint-staged": "^13.2.0",
-		"phplint": "^2.0.5",
-		"sass": "^1.59.3",
-		"stylelint": "^15.2.0",
-		"stylelint-scss": "^4.5.0"
-	},
 	"config": {
 		"commitizen": {
 			"path": "./app/public/wp-content/themes/starterkit/node_modules/cz-conventional-changelog"
 		}
+	},
+	"devDependencies": {
+		"@doubleedesign/animate-into-view": "^1.0.0",
+		"@doubleedesign/hover.css": "https://github.com/doubleedesign/Hover.css#1.0.1",
+		"@valtech-commerce/json-to-scss": "^1.0.1",
+		"@wordpress/eslint-plugin": "^14.12.0",
+		"@wordpress/stylelint-config": "^21.31.0",
+		"commitizen": "^4.3.0",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^8.56.0",
+		"eslint-plugin-html": "^7.1.0",
+		"eslint-plugin-php-markup": "^6.0.0",
+		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-dart-sass": "^1.1.0",
+		"gulp-rollup-2": "^1.3.1",
+		"gulp-sass-glob": "^1.1.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"lint-staged": "^13.3.0",
+		"stylelint": "^14.2.0",
+		"stylelint-scss": "^5.3.2"
+	},
+	"resolutions": {
+		"chokidar": "^3.5.2",
+		"glob-parent": "^6.0.2",
+		"postcss": "^8.3.11",
+		"@gulp-sourcemaps/identity-map": "^2.0.1"
+	},
+	"overrides": {
+		"glob-parent": "^6.0.2",
+		"postcss": "^8.3.11"
 	}
 }

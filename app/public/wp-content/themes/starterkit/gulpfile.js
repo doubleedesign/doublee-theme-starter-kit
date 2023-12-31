@@ -1,65 +1,63 @@
 import gulp from 'gulp';
-import sourcemaps from 'gulp-sourcemaps';
-import { create } from 'browser-sync';
-import minifyCSS from 'gulp-clean-css';
-import rename from 'gulp-rename';
-import dartSass from 'sass';
-import gulpSass from 'gulp-sass';
-import sassGlob from 'gulp-sass-glob';
-import plumber from 'gulp-plumber';
 import gru2 from 'gulp-rollup-2';
+import sassGlob from 'gulp-sass-glob';
 import concat from 'gulp-concat';
+import jsonToScss from '@valtech-commerce/json-to-scss';
+import { readFile, writeFile } from 'fs';
+import sass from 'gulp-dart-sass';
+import sourcemaps from 'gulp-sourcemaps';
 
-const sass = gulpSass(dartSass);
-const browsersync = create();
+gulp.task('variables', (done) => {
+	readFile(`./theme.json`, 'utf8', async(error, theme) => {
+		if (error) {
+			console.log(error);
+			done();
+		}
+		const scss = jsonToScss.convert(`${ theme }`);
+		if (scss) {
+			await writeFile('scss/_variables.scss', scss, '', () => {
+				console.log('theme.json converted to SCSS variables');
+				done();
+			});
+		}
+		else {
+			console.log('Problem with converting theme.json to SCSS variables');
+			done();
+		}
+	})
 
-gulp.task('styles', (done) => {
+});
+gulp.task('theme', (done) => {
 	gulp.src('scss/style.scss')
-		.pipe(sassGlob())
 		.pipe(sourcemaps.init())
-		.pipe(
-			plumber(function(error) {
-				// eslint-disable-next-line no-console
-				console.log(error);
-				this.emit('end');
-			}),
-		)
+		.pipe(sassGlob())
 		.pipe(sass())
-		.pipe(minifyCSS())
-		.pipe(rename('style.css'))
-		.pipe(sourcemaps.write('/', ''))
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./'))
-		.pipe(browsersync.stream());
 	done();
 });
 
-gulp.task('editor-styles', (done) => {
-	gulp.src('scss/editor-styles.scss')
-		.pipe(sassGlob())
+gulp.task('editor', (done) => {
+	gulp.src('scss/styles-editor.scss')
 		.pipe(sourcemaps.init())
+		.pipe(sassGlob())
 		.pipe(sass())
-		.pipe(minifyCSS())
-		.pipe(rename('editor-styles.css'))
-		.pipe(sourcemaps.write('/'))
-		.pipe(gulp.dest('./'))
-		.pipe(browsersync.stream());
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('./'));
 	done();
 });
 
-gulp.task('admin-styles', (done) => {
-	gulp.src('scss/admin-styles.scss')
-		.pipe(sassGlob())
+gulp.task('admin', (done) => {
+	gulp.src('scss/styles-admin.scss')
 		.pipe(sourcemaps.init())
+		.pipe(sassGlob())
 		.pipe(sass())
-		.pipe(minifyCSS())
-		.pipe(rename('admin-styles.css'))
-		.pipe(sourcemaps.write('/'))
-		.pipe(gulp.dest('./'))
-		.pipe(browsersync.stream());
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('./'));
 	done();
 });
 
-gulp.task('scripts', function(done) {
+gulp.task('scripts', (done) => {
 	gulp.src('./js/**/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(
@@ -76,13 +74,14 @@ gulp.task('scripts', function(done) {
 				],
 			}),
 		)
-		.pipe(sourcemaps.write('/', ''))
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./js/dist'));
 	done();
 });
 
 gulp.task('vendor', (done) => {
 	gulp.src('./js/vendor/**/*.js')
+		.pipe(sourcemaps.init())
 		.pipe(concat('vendor.js'))
 		.pipe(
 			gru2.rollup({
@@ -98,30 +97,16 @@ gulp.task('vendor', (done) => {
 				],
 			}),
 		)
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('js/dist'))
-		.pipe(browsersync.stream());
 	done();
 });
 
-gulp.task('build', function() {
-	browsersync.init({
-		proxy: {
-			target: 'https://doublee-dev-starter-kit.local/',
-		},
-		snippetOptions: {
-			whitelist: ['/wp-admin/admin-ajax.php'],
-			blacklist: ['/wp-admin/**'],
-		},
-	});
-
-	gulp.watch('scss/**/*.scss', gulp.series('styles'));
-	gulp.watch('scss/**/*.scss', gulp.series('editor-styles'));
-	gulp.watch('scss/admin-styles.scss', gulp.series('admin-styles'));
-	gulp.watch('js/theme/*.js', gulp.series('scripts'));
-	gulp.watch('js/theme.js', gulp.series('scripts'));
-	gulp.watch('js/vendor/[^_]*.js', gulp.series('vendor'));
-
-	browsersync.reload();
+gulp.task('default', function() {
+	gulp.watch('theme.json', { ignoreInitial: false  }, gulp.series('variables', 'theme', 'editor', 'admin'));
+	gulp.watch('scss/**/!(_variables).scss', { ignoreInitial: false, events: ['change'] }, gulp.parallel('theme', 'editor'));
+	gulp.watch('scss/styles-admin.scss', { ignoreInitial: false }, gulp.series('admin'));
+	gulp.watch('js/theme/*.js', { ignoreInitial: false }, gulp.series('scripts'));
+	gulp.watch('js/theme.js', { ignoreInitial: false }, gulp.series('scripts'));
+	gulp.watch('js/vendor/[^_]*.js', { ignoreInitial: false }, gulp.series('vendor'));
 });
-
-gulp.task('default', gulp.parallel(gulp.series('build')));

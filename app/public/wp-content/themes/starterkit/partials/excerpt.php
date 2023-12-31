@@ -8,7 +8,7 @@
 		<div class="excerpt__content__copy entry-content">
 			<h2><?php the_title(); ?></h2>
 			<span class="post-date">Posted on <?php echo get_the_date(); ?></span>
-			<?php echo starterkit_custom_excerpt(get_the_excerpt(), 25); ?>
+			<?php echo Starterkit_Theme_Frontend_Utils::get_custom_excerpt(get_the_excerpt(), 25); ?>
 			<a class="btn btn--primary" href="<?php the_permalink(); ?>">Read article</a>
 		</div>
 	</div>

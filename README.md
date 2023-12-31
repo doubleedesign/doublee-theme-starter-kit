@@ -9,7 +9,40 @@ custom post types, taxonomies, archive pages, etc which would result in very dif
 different parts of the site if the block editor was used. So for the best client experience currently possible,
 I'm sticking with the "classic" method for now.
 
-## Build tools 
+## Changes in version 2
+#### Theme features
+- `theme.json` file for easy customisation of theme colours, fonts, and other settings. This file is used: 
+  - in the Gulp SCSS compilation process to generate the theme's `style.css` file
+  - in PHP files that customise some TinyMCE and ACF options in the admin.
+- Preview of colour selections in ACF fields when the colour names match those in `theme.json` (e.g., primary, secondary).
+
+#### Code structure
+- PHP function files refactored into an object-oriented pattern, similar to how my [plugin framework](https://github.com/doubleedesign/doublee-plugin-framework) is structured.
+
+#### Tooling
+- All Gulp tasks now run immediately when the `gulp` command is run, rather than waiting for a file change.
+- Removed BrowserSync because I don't really use it much and want to keep dependencies to a minimum.
+- Various dependency updates, cleanup and simplification.
+
+---
+
+## Working with this starter kit
+
+### Getting started
+
+- Install and activate [Classic Editor](https://wordpress.org/plugins/classic-editor/) and [Advanced Editor Tools](https://wordpress.org/plugins/tinymce-advanced/) plugins
+- Set Classic Editor to the default editor everywhere
+- Import [these TinyMCE settings](setup/tinymce-settings.json) (Go to Settings > Advanced Editor Tools > Import Settings)
+- Get the plugins/licenses described below
+- Fork this repo, set it up in your IDE, and rename `starterkit` and `Starterkit` everywhere to your own theme name (do a case-sensitive find-and-replace)
+- Install Gulp globally if you haven't already (or modify to use whatever tool you prefer to compile stuff)
+- Navigate to the theme folder in your terminal
+- Run `npm install`
+- Update `theme.json` with your settings 
+- Run `gulp` to watch SCSS, JS, and `theme.json` for changes
+- Get theming!
+
+### Build tools
 
 Scripts are set up in `package.json` for:
 
@@ -26,36 +59,16 @@ check the theme and/or any custom plugins I'm working on in the project.
 A Gulpfile is included to:
 
 - Concatenate JS files, including support for ES6 module imports
+- Update the SCSS variables file using the `theme.json` file
 - Compile, concatenate and minify SCSS files into the theme's `style.css`
 - Generate sourcemaps for JS and SCSS
 
 Gulp needs to be installed globally: `npm install gulp-cli -g`.
 
-[Commitizen](https://github.com/commitizen/cz-cli) is set up to run with the `yarn commit` command.
+[Commitizen](https://github.com/commitizen/cz-cli) is set up to run with the `npm run commit` command.
 It will also lint staged files before proceeding to the commit options.
 
-## Setup
-
-- Install and activate [Classic Editor](https://wordpress.org/plugins/classic-editor/) and [Advanced Editor Tools](https://wordpress.org/plugins/tinymce-advanced/) plugins
-- Set Classic Editor to the default editor everywhere
-- Import [these TinyMCE settings](setup/tinymce-settings.json) (Go to Settings > Advanced Editor Tools > Import Settings)
-- Get the plugins/licenses described below
-- Fork this repo, set it up in your IDE, and rename `starterkit` everywhere to your own theme name
-- Install Gulp globally if you haven't already (or modify to use whatever tool you prefer to compile stuff)
-- Navigate to the theme folder in your terminal
-- Run `npm install` or `yarn install`
-- Run `gulp` (or your alternative) to watch SCSS and JS for changes
-- Get theming!
-
-## General intentions and advice
-
-I am of the firm opinion that it is best practice for custom post types, taxonomies, related custom fields/meta (ACF-based or otherwise) to be defined in plugins (not themes). Similarly, most functionality that is not about the front-end design / content display usually also belongs in a plugin.
-
-With that in mind, to take a separation-of-concerns approach as much as is practical, I use this theme starterkit with my own [plugin framework](https://github.com/doubleedesign/doublee-plugin-framework). I create a custom theme and plugin for each individual client site by copying, modifying, and adding to these two codebases.
-
-This theme is also designed to work with my [breadcrumb](https://github.com/doubleedesign/breadcrumbs-doublee) plugin.
-
-## Licensing, plugins, and APIs
+### Licensing, plugins, and APIs
 
 To use this kit you will need:
 - Your own [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) licence
@@ -66,26 +79,16 @@ To use this kit you will need:
 
 The form modules have been styled for and tested with Ninja Forms, but not all extensions have been tested. The modules should work with any form plugin that allows you to use a shortcode to display a form, you will just need to do your own styling.
 
-## A bit of background re front-end libraries
+Some parts of the code have been pulled from open source libraries and modified to suit my needs, for example the [Bootstrap](https://getbootstrap.com/) grid* and accordion. I have included attribution comments where this is the case.
 
-I worked with [Foundation](https://get.foundation/) for many years, as well as working at an agency where our starter
-kit
-used [Bootstrap](https://getbootstrap.com/). In both cases, some parts of the framework were used and not others
-(whether it be simply not implementing a component, or using an alternative or a custom replacement).
-After having a few cracks at rolling my own and taking some other frameworks out for a brief test drive,
-I decided it was best to cherry-pick the parts of libraries/frameworks that it makes the most sense for me to use - no
-more, no less -
-and combine them along with my own custom stuff as needed.
-e.g., Let's not have all of Bootstrap sitting there if we're just using the grid and a couple of other components. Let's
-not have three different accordions in the code when we only need one, etc.
+### General intentions and advice
 
-So far, the third-party libraries/parts of libraries used/adapted are:
+I am of the firm opinion that it is best practice for custom post types, taxonomies, related custom fields/meta (ACF-based or otherwise) to be defined in plugins (not themes). Similarly, most functionality that is not about the front-end design / content display usually also belongs in a plugin.
 
-- A modified version of Bootstrap 5.2's [flexbox grid system](https://getbootstrap.com/docs/5.2/layout/grid/)
-  and [breakpoints](https://getbootstrap.com/docs/5.2/layout/breakpoints/). My version does not require both containers
-  and rows - rows have the max-width
-  properties of containers added.
-- Bootstrap 5.2's Accordion
+With that in mind, to take a separation-of-concerns approach as much as is practical, I use this theme starterkit with my own [plugin framework](https://github.com/doubleedesign/doublee-plugin-framework). I create a custom theme and plugin for each individual client site by copying, modifying, and adding to these two codebases.
 
-I will add to this list as I build sites with this starter kit and create new reusable components, find it makes sense
-to include a utility library, etc.
+This theme is also designed to work with my [breadcrumb](https://github.com/doubleedesign/breadcrumbs-doublee) plugin.
+
+The front-end layout grid system used is a modified version of Bootstrap 5.2's [flexbox grid system](https://getbootstrap.com/docs/5.2/layout/grid/)
+and [breakpoints](https://getbootstrap.com/docs/5.2/layout/breakpoints/). My version does not require both containers and rows - rows have the max-width properties of containers added.
+

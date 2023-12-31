@@ -7,7 +7,6 @@ app/public/wp-admin
 app/public/wp-includes
 app/public/wp-content/plugins
 app/public/wp-content/uploads
-app/public/wp-content
 !app/public/wp-content/themes
 
 # ignore node dependency directories

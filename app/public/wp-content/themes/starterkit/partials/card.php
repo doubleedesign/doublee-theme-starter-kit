@@ -5,7 +5,7 @@
 		</div>
 		<div class="card__content__copy entry-content">
 			<h3><?php the_title(); ?></h3>
-			<?php echo starterkit_custom_excerpt(get_the_excerpt(), 25); ?>
+			<?php echo Starterkit_Theme_Frontend_Utils::get_custom_excerpt(get_the_excerpt(), 25); ?>
 		</div>
 	</a>
 </div>

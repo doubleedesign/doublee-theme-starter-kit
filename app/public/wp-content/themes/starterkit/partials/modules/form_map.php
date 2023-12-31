@@ -16,7 +16,7 @@ $infowindow .= '</div>';
 	<div class="row">
 		<div class="module__form-map__copy entry-content col-xs-12 col-md-6">
 			<?php echo $copy; ?>
-			<?php echo starterkit_address('expanded'); ?>
+			<?php echo Starterkit_Theme_Frontend_Utils::get_address('expanded'); ?>
 		</div>
 		<div class="module__form-map__form col-xs-12 col-md-6">
 			<?php echo do_shortcode($form); ?>
