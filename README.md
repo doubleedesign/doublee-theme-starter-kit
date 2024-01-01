@@ -35,7 +35,7 @@ I'm sticking with the "classic" method for now.
 - Import [these TinyMCE settings](setup/tinymce-settings.json) (Go to Settings > Advanced Editor Tools > Import Settings)
 - Get the plugins/licenses described below
 - Fork this repo, set it up in your IDE, and rename `starterkit` and `Starterkit` everywhere to your own theme name (do a case-sensitive find-and-replace)
-- Install Gulp globally if you haven't already (or modify to use whatever tool you prefer to compile stuff)
+- Install [Gulp](https://gulpjs.com/) globally
 - Navigate to the theme folder in your terminal
 - Run `npm install`
 - Update `theme.json` with your settings 
