@@ -1,4 +1,4 @@
-# doublee-theme-starter-kit
+# Double-E WP Theme Starterkit (Classic Editor edition)
 
 **A WordPress theme starterkit for developers of bespoke websites.**
 
