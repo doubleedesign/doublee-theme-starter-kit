@@ -4,10 +4,9 @@
 
 Designed for use with Classic Editor with Advanced Editor Tools (previously TinyMCE Advanced) and Advanced Custom Fields Pro.
 
-**Note:** This starterkit theme does not yet support the block editor because my projects tend to involve extensive use of
+**Note:** This starterkit theme does not support the block editor because my projects tend to involve extensive use of
 custom post types, taxonomies, archive pages, etc which would result in very different editing experiences for
-different parts of the site if the block editor was used. So for the best client experience currently possible,
-I'm sticking with the "classic" method for now.
+different parts of the site if the block editor was used. I have started a [block editor version](https://github.com/doubleedesign/doublee-theme-starter-kit-blocks) but it's very early days.
 
 ## Changes in version 2
 #### Theme features
