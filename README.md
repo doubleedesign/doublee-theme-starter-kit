@@ -84,7 +84,7 @@ Some parts of the code have been pulled from open source libraries and modified 
 
 I am of the firm opinion that it is best practice for custom post types, taxonomies, related custom fields/meta (ACF-based or otherwise) to be defined in plugins (not themes). Similarly, most functionality that is not about the front-end design / content display usually also belongs in a plugin.
 
-With that in mind, to take a separation-of-concerns approach as much as is practical, I use this theme starterkit with my own [plugin framework](https://github.com/doubleedesign/doublee-plugin-framework). I create a custom theme and plugin for each individual client site by copying, modifying, and adding to these two codebases.
+With that in mind, to take a separation-of-concerns approach as much as is practical, I use this theme starterkit with my own [base plugin](https://github.com/doubleedesign/doublee-base-plugin) and an additional plugin for client-specific functionality. 
 
 This theme is also designed to work with my [breadcrumb](https://github.com/doubleedesign/breadcrumbs-doublee) plugin.
 

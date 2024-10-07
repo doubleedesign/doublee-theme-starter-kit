@@ -1,6 +1,3 @@
 [submodule "app/public/wp-content/plugins/breadcrumbs-doublee"]
 	path = app/public/wp-content/plugins/breadcrumbs-doublee
 	url = https://github.com/doubleedesign/breadcrumbs-doublee
-[submodule "app/public/wp-content/plugins/doublee-plugin-framework"]
-	path = app/public/wp-content/plugins/doublee-plugin-framework
-	url = https://github.com/doubleedesign/doublee-plugin-framework
