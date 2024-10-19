@@ -28,17 +28,17 @@ get_template_part('partials/page-header');
 		</div>
 		<div class="row" style="margin-bottom: 1rem">
 			<div class="col-12 col-md-5">
-				<div class="bg-primary entry-content" style="padding:1rem">
+				<div class="has-primary-background-color entry-content" style="padding:1rem">
 					<p>Primary</p>
 				</div>
 			</div>
 			<div class="col-12 col-md-4">
-				<div class="bg-secondary entry-content" style="padding:1rem">
+				<div class="has-secondary-background-color entry-content" style="padding:1rem">
 					<p>Secondary</p>
 				</div>
 			</div>
 			<div class="col-12 col-md-3">
-				<div class="bg-accent entry-content" style="padding:1rem">
+				<div class="has-accent-background-color entry-content" style="padding:1rem">
 					<p>Accent</p>
 				</div>
 			</div>
@@ -46,7 +46,7 @@ get_template_part('partials/page-header');
 		<div class="row">
 			<?php foreach(['success', 'info', 'warning', 'alert', 'light', 'dark'] as $colour) { ?>
 				<div class="col-6 col-md-2">
-					<div class="bg-<?php echo $colour; ?> entry-content" style="padding:1rem">
+					<div class="has-<?php echo $colour; ?>-background-color entry-content" style="padding:1rem">
 						<p><?php echo ucfirst($colour); ?></p>
 					</div>
 				</div>
@@ -59,7 +59,7 @@ get_template_part('partials/page-header');
 			<h2>Basic background colours and their default text</h2>
 			<?php foreach ($backgrounds as $background) { ?>
 				<div class="col-12 col-md-6">
-					<div class="entry-content bg-<?php echo $background; ?>" style="padding:1rem; margin-bottom: 1rem;">
+					<div class="entry-content has-<?php echo $background; ?>-background-color" style="padding:1rem; margin-bottom: 1rem;">
 						<h3><?php echo ucfirst($background); ?></h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget turpis tempor, iaculis dolor eget, tempor mauris.</p>
 						<p><a href="#">Basic link</a></p>
@@ -76,7 +76,7 @@ get_template_part('partials/page-header');
 			<h2>Colour themes used as a background</h2>
 			<?php foreach ($themes as $background) { ?>
 				<div class="col-12 col-md-6 col-lg-4">
-					<div class="entry-content bg-<?php echo $background; ?>" style="padding:1rem; margin-bottom: 1rem;">
+					<div class="entry-content has-<?php echo $background; ?>-background-color" style="padding:1rem; margin-bottom: 1rem;">
 						<h3><?php echo ucfirst($background); ?></h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget turpis tempor, iaculis dolor eget, tempor mauris.</p>
 						<p><a href="#">Basic link</a></p>
@@ -101,7 +101,7 @@ get_template_part('partials/page-header');
 			<?php foreach ($backgrounds as $background) { ?>
 				<?php foreach($themes as $theme) { ?>
 					<div class="col-12 col-md-6 col-lg-4">
-						<div class="entry-content bg-<?php echo $background; ?> theme-<?php echo $theme; ?>" style="padding:1rem; margin-bottom: 1rem;">
+						<div class="entry-content has-<?php echo $background; ?>-background-color theme-<?php echo $theme; ?>" style="padding:1rem; margin-bottom: 1rem;">
 							<h3><?php echo ucfirst($background); ?> + <?php echo $theme; ?></h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget turpis tempor, iaculis dolor eget, tempor mauris.</p>
 							<p><a href="#">Basic link</a></p>

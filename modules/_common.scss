@@ -1,0 +1,6 @@
+// Core utilities and styles to be imported into every module at compile time without explicit imports
+@import '../common/scss/variables';
+@import '../common/scss/core/functions';
+@import '../common/scss/core/mixins';
+@import '../common/scss/core/bootstrap/mixins/breakpoints';
+@import '../node_modules/@doubleedesign/hover.css/hover';

@@ -25,7 +25,10 @@
             "default_value": "white",
             "return_format": "value",
             "multiple": 0,
+            "allow_custom": 0,
+            "search_placeholder": "",
             "allow_null": 0,
+            "allow_in_bindings": 0,
             "ui": 1,
             "ajax": 0,
             "placeholder": ""
@@ -41,6 +44,11 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
     "is_acf_component": 1,
     "acf_component_defaults": {
         "layout": "block",
@@ -54,5 +62,7 @@
             "hide-outer-boundary"
         ]
     },
-    "modified": 1699096725
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1729309589
 }

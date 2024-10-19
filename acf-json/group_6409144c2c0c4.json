@@ -24,6 +24,7 @@
             "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
+            "allow_in_bindings": 0,
             "layout": "horizontal",
             "save_other_choice": 0
         }
@@ -38,6 +39,11 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
     "is_acf_component": 1,
     "acf_component_defaults": {
         "layout": "block",
@@ -51,5 +57,7 @@
             "hide-outer-boundary"
         ]
     },
-    "modified": 1678317142
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1729308443
 }

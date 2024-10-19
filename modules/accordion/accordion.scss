@@ -1,0 +1,9 @@
+// Import styles that apply to all instances of accordions, whether in an ACF flexible module or otherwise templated in
+@import '../../common/scss/accordion';
+
+.module__accordion {
+
+	> .row {
+		justify-content: center;
+	}
+}

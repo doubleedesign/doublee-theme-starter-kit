@@ -19,12 +19,14 @@
 		"space-in-parens": ["error", "never"],
 		"array-bracket-spacing": ["error", "never"],
 		"object-curly-spacing": ["error", "always"],
+		"template-curly-spacing": ["error", "never"],
 		"computed-property-spacing": ["warn", "never"],
 		"space-before-function-paren": ["error", "never"],
 		"func-call-spacing": ["error", "never"],
 		"quotes": ["warn", "single"],
 		"brace-style": [2, "stroustrup", { "allowSingleLine": false }],
-		"linebreak-style": ["warn", "windows"]
+		"linebreak-style": ["warn", "windows"],
+		"space-unary-ops": "off"
 	},
 	"settings": {
 		"php/php-extensions": [".php"],

@@ -1,0 +1,135 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $body-font-family;
+}
+
+a {
+	color: inherit;
+	transition: color 0.3s ease, text-decoration-color 0.3s ease, background 0.3s ease;
+	text-decoration-color: rgba(map-get($colours, 'dark'), 0.5);
+
+	@include hover-focus-active {
+		color: map-get($colours, 'accent');
+		text-decoration-color: currentcolor;
+	}
+}
+
+a,
+button {
+
+	@include keyboard-focus {
+		box-shadow: 0 0 3px 2px map-get($colours, 'primary');
+		outline-color: map-get($colours, 'primary');
+	}
+}
+
+small {
+	font-size: map-get($font-sizes, xs);
+}
+
+img,
+svg {
+	max-width: 100%;
+}
+
+.media-item {
+
+	&--aspect-ratio-crop {
+		position: relative;
+
+		img {
+			position: absolute;
+			inset: 0 0 0 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+		}
+
+		&-none {
+
+			img {
+				position: relative;
+			}
+		}
+
+		&-square {
+			padding-top: map-get($aspect-ratios, '1x1');
+		}
+
+		&-four-three {
+			padding-top: map-get($aspect-ratios, '4x3');
+		}
+
+		&-sixteen-nine {
+			padding-top: map-get($aspect-ratios, '16x9');
+		}
+	}
+}
+
+.module,
+.pseudo-module {
+	@include gutter-padding-top(1.5);
+	@include gutter-padding-bottom(1.5);
+}
+
+@each $colour, $value in $colours {
+	.has-#{$colour}-background-color {
+		background: $value;
+
+		&.module + .module.has-#{$colour}-background-color,
+		&.module + .module.has-#{$colour}-background-color {
+			padding-top: 0;
+		}
+
+		&.entry-content {
+			color: color-contrast($value);
+
+			a:not(.btn) {
+				color: color-contrast($value);
+				text-decoration-color: rgba(color-contrast($value), 0.4);
+				@include underline-from-center(color-contrast($value));
+				vertical-align: top;
+
+				&:before {
+					height: 2px;
+					bottom: 2px;
+				}
+			}
+
+			// see components/_buttons.scss for button defaults based on bg colour
+		}
+	}
+}
+
+.has-white-background-color,
+.has-light-background-color,
+.has-transparent-background-color {
+
+	@each $colour, $value in $colours {
+		&.theme-#{$colour} {
+			h1, h2, h3 {
+				color: $value;
+			}
+
+			a:not(.btn) {
+				@include underline-from-center($value);
+
+				&:before {
+					height: 2px;
+					bottom: 2px;
+				}
+
+				@include hover-focus-active {
+					color: $value;
+					text-decoration-color: transparent;
+				}
+			}
+		}
+	}
+
+	// see components/_buttons.scss for button defaults based on bg colour
+}

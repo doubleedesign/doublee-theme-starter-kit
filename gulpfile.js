@@ -1,112 +1,147 @@
+import {readFile, writeFile} from 'fs';
+import path from 'path';
 import gulp from 'gulp';
-import gru2 from 'gulp-rollup-2';
 import sassGlob from 'gulp-sass-glob';
-import concat from 'gulp-concat';
 import jsonToScss from '@valtech-commerce/json-to-scss';
-import { readFile, writeFile } from 'fs';
 import sass from 'gulp-dart-sass';
 import sourcemaps from 'gulp-sourcemaps';
+import header from 'gulp-header';
+import { rollup } from "gulp-rollup-2";
+import multiEntry from "@rollup/plugin-multi-entry";
 
-gulp.task('variables', (done) => {
-	readFile(`./theme.json`, 'utf8', async(error, theme) => {
+function variables(done) {
+	readFile(`./theme-vars.json`, 'utf8', async (error, theme) => {
 		if (error) {
 			console.log(error);
 			done();
-		}
-		const scss = jsonToScss.convert(`${ theme }`);
-		if (scss) {
-			await writeFile('scss/_variables.scss', scss, '', () => {
-				console.log('theme.json converted to SCSS variables');
+		} else {
+			const scss = jsonToScss.convert(`${theme}`);
+			if (scss) {
+				await writeFile('common/scss/_variables.scss', scss, '', () => {
+					console.log('theme-vars.json converted to SCSS variables');
+					done();
+				});
+			} else {
+				console.log('Problem with converting theme-vars.json to SCSS variables');
 				done();
-			});
+			}
 		}
-		else {
-			console.log('Problem with converting theme.json to SCSS variables');
-			done();
-		}
-	})
+	});
+}
 
-});
-gulp.task('theme', (done) => {
-	gulp.src('scss/style.scss')
+// Bundle up all theme styles to be served on the front-end
+function theme() {
+	return gulp.src('common/scss/style.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sassGlob())
-		.pipe(sass())
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('./'))
-	done();
-});
-
-gulp.task('editor', (done) => {
-	gulp.src('scss/styles-editor.scss')
-		.pipe(sourcemaps.init())
-		.pipe(sassGlob())
-		.pipe(sass())
+		.pipe(sass().on('error', sass.logError))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./'));
-	done();
-});
+}
 
-gulp.task('admin', (done) => {
-	gulp.src('scss/styles-admin.scss')
+// Compile individual component styles for use in Storybook
+function components() {
+	return gulp.src('components/**/*.scss', { base: 'components' })
+		// .on('data', function(file) {
+		// 	console.log('Found file:', path.relative('modules', file.path));
+		// })
 		.pipe(sourcemaps.init())
-		.pipe(sassGlob())
-		.pipe(sass())
+		.pipe(header('@import "../common";')) // Prepend core SCSS to each file
+		.pipe(sass().on('error', sass.logError))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(file => {
+			const relativePath = path.relative('components', file.base);
+			return path.join('components', relativePath);
+		}))
+}
+
+// Compile individual ACF module styles to be used in the back-end previews and in Storybook
+function acf_module_styles() {
+	return gulp.src('modules/**/*.scss', { base: 'modules' })
+		// .on('data', function(file) {
+		// 	console.log('Found file:', path.relative('modules', file.path));
+		// })
+		.pipe(sourcemaps.init())
+		.pipe(header('@import "../common";')) // Prepend core SCSS to each file
+		.pipe(sass().on('error', sass.logError))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(file => {
+			const relativePath = path.relative('modules', file.base);
+			return path.join('modules', relativePath);
+		}))
+}
+
+// Bundle ACF module scripts to be served on the front-end
+function acf_module_scripts() {
+	return gulp.src(['modules/**/*.js', '!modules/modules.bundle.js'], { base: 'modules' })
+		.pipe(sourcemaps.init())
+		.pipe(
+			rollup({
+				plugins: [multiEntry()],
+				external: ['window'],
+				input: 'modules/**/*.js',
+				output: {
+					file: 'modules.bundle.js',
+					format: 'es',
+					globals: { window: 'window' },
+				},
+			})
+		)
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('modules'));
+}
+
+// Compile editor (TinyMCE) styles
+function editor() {
+	return gulp.src('common/scss/styles-editor.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass().on('error', sass.logError))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./'));
-	done();
-});
+}
 
-gulp.task('scripts', (done) => {
-	gulp.src('./js/**/*.js')
-		.pipe(sourcemaps.init())
-		.pipe(
-			gru2.rollup({
-				input: 'js/theme.js',
-				external: ['window'],
-				cache: true,
-				output: [
-					{
-						file: 'theme.bundle.js',
-						format: 'es',
-						globals: { window: 'window' },
-					},
-				],
-			}),
-		)
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('./js/dist'));
-	done();
-});
+// Compile admin CSS customisations
+function admin() {
+	return gulp.src('common/scss/styles-admin.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('./'));
+}
 
-gulp.task('vendor', (done) => {
-	gulp.src('./js/vendor/**/*.js')
-		.pipe(sourcemaps.init())
-		.pipe(concat('vendor.js'))
-		.pipe(
-			gru2.rollup({
-				input: './js/vendor.js',
-				external: ['window'],
-				cache: true,
-				output: [
-					{
-						file: 'vendor.bundle.js',
-						format: 'es',
-						globals: { window: 'window' },
-					},
-				],
-			}),
-		)
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('js/dist'))
-	done();
-});
 
-gulp.task('default', function() {
-	gulp.watch('theme.json', { ignoreInitial: false  }, gulp.series('variables', 'theme', 'editor', 'admin'));
-	gulp.watch('scss/**/!(_variables).scss', { ignoreInitial: false, events: ['change'] }, gulp.parallel('theme', 'editor'));
-	gulp.watch('scss/styles-admin.scss', { ignoreInitial: false }, gulp.series('admin'));
-	gulp.watch('js/theme/*.js', { ignoreInitial: false }, gulp.series('scripts'));
-	gulp.watch('js/theme.js', { ignoreInitial: false }, gulp.series('scripts'));
-	gulp.watch('js/vendor/[^_]*.js', { ignoreInitial: false }, gulp.series('vendor'));
-});
+function watchFiles() {
+	const options = { events: ['change', 'add', 'unlink'], ignoreInitial: false};
+
+	// Recompile everything if the theme variables change
+	gulp.watch('theme-vars.json', options, gulp.series(variables, components, acf_module_styles, theme, editor, admin));
+
+	// Compile the whole-theme stylesheet and editor styles when anything other than _variables.scss changes
+	gulp.watch(['common/scss/**/*.scss', 'components/**/*.scss', 'modules/**/*/scss', '!**/_variables.scss'], options, gulp.parallel(theme, editor));
+
+	// General UI components
+	gulp.watch('components/**/*.scss', options, components);
+
+	// Flexible content modules SCSS
+	gulp.watch('modules/**/*.scss', options, acf_module_styles);
+
+	// Watch JavaScript files, excluding the output bundle
+	gulp.watch(['modules/**/*.js', '!modules/**/*.bundle.js'], options, acf_module_scripts);
+
+	// Admin and editor styles
+	gulp.watch('common/scss/styles-admin.scss', options, gulp.parallel(admin));
+	gulp.watch('common/scss/styles-editor.scss', options, gulp.parallel(editor));
+}
+
+function modules(cb) {
+	return gulp.parallel(acf_module_styles, acf_module_scripts)(cb);
+}
+
+export {
+	variables,
+	theme,
+	components,
+	modules,
+	editor,
+	admin
+};
+
+export default watchFiles;

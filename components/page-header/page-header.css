@@ -1,0 +1,11 @@
+.page-header {
+  position: relative;
+}
+.page-header h1 {
+  margin-bottom: 0;
+}
+
+.breadcrumbs + .page-header {
+  padding-top: 0;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2UtaGVhZGVyL3BhZ2UtaGVhZGVyLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQW9CO0VBQ25COztBQUVBO0VBQ0M7OztBQUlGO0VBQ0MiLCJmaWxlIjoicGFnZS1oZWFkZXIvcGFnZS1oZWFkZXIuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhZ2UtaGVhZGVyIHtcclxuXHRwb3NpdGlvbjogcmVsYXRpdmU7XHJcblxyXG5cdGgxIHtcclxuXHRcdG1hcmdpbi1ib3R0b206IDA7XHJcblx0fVxyXG59XHJcblxyXG4uYnJlYWRjcnVtYnMgKyAucGFnZS1oZWFkZXIge1xyXG5cdHBhZGRpbmctdG9wOiAwO1xyXG59XHJcbiJdfQ== */

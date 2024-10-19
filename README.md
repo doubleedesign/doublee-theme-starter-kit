@@ -4,24 +4,9 @@
 
 Designed for use with Classic Editor with Advanced Editor Tools (previously TinyMCE Advanced) and Advanced Custom Fields Pro.
 
-**Note:** This starterkit theme does not support the block editor because my projects tend to involve extensive use of
-custom post types, taxonomies, archive pages, etc which would result in very different editing experiences for
-different parts of the site if the block editor was used. I have started a [block editor version](https://github.com/doubleedesign/doublee-theme-starter-kit-blocks) but it's very early days.
+## Version 3
 
-## Changes in version 2
-#### Theme features
-- `theme.json` file for easy customisation of theme colours, fonts, and other settings. This file is used: 
-  - in the Gulp SCSS compilation process to generate the theme's `style.css` file
-  - in PHP files that customise some TinyMCE and ACF options in the admin.
-- Preview of colour selections in ACF fields when the colour names match those in `theme.json` (e.g., primary, secondary).
-
-#### Code structure
-- PHP function files refactored into an object-oriented pattern, similar to how my [plugin framework](https://github.com/doubleedesign/doublee-plugin-framework) is structured.
-
-#### Tooling
-- All Gulp tasks now run immediately when the `gulp` command is run, rather than waiting for a file change.
-- Removed BrowserSync because I don't really use it much and want to keep dependencies to a minimum.
-- Various dependency updates, cleanup and simplification.
+Version 3 contains many breaking changes due to restructuring a lot of things and intention to start using this is a parent theme. (Shouldn't really matter for previous projects because it was not previously designed to be a parent theme.) See the [changelog](CHANGELOG.md) for more details.
 
 ---
 
@@ -37,8 +22,8 @@ different parts of the site if the block editor was used. I have started a [bloc
 - Install [Gulp](https://gulpjs.com/) globally
 - Navigate to the theme folder in your terminal
 - Run `npm install`
-- Update `theme.json` with your settings 
-- Run `gulp` to watch SCSS, JS, and `theme.json` for changes
+- Update `theme-vars.json` with your settings 
+- Run `gulp` to watch SCSS, JS, and `theme-vars.json` for changes
 - Get theming!
 
 ### Build tools
@@ -58,7 +43,7 @@ check the theme and/or any custom plugins I'm working on in the project.
 A Gulpfile is included to:
 
 - Concatenate JS files, including support for ES6 module imports
-- Update the SCSS variables file using the `theme.json` file
+- Update the SCSS variables file using the `theme-vars.json` file
 - Compile, concatenate and minify SCSS files into the theme's `style.css`
 - Generate sourcemaps for JS and SCSS
 

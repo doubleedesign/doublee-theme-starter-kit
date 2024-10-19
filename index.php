@@ -4,7 +4,7 @@ if( ! is_front_page()) {
 	get_template_part('partials/breadcrumbs');
 }
 ?>
-<header class="pseudo-module post-archive__header page-header bg-light">
+<header class="pseudo-module post-archive__header page-header has-light-background-color">
 	<div class="row">
 		<div class="col-xs-12 entry-content">
 			<h1>
@@ -20,7 +20,7 @@ if( ! is_front_page()) {
 	</div>
 </header>
 
-<section class="pseudo-module post-archive bg-white">
+<section class="pseudo-module post-archive">
 	<main class="post-archive__posts">
 		<div class="row">
 			<?php

@@ -6,8 +6,8 @@
  * @package starterkit
  */
 
-require_once('cms/class-cms.php');
-require_once('frontend/class-frontend.php');
+require_once('inc/cms/class-cms.php');
+require_once('inc/frontend/class-frontend.php');
 new Starterkit_CMS();
 new Starterkit_Frontend();
 
@@ -20,7 +20,7 @@ function starterkit_register_constants(): void {
 	define('THEME_VERSION', '2.0.0');
 	define('MODULES_FIELD_NAME', 'content_modules');
 	define('MODULES_POST_TYPES', array('page'));
-	define('MODULES_PARTIAL_PATH', 'partials/modules/');
+	define('MODULES_PARTIAL_PATH', 'modules/');
 	//define('MODULES_TAXONOMIES', array('category'));
 	//define('MODULES_OPTIONS_PAGES', array()); // TODO
 	define('PAGE_FOR_POSTS', get_option('page_for_posts'));
