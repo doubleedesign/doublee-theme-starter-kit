@@ -17,30 +17,55 @@ class Starterkit_Admin {
 	}
 
 	function required_plugin_notification(): void {
+        $errors = array();
 		$warnings = array();
-		if( ! is_plugin_active('advanced-custom-fields-pro/acf.php')) {
-			$warnings[] = 'Advanced Custom Fields Pro';
-		}
-		if( ! is_plugin_active('advanced-custom-fields-component_field/index.php')) {
-			$warnings[] = 'Advanced Custom Fields Component Field';
-		}
-		if( ! is_plugin_active('classic-editor/classic-editor.php')) {
-			$warnings[] = 'Classic Editor';
-		}
-		if( ! is_plugin_active('tinymce-advanced/tinymce-advanced.php')) {
-			$warnings[] = 'Advanced Editor Tools';
-		}
 
-		if(count($warnings) > 0) {
+        $required = [
+            'advanced-custom-fields-pro/acf.php' => 'Advanced Custom Fields Pro',
+            'advanced-custom-fields-component_field/index.php' => 'Advanced Custom Fields Component Field',
+            'classic-editor/classic-editor.php' => 'Classic Editor',
+        ];
+
+        $recommended = [
+            'acf-extended/acf-extended.php' => 'ACF Extended (for the flexible content dynamic preview feature)',
+            'tinymce-advanced/tinymce-advanced.php' => 'Advanced Editor Tools (also known as TinyMCE Advanced)',
+            'doublee-base-plugin/doublee.php' => 'Double-E Design Base Plugin',
+            'doublee-breadcrumbs/breadcrumbs.php' => 'Breadcrumbs (by Double-E Design)',
+        ];
+
+        foreach($required as $plugin => $name) {
+            if(!is_plugin_active($plugin)) {
+                $errors[] = $name;
+            }
+        }
+
+        foreach($recommended as $plugin => $name) {
+            if(!is_plugin_active($plugin)) {
+                $warnings[] = $name;
+            }
+        }
+
+		if(count($errors) > 0) {
 			echo '<div class="notice notice-error">';
 			echo '<p>The ' . wp_get_theme()->name . ' theme requires the following plugins to be installed and activated for full functionality. Without them, some features may be missing or not work as expected.</p>';
 			echo '<ul>';
-			foreach($warnings as $warning) {
-				echo '<li>' . $warning . '</li>';
+			foreach($errors as $error) {
+				echo '<li>' . $error . '</li>';
 			}
 			echo '</ul>';
 			echo '</div>';
 		}
+
+        if(count($warnings) > 0) {
+            echo '<div class="notice notice-warning">';
+            echo '<p>The ' . wp_get_theme()->name . ' theme recommends the following plugins for additional functionality and the intended admin and/or user experience.</p>';
+            echo '<ul>';
+            foreach($warnings as $warning) {
+                echo '<li>' . $warning . '</li>';
+            }
+            echo '</ul>';
+            echo '</div>';
+        }
 	}
 
 
