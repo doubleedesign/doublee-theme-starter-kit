@@ -1,4 +1,5 @@
 <?php
+namespace Starterkit_Classic;
 
 /**
  * Class to handle customisations and additional functionality
@@ -30,7 +31,7 @@ class Starterkit_Layout_Modules {
      */
     function template_file_location($template, $field, $layout, $is_preview): string {
         $parent_theme_path = get_template_directory() . "/modules/$layout[name]/$layout[name].php";
-        $child_theme_path = get_stylesheet_directory() .  "/modules/$layout[name]/$layout[name].php";
+        $child_theme_path = get_stylesheet_directory() . "/modules/$layout[name]/$layout[name].php";
 
         // Check if the template file exists in the child theme path first
         // (which will be the same as the parent theme path if using this theme standalone)
@@ -100,7 +101,7 @@ class Starterkit_Layout_Modules {
             $field['placeholder'] = basename(rtrim($field['prepend'], '/')) . '.js';
         }
 
-       return $field;
+        return $field;
     }
 
 }

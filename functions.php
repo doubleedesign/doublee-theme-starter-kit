@@ -1,23 +1,24 @@
 <?php
-/**
- * starterkit functions and definitions
- * @link    https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package starterkit
- */
+require_once('inc/class-assets.php');
+require_once('inc/class-admin.php');
+require_once('inc/class-media.php');
+require_once('inc/class-layout-modules.php');
 
-require_once('inc/cms/class-cms.php');
-require_once('inc/frontend/class-frontend.php');
-new Starterkit_CMS();
-new Starterkit_Frontend();
+function starterkit_setup(): void {
+    new Starterkit_Classic\Starterkit_Assets();
+    new Starterkit_Classic\Starterkit_Admin();
+    new Starterkit_Classic\Starterkit_Media();
+    new Starterkit_Classic\Starterkit_Layout_Modules();
+}
+add_action('after_setup_theme', 'starterkit_setup', 10);
+
 
 /**
  * Define constants
- * @wp-hook
  * See https://stackoverflow.com/questions/1290318/php-constants-containing-arrays if using PHP < 7
  */
 function starterkit_register_constants(): void {
-	define('THEME_VERSION', '2.0.0');
+	define('THEME_STARTERKIT_VERSION', '3.0.0');
 	define('MODULES_FIELD_NAME', 'content_modules');
 	define('MODULES_POST_TYPES', array('page'));
 	define('MODULES_PARTIAL_PATH', 'modules/');

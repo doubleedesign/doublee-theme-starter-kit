@@ -5,6 +5,7 @@
 - Admin - support for ACF Extended for dynamic previews of flexible content modules in the backend. 
 
 ### Code structure
+- Moved functions that were duplicated in this and the block theme into a plugin.
 - Moved ACF flexible content modules into `./modules` folder and co-located styles and scripts, for use in Storybook and by ACF Extended for rendering dynamic previews in the backend. 
 - Moved other template partials into `./components` and also co-located their styles and scripts for use in Storybook and general consistency with the content modules. 
 - Moved common CSS and JS into `./common` folder.
