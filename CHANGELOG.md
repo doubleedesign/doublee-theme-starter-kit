@@ -3,6 +3,7 @@
 ### Theme features
 - Header updated to use Vue to render a new responsive menu, in line with recent client projects.
 - Admin - support for ACF Extended for dynamic previews of flexible content modules in the backend. 
+- Removed favicon field from global options because it's now available natively in the site general settings (it used to be in the customiser, which I disable).
 
 ### Code structure
 - Moved functions that were duplicated in this and the block theme into a plugin.
@@ -10,6 +11,7 @@
 - Moved other template partials into `./components` and also co-located their styles and scripts for use in Storybook and general consistency with the content modules. 
 - Moved common CSS and JS into `./common` folder.
 - Renamed `theme.json` to `theme-vars.json` to avoid confusion with the `theme.json` file used by block themes.
+- Added loading of fonts and Font Awesome from URLs/kit IDs set in the Global Options page, for ease of per-client setup as well as ensuring I stop loading and distributing my accounts' URLs/kit IDs with this theme.
 
 ### Dependencies
 - Updated some Bootstrap scripts to the latest version.

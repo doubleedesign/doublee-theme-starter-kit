@@ -1,4 +1,4 @@
-import {readFile, writeFile} from 'fs';
+import { readFile, writeFile } from 'fs';
 import path from 'path';
 import gulp from 'gulp';
 import sassGlob from 'gulp-sass-glob';
@@ -9,6 +9,7 @@ import header from 'gulp-header';
 import { rollup } from "gulp-rollup-2";
 import multiEntry from "@rollup/plugin-multi-entry";
 
+// Generate SCSS variables from theme-vars.json file
 function variables(done) {
 	readFile(`./theme-vars.json`, 'utf8', async (error, theme) => {
 		if (error) {
@@ -46,7 +47,7 @@ function components() {
 		// 	console.log('Found file:', path.relative('modules', file.path));
 		// })
 		.pipe(sourcemaps.init())
-		.pipe(header('@import "../common";')) // Prepend core SCSS to each file
+		.pipe(header('@import "../common";')) // Prepend core SCSS imports to each file
 		.pipe(sass().on('error', sass.logError))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(file => {
@@ -91,7 +92,7 @@ function acf_module_scripts() {
 		.pipe(gulp.dest('modules'));
 }
 
-// Compile editor (TinyMCE) styles
+// Subset of core shared styles to also be loaded in the editor
 function editor() {
 	return gulp.src('common/scss/styles-editor.scss')
 		.pipe(sourcemaps.init())
