@@ -7,17 +7,13 @@ Theme URI:      https://github.com/doubleedesign/doublee-wp-theme-starter-kit-cl
 Version:        3.0.0
 Text Domain:    starterkit
 */
-
-@import '../../node_modules/@doubleedesign/hover.css/hover';
-@import '../../node_modules/@doubleedesign/animate-into-view/dist/animate-into-view.css';
 @import 'variables';
 @import 'core/functions';
-@import 'core/reset';
-@import 'core/bootstrap/bootstrap-grid';
-@import 'core/bootstrap/transitions';
 @import 'core/mixins';
-@import 'common';
-@import 'typography';
+@import 'core/bootstrap/functions';
+@import 'core/bootstrap/mixins';
+
+@import 'styles-common';
+
 @import '../../components/**/*.scss';
-// TODO: Could this be improved to load the specific stylesheets for each module when needed rather than including them all here?
 @import '../../modules/**/*.scss';

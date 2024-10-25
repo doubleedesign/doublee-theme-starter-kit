@@ -6,8 +6,11 @@ import jsonToScss from '@valtech-commerce/json-to-scss';
 import sass from 'gulp-dart-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import header from 'gulp-header';
-import { rollup } from "gulp-rollup-2";
-import multiEntry from "@rollup/plugin-multi-entry";
+import { rollup } from 'gulp-rollup-2';
+import multiEntry from '@rollup/plugin-multi-entry';
+import postcss from "gulp-postcss";
+import discardComments from "postcss-discard-comments";
+
 
 // Generate SCSS variables from theme-vars.json file
 function variables(done) {
@@ -30,12 +33,23 @@ function variables(done) {
 	});
 }
 
-// Bundle up all theme styles to be served on the front-end
+// Compile core shared styles into a file for Storybook
+function common() {
+	return gulp.src('common/scss/styles-common.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+		.pipe(postcss([discardComments({ removeAll: true })]))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('./'));
+}
+
+// Bundle up component + module styles to be served on the front-end
 function theme() {
 	return gulp.src('common/scss/style.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sassGlob())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+		.pipe(postcss([discardComments({ removeAll: true })]))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./'));
 }
@@ -92,7 +106,7 @@ function acf_module_scripts() {
 		.pipe(gulp.dest('modules'));
 }
 
-// Subset of core shared styles to also be loaded in the editor
+// Compile subset of core shared styles to also be loaded in the editor
 function editor() {
 	return gulp.src('common/scss/styles-editor.scss')
 		.pipe(sourcemaps.init())
@@ -115,7 +129,7 @@ function watchFiles() {
 	// Recompile everything if the theme variables change
 	gulp.watch('theme-vars.json', options, gulp.series(variables, components, acf_module_styles, theme, editor, admin));
 
-	// Compile the whole-theme stylesheet and editor styles when anything other than _variables.scss changes
+	// Compile the whole-theme stylesheets and editor styles when anything other than _variables.scss changes
 	gulp.watch(['common/scss/**/*.scss', 'components/**/*.scss', 'modules/**/*/scss', '!**/_variables.scss'], options, gulp.parallel(theme, editor));
 
 	// General UI components
@@ -138,6 +152,7 @@ function modules(cb) {
 
 export {
 	variables,
+	common,
 	theme,
 	components,
 	modules,
