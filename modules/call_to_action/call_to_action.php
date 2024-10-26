@@ -1,11 +1,11 @@
 <?php
 $width = get_sub_field('width');
 $copy = get_sub_field('copy');
-$phone = get_sub_field('include_phone_number');
-$button = get_sub_field('button');
+$include_phone = get_sub_field('include_phone_number');
 $phone = get_field('contact_details', 'option')['phone'];
+$button = get_sub_field('button');
 $theme = get_sub_field('colour_theme')[0]['colour_theme'];
-$bg = get_sub_field('background_colour');
+$bg = get_sub_field('background_colour')[0]['background_colour'];
 
 $bgColour = $bg === 'theme' ? $theme : $bg;
 $btnColour = $bg === 'theme' ? 'white' : $theme;
@@ -20,9 +20,7 @@ $btnColour = $bg === 'theme' ? 'white' : $theme;
 					<?php echo $copy; ?>
 				</div>
 
-				<?php print_r($phone); ?>
-
-				<?php if($phone) { ?>
+				<?php if($include_phone && $phone) { ?>
 					<div class="module__call-to-action__inner__phone">
 						<i class="fa-solid fa-mobile-screen"></i>
 						<span class="phone"><?php echo $phone; ?></span>
