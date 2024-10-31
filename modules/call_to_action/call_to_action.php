@@ -5,7 +5,7 @@ $include_phone = get_sub_field('include_phone_number');
 $phone = get_field('contact_details', 'option')['phone'];
 $button = get_sub_field('button');
 $theme = get_sub_field('colour_theme')[0]['colour_theme'];
-$bg = get_sub_field('background_colour')[0]['background_colour'];
+$bg = get_sub_field('background_colour');
 
 $bgColour = $bg === 'theme' ? $theme : $bg;
 $btnColour = $bg === 'theme' ? 'white' : $theme;
